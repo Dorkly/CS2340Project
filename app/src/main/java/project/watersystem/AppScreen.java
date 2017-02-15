@@ -9,14 +9,14 @@ public class AppScreen extends AppCompatActivity {
 
     public Button logoutButton;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_screen);
 
         logoutButton = (Button) findViewById(R.id.Logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                setContentView(R.layout.activity_welcome_screen);
             }
         });
     }
