@@ -30,7 +30,6 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/imageView4" />
 
-=======
     <Button
         android:text="Login"
         android:layout_width="wrap_content"
@@ -40,8 +39,6 @@
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true" />
 
-<<<<<<< HEAD
-=======
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,5 +49,4 @@
         android:layout_marginTop="30dp"
         android:adjustViewBounds="false" />
 
->>>>>>> 13f2dc092a13f1537a62da328d70772e6218d077
 </RelativeLayout>
