@@ -91,6 +91,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+        Button mEmailSignInCancelButton = (Button) findViewById(R.id.email_sign_in_cancel_button);
+        mEmailSignInCancelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(LoginActivity.this, WelcomeScreen.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
