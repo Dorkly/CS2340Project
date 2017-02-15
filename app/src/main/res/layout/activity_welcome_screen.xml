@@ -12,15 +12,6 @@
     tools:context="project.watersystem.WelcomeScreen">
 
     <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp" />
-
-    <Button
         android:text="Registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+<<<<<<< HEAD
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="700dp"
@@ -39,4 +31,14 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/imageView4" />
 
+=======
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
+>>>>>>> f55226d7d205ff2900d71d34495231526902c3b0
 </RelativeLayout>
