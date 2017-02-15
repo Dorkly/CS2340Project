@@ -1,5 +1,6 @@
 package project.watersystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,11 @@ public class WelcomeScreen extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                setContentView(R.layout.activity_login);
+
+                Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
+                startActivity(intent);
+
+                //setContentView(R.layout.activity_login);
             }
         });
     }
