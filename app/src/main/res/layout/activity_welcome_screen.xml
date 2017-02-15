@@ -20,7 +20,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-<<<<<<< HEAD
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="700dp"
@@ -40,5 +39,5 @@
         android:layout_marginBottom="23dp"
         android:layout_above="@+id/button2"
         android:layout_centerHorizontal="true" />
->>>>>>> f55226d7d205ff2900d71d34495231526902c3b0
+
 </RelativeLayout>
