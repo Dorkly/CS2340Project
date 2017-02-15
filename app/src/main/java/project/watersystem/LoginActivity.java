@@ -36,7 +36,7 @@ import java.util.List;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
- * A login screen that offers login via email/password.
+ * A login screen that offers login via userID/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
@@ -204,11 +204,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    /**
+     * Checks to see if the login is valid.
+     * @param email userid string
+     * @return true is valid
+     */
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.toLowerCase().equals("user");
     }
 
+    /**
+     * Checks to see if the password is valid.
+     * @param password password string
+     * @return true is valid
+     */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.equals("pass");

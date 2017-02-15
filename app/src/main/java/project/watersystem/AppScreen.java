@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Main application screen after login.
+ */
 public class AppScreen extends AppCompatActivity {
 
     public Button logoutButton;

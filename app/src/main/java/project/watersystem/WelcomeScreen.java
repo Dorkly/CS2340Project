@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+/**
+ * Welcome screen that allows user to login or register.
+ */
 public class WelcomeScreen extends AppCompatActivity {
 
     //public LinearLayout AppScreen;
