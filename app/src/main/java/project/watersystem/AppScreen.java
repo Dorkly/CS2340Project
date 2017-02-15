@@ -25,4 +25,5 @@ public class AppScreen extends AppCompatActivity {
             }
         });
     }
+
 }

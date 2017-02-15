@@ -271,6 +271,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginActivity.this, WelcomeScreen.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
