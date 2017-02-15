@@ -1,5 +1,6 @@
 package project.watersystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,11 @@ public class AppScreen extends AppCompatActivity {
         logoutButton = (Button) findViewById(R.id.Logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                setContentView(R.layout.activity_welcome_screen);
+                Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
+                startActivity(intent);
+                finish();
+
+                //setContentView(R.layout.activity_welcome_screen);
             }
         });
     }

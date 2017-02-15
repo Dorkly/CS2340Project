@@ -26,7 +26,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
                 startActivity(intent);
-
+                finish();
                 //setContentView(R.layout.activity_login);
             }
         });
