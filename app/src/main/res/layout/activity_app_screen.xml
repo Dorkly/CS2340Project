@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:id="@+id/createprofile"
+        android:id="@+id/createProfile"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
@@ -44,6 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editprofile"
-        android:layout_below="@+id/createprofile"
+        android:layout_below="@+id/createProfile"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
