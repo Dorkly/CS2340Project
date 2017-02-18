@@ -29,4 +29,21 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="25dp" />
+
+    <Button
+        android:text="Create Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:id="@+id/createprofile"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Edit Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editprofile"
+        android:layout_below="@+id/createprofile"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
