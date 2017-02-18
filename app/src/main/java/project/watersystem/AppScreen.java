@@ -12,6 +12,7 @@ import android.widget.Button;
 public class AppScreen extends AppCompatActivity {
 
     public Button logoutButton;
+    public Button createProfileButton;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,18 @@ public class AppScreen extends AppCompatActivity {
                 finish();
 
                 //setContentView(R.layout.activity_welcome_screen);
+            }
+        });
+
+        createProfileButton = (Button) findViewById(R.id.createProfile);
+        createProfileButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
             }
         });
     }
