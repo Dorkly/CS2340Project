@@ -16,6 +16,7 @@ public class WelcomeScreen extends AppCompatActivity {
     public Button loginButton;
     public Button regButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
