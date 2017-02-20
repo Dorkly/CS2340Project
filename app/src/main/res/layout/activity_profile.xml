@@ -128,10 +128,14 @@
         android:layout_below="@+id/phoneInput"
         android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/classificationSpinner"
+        android:inputType="textPersonName"
+        android:text="Classification"
+        android:ems="10"
+        android:id="@+id/editText"
         android:layout_below="@+id/classification"
         android:layout_alignParentStart="true" />
+
 </RelativeLayout>
