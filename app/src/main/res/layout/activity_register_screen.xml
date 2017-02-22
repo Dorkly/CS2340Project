@@ -31,47 +31,6 @@
         android:layout_toEndOf="@+id/classification" />
 
     <TextView
-        android:text="Email "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:textSize="18sp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignStart="@+id/UserID"
-        android:layout_marginTop="15dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/emailInput"
-        android:hint="Email"
-        android:layout_alignBaseline="@+id/email"
-        android:layout_alignBottom="@+id/email"
-        android:layout_alignStart="@+id/editText2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordInput"
-        android:hint="Password"
-        android:layout_below="@+id/emailInput"
-        android:layout_alignStart="@+id/emailInput" />
-
-    <TextView
-        android:text="Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/passwordInput"
-        android:layout_alignBottom="@+id/passwordInput"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,6 +71,47 @@
         android:layout_alignBaseline="@+id/UserID"
         android:layout_alignBottom="@+id/UserID"
         android:layout_alignStart="@+id/nameInput" />
+
+    <TextView
+        android:text="Email "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:textSize="18sp"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/UserID"
+        android:layout_marginTop="15dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailInput"
+        android:hint="Email"
+        android:layout_alignBaseline="@+id/email"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordInput"
+        android:hint="Password"
+        android:layout_below="@+id/emailInput"
+        android:layout_alignStart="@+id/emailInput" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/passwordInput"
+        android:layout_alignBottom="@+id/passwordInput"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Account Type"
