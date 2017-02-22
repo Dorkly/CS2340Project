@@ -11,6 +11,7 @@
     tools:context="project.watersystem.LoginActivity">
 
     <!-- Login progress -->
+
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
