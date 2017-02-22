@@ -9,6 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="5dp"
+    android:background="#FFF"
     tools:context="project.watersystem.WelcomeScreen">
 
     <pl.droidsonroids.gif.GifTextView
