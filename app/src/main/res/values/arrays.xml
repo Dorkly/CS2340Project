@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="account_array">
+        <item>Regular User</item>
+        <item>Worker</item>
+        <item>Manager</item>
+        <item>Admin</item>
+    </string-array>
+</resources>
