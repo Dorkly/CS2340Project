@@ -41,7 +41,7 @@ public class AppScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
-                intent.putExtra("AddNew", "new");
+                //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
