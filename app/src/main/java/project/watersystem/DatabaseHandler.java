@@ -202,4 +202,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + " WHERE " + KEY_USERS + "='" + userId + "'");
     }
 
+    public boolean profileExists() {
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_PROFILES + " WHERE "
+                        + KEY_USERS + "='" + currentUser  + "'" ,  null);
+        return c.getCount() > 0;
+    }
+
 }
