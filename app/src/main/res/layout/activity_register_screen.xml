@@ -20,27 +20,6 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/name"
-        android:textSize="18sp"
-        android:layout_below="@+id/profile"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:id="@+id/nameInput"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/editText2" />
-
-    <TextView
         android:text="Email "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,25 +28,6 @@
         android:textSize="18sp"
         android:layout_below="@+id/nameInput"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="User ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/UserID"
-        android:layout_alignEnd="@+id/emailInput"
-        android:layout_alignTop="@+id/name" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="UserID"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignBaseline="@+id/nameInput"
-        android:layout_alignBottom="@+id/nameInput"
-        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -101,7 +61,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="phone"
+        android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordInput"
         android:hint="Password"
@@ -135,5 +95,44 @@
         android:layout_marginTop="26dp"
         android:layout_below="@+id/classificationSpinner"
         android:layout_alignEnd="@+id/classification" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:id="@+id/nameInput"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="UserID"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_alignBaseline="@+id/nameInput"
+        android:layout_alignBottom="@+id/nameInput"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="User ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserID"
+        android:layout_alignTop="@+id/name"
+        android:layout_alignEnd="@+id/nameInput" />
+
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/name"
+        android:textSize="18sp"
+        android:layout_below="@+id/profile"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
