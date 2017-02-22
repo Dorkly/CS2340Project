@@ -19,15 +19,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancelProfile"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="73dp"
+        android:layout_alignBaseline="@+id/save"
+        android:layout_alignBottom="@+id/save"
+        android:layout_toEndOf="@+id/classification" />
+
     <TextView
         android:text="Email "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:id="@+id/email"
         android:textSize="18sp"
-        android:layout_below="@+id/nameInput"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/UserID"
+        android:layout_marginTop="15dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,27 +47,9 @@
         android:ems="10"
         android:id="@+id/emailInput"
         android:hint="Email"
-        android:layout_below="@+id/email" />
-
-    <TextView
-        android:text="Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:id="@+id/password"
-        android:textSize="18sp"
-        android:layout_below="@+id/emailInput"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Account Type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/classification"
-        android:textSize="18sp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="9dp"
-        android:layout_below="@+id/passwordInput" />
+        android:layout_alignBaseline="@+id/email"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignStart="@+id/editText2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -65,36 +58,28 @@
         android:ems="10"
         android:id="@+id/passwordInput"
         android:hint="Password"
-        android:layout_below="@+id/password"
-        android:layout_alignEnd="@+id/emailInput"
-        android:layout_marginEnd="9dp" />
+        android:layout_below="@+id/emailInput"
+        android:layout_alignStart="@+id/emailInput" />
 
-    <Button
-        android:text="Cancel"
+    <TextView
+        android:text="Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cancelProfile"
-        android:layout_marginLeft="20dp"
-        android:layout_alignStart="@+id/UserID"
-        android:layout_marginStart="20dp"
-        android:layout_alignTop="@+id/save" />
+        android:id="@+id/password"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/passwordInput"
+        android:layout_alignBottom="@+id/passwordInput"
+        android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/classificationSpinner"
-        android:layout_below="@+id/classification"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="9dp" />
-
-    <Button
-        android:text="Save"
+    <TextView
+        android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/save"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/classificationSpinner"
-        android:layout_alignEnd="@+id/classification" />
+        android:layout_marginTop="42dp"
+        android:id="@+id/name"
+        android:textSize="18sp"
+        android:layout_below="@+id/profile"
+        android:layout_alignEnd="@+id/email" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -103,7 +88,18 @@
         android:hint="Name"
         android:ems="10"
         android:id="@+id/nameInput"
-        android:layout_below="@+id/name"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_alignBottom="@+id/name"
+        android:layout_toEndOf="@+id/profile" />
+
+    <TextView
+        android:text="User ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserID"
+        android:layout_marginTop="14dp"
+        android:textSize="18sp"
+        android:layout_below="@+id/nameInput"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -113,26 +109,37 @@
         android:hint="UserID"
         android:ems="10"
         android:id="@+id/editText2"
-        android:layout_alignBaseline="@+id/nameInput"
-        android:layout_alignBottom="@+id/nameInput"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBaseline="@+id/UserID"
+        android:layout_alignBottom="@+id/UserID"
+        android:layout_alignStart="@+id/nameInput" />
 
     <TextView
-        android:text="User ID"
+        android:text="Account Type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/UserID"
-        android:layout_alignTop="@+id/name"
-        android:layout_alignEnd="@+id/nameInput" />
-
-    <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:id="@+id/name"
+        android:id="@+id/classification"
         android:textSize="18sp"
-        android:layout_below="@+id/profile"
-        android:layout_alignParentStart="true" />
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/passwordInput"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/classificationSpinner"
+        android:layout_below="@+id/classification"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:layout_below="@+id/classificationSpinner"
+        android:layout_toStartOf="@+id/passwordInput"
+        android:layout_marginTop="47dp" />
 
 </RelativeLayout>
