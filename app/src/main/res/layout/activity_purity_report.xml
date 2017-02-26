@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_purity_report"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="project.watersystem.PurityReport">
+
+    <TextView
+        android:text="Report Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/purityReportNumber"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/purityReportDate"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:id="@+id/purityReportTime"
+        android:layout_alignBaseline="@+id/purityReportDate"
+        android:layout_alignBottom="@+id/purityReportDate"
+        android:layout_toEndOf="@+id/purityReportDate"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Location:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/purityReportLocation"
+        android:layout_below="@+id/purityReportName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TextView
+        android:text="Latitude:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/purityReportLocation"
+        android:layout_alignStart="@+id/purityReportLocation"
+        android:layout_marginTop="18dp"
+        android:id="@+id/purityReportLat"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_blue_bright" />
+
+    <TextView
+        android:text="Longitude:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/purityReportLat"
+        android:layout_alignStart="@+id/purityReportLat"
+        android:layout_marginTop="24dp"
+        android:id="@+id/purityReportLong"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/purityReportLatitude"
+        android:text="90"
+        android:layout_alignBaseline="@+id/purityReportLat"
+        android:layout_alignBottom="@+id/purityReportLat"
+        android:layout_alignStart="@+id/purityReportLongitude" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/purityReportLongitude"
+        android:text="90"
+        android:layout_below="@+id/purityReportLatitude"
+        android:layout_toEndOf="@+id/purityReportNumber" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/conditionSpinner"
+        android:layout_below="@+id/purityReportOverall"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Virus PPM:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/purityReportVirus"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/conditionSpinner"
+        android:layout_alignStart="@+id/purityReportOverall" />
+
+    <TextView
+        android:text="Overall Condition:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:id="@+id/purityReportOverall"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/purityReportLongitude"
+        android:layout_alignStart="@+id/purityReportLong" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/virusPPM"
+        android:text="0.00"
+        android:layout_alignBaseline="@+id/purityReportVirus"
+        android:layout_alignBottom="@+id/purityReportVirus"
+        android:layout_alignStart="@+id/purityReportLongitude" />
+
+    <TextView
+        android:text="Name of Worker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/purityReportName"
+        android:textSize="18sp"
+        android:layout_below="@+id/purityReportNumber"
+        android:layout_toEndOf="@+id/purityReportLocation" />
+
+    <TextView
+        android:text="Contaminant PPM:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/virusPPM"
+        android:layout_alignStart="@+id/purityReportVirus"
+        android:layout_marginTop="17dp"
+        android:id="@+id/purityReportContaminant"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_below="@+id/virusPPM"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/contaminantPPM"
+        android:layout_toEndOf="@+id/purityReportDate"
+        android:text="0.00" />
+
+    <Button
+        android:text="Save Report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/purityReportSave"
+        android:layout_below="@+id/contaminantPPM"
+        android:layout_toStartOf="@+id/purityReportDate" />
+
+    <Button
+        android:text="Cancel Report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/purityReportCancel"
+        android:layout_alignBaseline="@+id/purityReportSave"
+        android:layout_alignBottom="@+id/purityReportSave"
+        android:layout_toEndOf="@+id/purityReportContaminant" />
+
+</RelativeLayout>
