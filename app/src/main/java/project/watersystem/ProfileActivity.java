@@ -46,7 +46,14 @@ public class ProfileActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
-        addNew = getIntent().getStringExtra("AddNew");
+        //addNew = getIntent().getStringExtra("AddNew");
+
+        if (db.profileExists()) {
+            addNew = "edit";
+        } else {
+            addNew = "new";
+        }
+
 
         TextView tvName = (TextView) findViewById(R.id.nameInput);
         tvName.setText(db.getUserName());
@@ -101,7 +108,6 @@ public class ProfileActivity extends AppCompatActivity {
                 String nameValue = mNameValue.getText().toString();
                 String emailValue = mEmailValue.getText().toString();
                 String typeValue = (String) typeSpinner.getSelectedItem();
-
 
                 if (addNew.equals("new")) {
                     db.updateUsers(userValue, nameValue, emailValue, typeValue);

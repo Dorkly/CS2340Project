@@ -10,6 +10,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * SQLite database handler
+ */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
@@ -33,6 +36,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_HOMEADDRESS = "homeAddress";
     private static final String KEY_PHONE = "phone";
 
+    /**
+     * DatabaseHandler constructor
+     * @param context
+     */
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -62,7 +69,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);// Create tables again
     }
 
-    // Adding new User
+    /**
+     * addUsers method adds users to the Registerd_Accounts table
+     * @param users
+     */
     void addUsers(Users users) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -78,8 +88,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    // Adding new User
-    void addProfiles(Profiles profile) {
+    /**
+     * addProfiles method adds user profiles to the Registerd_Profiles table
+     * @param profile
+     */
+   void addProfiles(Profiles profile) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -92,12 +105,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    /**
+     * deleteAllAccounts method delets all users to the Registerd_Accounts table
+     */
     public void deleteAllAccounts() //Deletes all data in the database
     {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_USERS,null,null);
     }
 
+    /**
+     * validateUser checks if the userid and password are in the table and match
+     * @param username
+     * @param password
+     * @return boolean
+     */
     public boolean validateUser(String username, String password){
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
@@ -109,6 +131,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         else{return false;}
 
     }
+
+    /**
+     * sameUser checks if the userid is already in the table
+     * @param username
+     * @return boolean
+     */
     public boolean sameUser(String username){
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
@@ -119,10 +147,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         else{return false;}
     }
 
+    /**
+     * getCurrentUser returns the current logged in user ID
+     * @return String
+     */
     public String getCurrentUser() {
         return currentUser;
     }
 
+    /**
+     * getUserName returns the user name from the Registerd_Accounts table
+     * @return String
+     */
     public String getUserName() {
         String userName = "";
         Cursor c = getReadableDatabase().rawQuery(
@@ -133,6 +169,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return userName;
     }
 
+    /**
+     * getEmail returns the email address from the Registerd_Accounts table
+     * @return String
+     */
     public String getEmail() {
         String email = "";
         Cursor c = getReadableDatabase().rawQuery(
@@ -148,6 +188,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * getUserTypr returns the registered Type from the Registerd_Accounts table
+     * @return String
+     */
     public String getUserType() {
         String userType = "";
         Cursor c = getReadableDatabase().rawQuery(
@@ -161,6 +205,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * getHomeAddress returns the home address from the Registerd_Profiles table
+     * @return String
+     */
     public String getHomeAddress() {
         String homeAddress = "";
         Cursor c = getReadableDatabase().rawQuery(
@@ -174,6 +222,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * getPhone returns the phone number from the Registerd_Profiles table
+     * @return String
+     */
     public String getPhone() {
         String phone = "";
         Cursor c = getReadableDatabase().rawQuery(
@@ -187,6 +239,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return "";
     }
 
+    /**
+     * updateProfile updates the user profile data in the Registered_Profile table
+     * @param profile
+     */
     public void updateProfile(Profiles profile) {
         getReadableDatabase().execSQL("UPDATE " + TABLE_PROFILES + " SET "
             + KEY_HOMEADDRESS + "='" + profile.getHomeAddress() + "',"
@@ -194,12 +250,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + " WHERE " + KEY_USERS + "='" + profile.getUser() + "'");
     }
 
+    /**
+     * updateUsers updates the user account data in the Registered_Account table
+     * @param userId userid to update
+     * @param name new user name
+     * @param email new email address
+     * @param type new registered type
+     */
     public void updateUsers(String userId, String name, String email, String type) {
         getReadableDatabase().execSQL("UPDATE " + TABLE_USERS + " SET "
                 + KEY_NAME + "='" + name + "', "
                 + KEY_EMAIL + "='" + email + "', "
                 + KEY_TYPE + "='" + type + "'"
                 + " WHERE " + KEY_USERS + "='" + userId + "'");
+    }
+
+    /**
+     * profileExists checks if the profile for the current user is in the Registered_Profile table
+     * @return boolean
+     */
+    public boolean profileExists() {
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_PROFILES + " WHERE "
+                        + KEY_USERS + "='" + currentUser  + "'" ,  null);
+        return c.getCount() > 0;
     }
 
 }
