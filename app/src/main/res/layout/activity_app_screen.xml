@@ -12,18 +12,32 @@
     android:background="#FFF"
     tools:context="project.watersystem.AppScreen">
 
-    <Button
-        android:text="Create Profile"
-        android:layout_width="wrap_content"
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFF"
-        android:fontFamily="sans-serif-light"
-        android:background="@drawable/button_shape"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/createProfile"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="#FFF"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+    android:text="Create Profile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#FFF"
+    android:fontFamily="sans-serif-light"
+    android:background="@drawable/button_shape"
+    android:layout_marginTop="44dp"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/createProfile"
+    android:layout_below="@+id/gifTextView"
+    android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Edit Profile"
@@ -35,27 +49,6 @@
         android:id="@+id/editprofile"
         android:layout_below="@+id/createProfile"
         android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/profile_icon"
-        android:id="@+id/imageView"
-        android:layout_marginTop="92dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="Logout"
         android:layout_width="wrap_content"
@@ -67,5 +60,15 @@
         android:layout_marginEnd="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <pl.droidsonroids.gif.GifTextView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/drop"
+        android:id="@+id/gifTextView"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp" />
+
 
 </RelativeLayout>

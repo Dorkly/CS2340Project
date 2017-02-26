@@ -74,6 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cancelProfile"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/button_shape"
         android:layout_marginLeft="20dp"
         android:layout_alignStart="@+id/UserID"
         android:layout_marginStart="20dp"
@@ -93,6 +96,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/save"
         android:layout_marginTop="26dp"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/button_shape"
         android:layout_below="@+id/classificationSpinner"
         android:layout_alignEnd="@+id/classification" />
 
