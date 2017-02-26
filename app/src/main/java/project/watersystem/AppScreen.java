@@ -16,6 +16,7 @@ public class AppScreen extends AppCompatActivity {
     public Button logoutButton;
     public Button createProfileButton;
     public Button editProfileButton;
+    public Button reportButton;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,19 @@ public class AppScreen extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
+
+        //Main Report ;
+        reportButton = (Button) findViewById(R.id.Logout);
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(AppScreen.this, MainReportScreen.class);
+                startActivity(intent);
+                finish();
+
+                //setContentView(R.layout.activity_welcome_screen);
+            }
+        });
+
     }
 
     @Override
