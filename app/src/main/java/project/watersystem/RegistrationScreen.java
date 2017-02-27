@@ -16,8 +16,8 @@ import android.widget.Toast;
  */
 
 public class RegistrationScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    public Button cancelRegButton;
-    public Button saveRegButton;
+    private Button cancelRegButton;
+    private Button saveRegButton;
     Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
     ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
     //private String _acct ="NA";

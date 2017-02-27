@@ -1,15 +1,31 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/miCompose"
-        android:icon="@drawable/ic_report"
-        app:showAsAction="always"
-        android:title="Compose">
-    </item>
-    <item
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity">
+        <item
+            android:id="@+id/miCompose"
+            android:icon="@drawable/ic_report"
+            android:onClick="report"
+            app:showAsAction="always"
+            android:title="Compose">
+        </item>
+        <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="ifRoom|withText"
+            android:onClick="profile"
+        app:showAsAction="always"
         android:title="Profile">
     </item>
+        <item
+            android:id="@+id/Logout"
+            android:icon="@drawable/ic_profile"
+            app:showAsAction="ifRoom"
+            android:title="Logout">
+        </item>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
 </menu>
