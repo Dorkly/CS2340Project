@@ -27,7 +27,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-    android:text="Create Profile"
+    android:text="Create/Edit Profile"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textColor="#FFF"
@@ -37,18 +37,9 @@
     android:layout_marginBottom="10dp"
     android:id="@+id/createProfile"
     android:layout_below="@+id/gifTextView"
-    android:layout_centerHorizontal="true" />
+    android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
 
-    <Button
-        android:text="Edit Profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"
-        android:fontFamily="sans-serif-light"
-        android:background="@drawable/button_shape"
-        android:id="@+id/editprofile"
-        android:layout_below="@+id/createProfile"
-        android:layout_centerHorizontal="true" />
     <Button
         android:text="Logout"
         android:layout_width="wrap_content"
