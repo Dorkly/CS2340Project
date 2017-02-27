@@ -107,11 +107,16 @@
         android:text="Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/passwordInput"
-        android:layout_alignBottom="@+id/passwordInput"
-        android:layout_alignParentStart="true" />
+<<<<<<< HEAD
+        android:id="@+id/cancelProfile"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/button_shape"
+        android:layout_marginLeft="20dp"
+        android:layout_alignStart="@+id/UserID"
+        android:layout_marginStart="20dp"
+        android:layout_alignTop="@+id/save" />
+
 
     <TextView
         android:text="Account Type"
@@ -138,6 +143,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/save"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/button_shape"
+
         android:layout_below="@+id/classificationSpinner"
         android:layout_toStartOf="@+id/passwordInput"
         android:layout_marginTop="47dp" />

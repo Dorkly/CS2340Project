@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -75,11 +77,36 @@ public class AppScreen extends AppCompatActivity {
         });
 
     }
-
+    public void report(){
+        Intent intent = new Intent(AppScreen.this, Splash.class);
+        startActivity(intent);
+        finish();
+    }
+    public void profile(){
+        Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
+        intent.putExtra("AddNew", "edit");
+        startActivity(intent);
+        finish();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.miCompose:
+                report();
+                return true;
+            case R.id.miProfile:
+                profile();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
