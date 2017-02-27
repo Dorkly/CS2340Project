@@ -49,18 +49,18 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-        editProfileButton = (Button) findViewById(R.id.editprofile);
-        editProfileButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on click
-
-                Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
-                //intent.putExtra("AddNew", "edit");
-                startActivity(intent);
-                finish();
-                //setContentView(R.layout.activity_login);
-            }
-        });
+//        editProfileButton = (Button) findViewById(R.id.editprofile);
+//        editProfileButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                // Perform action on click
+//
+//                Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
+//                //intent.putExtra("AddNew", "edit");
+//                startActivity(intent);
+//                finish();
+//                //setContentView(R.layout.activity_login);
+//            }
+//        });
 
     }
     public void report(){
