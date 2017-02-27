@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:titleTextColor="#FFF"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:theme="@menu/menu_main"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar"

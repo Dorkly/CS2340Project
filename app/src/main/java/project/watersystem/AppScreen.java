@@ -75,13 +75,6 @@ public class AppScreen extends AppCompatActivity {
         finish();
     }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getMenuInflater();
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
