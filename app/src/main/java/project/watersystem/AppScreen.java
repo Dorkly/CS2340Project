@@ -63,6 +63,7 @@ public class AppScreen extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
+<<<<<<< HEAD
 
         //Main Report ;
         reportButton = (Button) findViewById(R.id.Logout);
@@ -76,6 +77,8 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> 57c539251cad1ac6de6d867ffee3fe7d7cf23561
     }
     public void report(){
         Intent intent = new Intent(AppScreen.this, Splash.class);
@@ -89,11 +92,26 @@ public class AppScreen extends AppCompatActivity {
         finish();
     }
     @Override
+<<<<<<< HEAD
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+=======
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.miCompose:
+                report();
+                return true;
+            case R.id.miProfile:
+                profile();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+>>>>>>> 57c539251cad1ac6de6d867ffee3fe7d7cf23561
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
