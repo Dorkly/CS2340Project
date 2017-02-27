@@ -80,19 +80,23 @@ public class AppScreen extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.miCompose:
+                //startActivity(new Intent(this,MainReportScreen.class));
                 report();
                 return true;
             case R.id.miProfile:
+                //startActivity(new Intent(this,Profiles.class));
                 profile();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
-    }
+    }*/
 }
