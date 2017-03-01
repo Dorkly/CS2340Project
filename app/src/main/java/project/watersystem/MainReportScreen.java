@@ -55,13 +55,13 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        if (userType.toLowerCase().equals("worker")) {
+        if ((userType.toLowerCase().equals("worker")) ||(userType.toLowerCase().equals("manager"))) {
             waterPurButton.setVisibility(View.VISIBLE);
         } else {
             waterPurButton.setVisibility(View.INVISIBLE);
         }
 
-        if (userType.toLowerCase().equals("regular user")) {
+        if (!(userType.toLowerCase().equals("admin"))) {
             waterSouButton.setVisibility(View.VISIBLE);
         } else {
             waterSouButton.setVisibility(View.INVISIBLE);
