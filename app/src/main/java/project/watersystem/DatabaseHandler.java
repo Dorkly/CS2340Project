@@ -9,6 +9,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * SQLite database handler
@@ -22,11 +28,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Database Name
     private static final String DATABASE_NAME = "DripDrop";
 
+    // Table Names
     private static final String TABLE_USERS = "Registerd_Accounts";
     private static final String TABLE_PROFILES = "Registerd_Profiles";
+    private static final String TABLE_WATERPURITY = "Water_Purity";
+    private static final String TABLE_WATERSOURCE = "Water_Source";
     private static String currentUser;
 
-    // Account Table Columns names
+    // Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_USERS = "userID";
     private static final String KEY_PASS = "passWord";
@@ -35,6 +44,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_TYPE = "userType";
     private static final String KEY_HOMEADDRESS = "homeAddress";
     private static final String KEY_PHONE = "phone";
+    private static final String KEY_REPORTID = "reportID";
+    private static final String KEY_DATE = "reportDate";
+    private static final String KEY_SUBMITBY = "reporterName";
+    private static final String KEY_LATITUDE = "locLatitude";
+    private static final String KEY_LONGITUDE = "locLongitude";
+    private static final String KEY_WATERTYPE = "waterType";
+    private static final String KEY_CONDITION = "waterCondition";
+    private static final String KEY_WORKER = "workerName";
+    private static final String KEY_VIRUS = "virusPPM";
+    private static final String KEY_CONTAMINANT = "contaminantPPM";
 
     /**
      * DatabaseHandler constructor
@@ -57,6 +76,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_PROFILES + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_USERS + " TEXT,"
                 + KEY_HOMEADDRESS + " TEXT," + KEY_PHONE + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
+
+        CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERSOURCE + "("
+                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
+                + KEY_SUBMITBY + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_LONGITUDE + " DOUBLE," + KEY_WATERTYPE + " TEXT,"
+                + KEY_CONDITION + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
+
+        CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERPURITY + "("
+                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
+                + KEY_WORKER + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_LONGITUDE + " DOUBLE," + KEY_CONDITION + " TEXT,"
+                + KEY_VIRUS + " DOUBLE," + KEY_CONTAMINANT + " DOUBLE" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
 
     }
@@ -102,6 +135,53 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // Inserting Row
         db.insert(TABLE_PROFILES, null, values);
+        db.close(); // Closing database connection
+    }
+
+    /**
+     * addUsers method adds users to the Registerd_Accounts table
+     * @param ws
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    void addSourceReport(WaterSource ws) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Date dateobj = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_DATE, sdf.format(dateobj)); // User Name
+        values.put(KEY_SUBMITBY, ws.getName()); // User Name
+        values.put(KEY_LATITUDE, ws.getLatitude()); // Password
+        values.put(KEY_LONGITUDE, ws.getLongitude()); // Password
+        values.put(KEY_WATERTYPE, ws.getWaterType()); // Password
+        values.put(KEY_CONDITION, ws.getCondition()); // Password
+
+        // Inserting Row
+        db.insert(TABLE_WATERSOURCE, null, values);
+        db.close(); // Closing database connection
+    }
+
+    /**
+     * addUsers method adds users to the Registerd_Accounts table
+     * @param wp
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    void addSourceReport(WaterPurity wp) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Date dateobj = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_DATE, sdf.format(dateobj)); // User Name
+        values.put(KEY_WORKER, wp.getName()); // User Name
+        values.put(KEY_LATITUDE, wp.getLatitude()); // Password
+        values.put(KEY_LONGITUDE, wp.getLongitude()); // Password
+        values.put(KEY_CONDITION, wp.getCondition()); // Password
+        values.put(KEY_VIRUS, wp.getVirusPPM()); // Password
+        values.put(KEY_CONTAMINANT, wp.getContaminantPPM()); // Password
+
+        // Inserting Row
+        db.insert(TABLE_WATERPURITY, null, values);
         db.close(); // Closing database connection
     }
 
