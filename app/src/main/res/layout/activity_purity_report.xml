@@ -83,16 +83,8 @@
         android:layout_alignBottom="@+id/purityReportLat"
         android:layout_alignStart="@+id/purityReportLongitude"
         tools:inputType="numberDecimal"
-        android:inputType="numberSigned|numberDecimal" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/purityReportLongitude"
-        android:layout_below="@+id/purityReportLatitude"
-        android:layout_toEndOf="@+id/purityReportNumber"
-        android:inputType="numberSigned|numberDecimal" />
+        android:inputType="numberSigned|numberDecimal"
+        android:text="90" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -187,5 +179,15 @@
         android:layout_alignBaseline="@+id/purityReportSave"
         android:layout_alignBottom="@+id/purityReportSave"
         android:layout_toEndOf="@+id/purityReportContaminant" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/purityReportLongitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:layout_below="@+id/purityReportLatitude"
+        android:layout_toEndOf="@+id/purityReportNumber"
+        android:text="90" />
 
 </RelativeLayout>
