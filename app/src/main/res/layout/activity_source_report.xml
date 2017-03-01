@@ -11,7 +11,7 @@
     tools:context="project.watersystem.SourceReport">
 
     <TextView
-        android:text="Location:"
+        android:text="@string/location_water_source"
         android:textColor="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:textStyle="normal|bold" />
 
     <TextView
-        android:text="Latitude:"
+        android:text="@string/latitude_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/locationSourceReport"
@@ -35,7 +35,7 @@
         android:textColor="@android:color/holo_blue_bright" />
 
     <TextView
-        android:text="Water Type:"
+        android:text="@string/water_type_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -52,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:id="@+id/waterTypeSourceReportSpinner"
         android:layout_below="@+id/waterTypeSourceReport"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/waterTypeSourceReport" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -60,10 +60,10 @@
         android:layout_marginTop="16dp"
         android:id="@+id/waterConditionSourceReportSpinner"
         android:layout_below="@+id/waterConditionSourceReport"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/waterConditionSourceReport" />
 
     <TextView
-        android:text="Water Condition:"
+        android:text="@string/water_condition_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -75,7 +75,7 @@
         android:layout_alignStart="@+id/waterTypeSourceReport" />
 
     <TextView
-        android:text="Longitude:"
+        android:text="@string/longitude_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -86,7 +86,7 @@
         android:layout_alignStart="@+id/latitudeLocationSourceReport" />
 
     <TextView
-        android:text="Water Source"
+        android:text="@string/water_source_water_source"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -101,25 +101,14 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/latitudeLocationSourceReportInput"
-        android:hint="(+/-) 90"
-        android:layout_alignBaseline="@+id/latitudeLocationSourceReport"
-        android:layout_alignBottom="@+id/latitudeLocationSourceReport"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
         android:id="@+id/longitudeLocationSourceReportInput"
-        android:hint="(+/-) 180"
+        android:hint="@string/longitude_range_water_source"
         android:layout_alignBaseline="@+id/longitudeLocationSourceReport"
         android:layout_alignBottom="@+id/longitudeLocationSourceReport"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Report"
+        android:text="@string/report_button_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/reportSourceReport"
@@ -129,12 +118,23 @@
         android:layout_alignStart="@+id/waterConditionSourceReport"
         android:layout_marginStart="60dp" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/latitudeLocationSourceReportInput"
+        android:hint="@string/latitude_range_water_source"
+        android:layout_alignBaseline="@+id/latitudeLocationSourceReport"
+        android:layout_alignBottom="@+id/latitudeLocationSourceReport"
+        android:layout_alignParentEnd="true" />
+
     <Button
-        android:text="Cancel"
+        android:text="@string/cancel_button_water_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cancelSourceReport"
+        android:layout_marginTop="41dp"
         android:layout_below="@+id/waterConditionSourceReportSpinner"
-        android:layout_alignEnd="@+id/waterSourceReport"
-        android:layout_marginTop="40dp" />
+        android:layout_alignEnd="@+id/waterSourceReport" />
 </RelativeLayout>
