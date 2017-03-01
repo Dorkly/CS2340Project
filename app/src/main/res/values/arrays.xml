@@ -20,5 +20,9 @@
         <item>Treatable-Muddy</item>
         <item>Potable</item>
     </string-array>
-
+    <string-array name="water_condition_purity_report">
+        <item>Safe</item>
+        <item>Treatable</item>
+        <item>Unsafe</item>
+    </string-array>
 </resources>
