@@ -27,13 +27,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     // Database Name
-    private static final String DATABASE_NAME = "DripDrop";
+    private static final String DATABASE_NAME = "DripDrop_v2";
 
     // Table Names
     private static final String TABLE_USERS = "Registerd_Accounts";
     private static final String TABLE_PROFILES = "Registerd_Profiles";
-    private static final String TABLE_WATERPURITY = "Water_Purity";
-    private static final String TABLE_WATERSOURCE = "Water_Source";
+    private static final String TABLE_WATERPURITY = "Registerd_WaterPurity";
+    private static final String TABLE_WATERSOURCE = "Registerd_WaterSource";
     private static String currentUser;
 
     // Table Columns names
@@ -333,6 +333,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + " WHERE " + KEY_USERS + "='" + profile.getUser() + "'");
     }
 
+    public int getPurityReportId() {
+        String reportId = "0";
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT * FROM Registerd_WaterPurity ORDER BY reportID DESC",  null);
+
+        if (!c.isAfterLast()) {
+            c.moveToFirst();
+            reportId = c.getString(0);
+        }
+
+        return Integer.parseInt(reportId) + 1;
+    }
+
     /**
      * updateUsers updates the user account data in the Registered_Account table
      * @param userId userid to update
@@ -385,5 +398,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return reportsList;
     }
 
+    /**
+     * listAllSourceReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<String> listAllSourceReports() {
+        ArrayList<String> reportsList = new ArrayList<>();
+        String report = "";
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT "+ KEY_REPORTID + ", " + KEY_NAME + ", " + KEY_LATITUDE
+                        + ", " + KEY_LONGITUDE + " FROM " + TABLE_WATERSOURCE,  null);
+
+        if (c != null ) {
+            if  (c.moveToFirst()) {
+                do {
+                    report += "ReportID: " + c.getString(0);
+                    report += "  User:" + c.getString(1);
+                    report += "  Latitude:" + c.getString(2);
+                    report += "  Longitude:" + c.getString(3);
+                    reportsList.add(report);
+                }while (c.moveToNext());
+            }
+        }
+
+        return reportsList;
+    }
 
 }

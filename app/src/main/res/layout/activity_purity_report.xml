@@ -29,17 +29,6 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:id="@+id/purityReportTime"
-        android:layout_alignBaseline="@+id/purityReportDate"
-        android:layout_alignBottom="@+id/purityReportDate"
-        android:layout_toEndOf="@+id/purityReportDate"
-        android:textSize="18sp" />
-
-    <TextView
         android:text="Location:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,18 +63,6 @@
         android:textSize="18sp"
         android:textColor="@android:color/holo_blue_bright" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/purityReportLatitude"
-        android:layout_alignBaseline="@+id/purityReportLat"
-        android:layout_alignBottom="@+id/purityReportLat"
-        android:layout_alignStart="@+id/purityReportLongitude"
-        tools:inputType="numberDecimal"
-        android:inputType="numberSigned|numberDecimal"
-        android:text="90" />
-
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -118,27 +95,6 @@
         android:layout_below="@+id/purityReportLongitude"
         android:layout_alignStart="@+id/purityReportLong" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/virusPPM"
-        android:text="0.00"
-        android:layout_alignBaseline="@+id/purityReportVirus"
-        android:layout_alignBottom="@+id/purityReportVirus"
-        android:layout_alignStart="@+id/purityReportLongitude" />
-
-    <TextView
-        android:text="Name of Worker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/purityReportName"
-        android:textSize="18sp"
-        android:layout_below="@+id/purityReportNumber"
-        android:layout_toEndOf="@+id/purityReportLocation" />
-
     <TextView
         android:text="Contaminant PPM:"
         android:layout_width="wrap_content"
@@ -150,26 +106,6 @@
         android:textSize="18sp"
         android:textStyle="normal|bold"
         android:textColor="@color/colorPrimaryDark" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_below="@+id/virusPPM"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/contaminantPPM"
-        android:layout_toEndOf="@+id/purityReportDate"
-        android:text="0.00" />
-
-    <Button
-        android:text="Save Report"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/purityReportSave"
-        android:layout_below="@+id/contaminantPPM"
-        android:layout_toStartOf="@+id/purityReportDate" />
 
     <Button
         android:text="Cancel Report"
@@ -184,10 +120,82 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:id="@+id/purityReportLatitude"
+        tools:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="90"
+        android:layout_alignBaseline="@+id/purityReportLat"
+        android:layout_alignBottom="@+id/purityReportLat"
+        android:layout_alignStart="@+id/purityReportLongitude" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
         android:id="@+id/purityReportLongitude"
         android:inputType="numberSigned|numberDecimal"
+        android:text="90"
         android:layout_below="@+id/purityReportLatitude"
-        android:layout_toEndOf="@+id/purityReportNumber"
-        android:text="90" />
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/virusPPM"
+        android:text="0.00"
+        android:layout_alignBaseline="@+id/purityReportVirus"
+        android:layout_alignBottom="@+id/purityReportVirus"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:id="@+id/purityReportTime"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/purityReportName" />
+
+    <Button
+        android:text="Save Report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:id="@+id/purityReportSave"
+        android:layout_below="@+id/contaminantPPM"
+        android:layout_toStartOf="@+id/virusPPM" />
+
+    <TextView
+        android:text="Name of Worker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/purityReportName"
+        android:textSize="18sp"
+        android:layout_below="@+id/purityReportDate"
+        android:layout_alignStart="@+id/purityReportLatitude" />
+
+    <TextView
+        android:text="Worker: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="18sp"
+        android:layout_above="@+id/purityReportLocation"
+        android:layout_alignEnd="@+id/purityReportVirus" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/contaminantPPM"
+        android:text="0.00"
+        android:layout_alignBaseline="@+id/purityReportContaminant"
+        android:layout_alignBottom="@+id/purityReportContaminant"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/purityReportDate" />
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package project.watersystem;
 
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class PurityReport extends AppCompatActivity {
@@ -20,6 +24,7 @@ public class PurityReport extends AppCompatActivity {
     private static int Next_Id = 0;
     private DatabaseHandler db;
     private String userValue;
+    private String dateTimeValue;
 
     Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
     ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
@@ -40,6 +45,22 @@ public class PurityReport extends AppCompatActivity {
 
         db = new DatabaseHandler(this);
         userValue = db.getUserName();
+
+        TextView mUserName = (TextView) findViewById(R.id.purityReportName);
+        mUserName.setText(userValue);
+
+        TextView mReportId = (TextView) findViewById(R.id.purityReportNumber);
+        int newReportId = db.getPurityReportId();
+        mReportId.setText("" + newReportId);
+
+        Date dateobj = Calendar.getInstance().getTime();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+            dateTimeValue = sdf.format(dateobj);
+        }
+        TextView mDateField = (TextView) findViewById(R.id.purityReportDate);
+        mDateField.setText(dateTimeValue);
+
 
         //configure spinner
         spinner = (Spinner) findViewById(R.id.conditionSpinner);
