@@ -79,15 +79,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_ACCOUNT_TABLE);
 
         CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERSOURCE + "("
-                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
-                + KEY_USERS + " TEXT," + KEY_SUBMITBY + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                + KEY_DATE + " TEXT," + KEY_SUBMITBY + " TEXT," + KEY_LATITUDE + " DOUBLE,"
                 + KEY_LONGITUDE + " DOUBLE," + KEY_WATERTYPE + " TEXT,"
                 + KEY_CONDITION + " TEXT" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
 
         CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERPURITY + "("
-                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
-                + KEY_USERS + " TEXT," + KEY_WORKER + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                + KEY_DATE + " TEXT," + KEY_WORKER + " TEXT," + KEY_LATITUDE + " DOUBLE,"
                 + KEY_LONGITUDE + " DOUBLE," + KEY_CONDITION + " TEXT,"
                 + KEY_VIRUS + " DOUBLE," + KEY_CONTAMINANT + " DOUBLE" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);

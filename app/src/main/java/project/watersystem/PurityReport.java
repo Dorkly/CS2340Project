@@ -1,8 +1,13 @@
 package project.watersystem;
 
+import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.util.Arrays;
@@ -10,6 +15,8 @@ import java.util.List;
 
 public class PurityReport extends AppCompatActivity {
     public static List<String> purityTypes = Arrays.asList("safe", "Treatable", "Unsafe");
+    private Button purityReportSaveButton;
+    private Button purityReportCancelButton;
     private static int Next_Id = 0;
     private DatabaseHandler db;
     private String userValue;
@@ -39,6 +46,46 @@ public class PurityReport extends AppCompatActivity {
         adapter = ArrayAdapter.createFromResource(this, R.array.water_condition_purity_report, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        purityReportSaveButton = (Button) findViewById(R.id.purityReportSave);
+        purityReportSaveButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                EditText mLatitude = (EditText) findViewById(R.id.purityReportLatitude);
+                EditText mLongitude = (EditText) findViewById(R.id.purityReportLongitude);
+                EditText mVirus = (EditText) findViewById(R.id.virusPPM);
+                EditText mContaminant = (EditText) findViewById(R.id.contaminantPPM);
+                Spinner mWaterCondition = (Spinner) findViewById(R.id.conditionSpinner);
+
+                String latitudeValue = mLatitude.getText().toString();
+                String longitudeValue = mLongitude.getText().toString();
+                String virusValue = mVirus.getText().toString();
+                String contaminantValue = mContaminant.getText().toString();
+                String conditionValue = (String) mWaterCondition.getSelectedItem();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    db.addPurityReport(new WaterPurity(userValue, latitudeValue, longitudeValue, conditionValue, virusValue, contaminantValue));
+                }
+
+                Intent intent = new Intent(PurityReport.this, AppScreen.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        //cancel button
+        purityReportCancelButton = (Button) findViewById(R.id.purityReportCancel);
+        purityReportCancelButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(PurityReport.this, MainReportScreen.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
 
     }
 }

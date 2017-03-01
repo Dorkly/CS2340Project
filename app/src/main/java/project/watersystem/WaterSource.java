@@ -6,9 +6,6 @@ package project.watersystem;
 
 public class WaterSource {
     //private variables
-     private int _id; // Just to have it.
-    private String _reportId;
-    private String _reportDate;
     private String _userName;
     private String _latitude;
     private String _longitude;
