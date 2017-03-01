@@ -41,13 +41,12 @@ public class MainReportScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(MainReportScreen.this, AppScreen.class);
+                Intent intent = new Intent(MainReportScreen.this, SourceReport.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
             }
         });
-
 
         //cancel button
         cancelRepButton = (Button) findViewById(R.id.Logout);
