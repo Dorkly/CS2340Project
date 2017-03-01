@@ -13,6 +13,7 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -357,5 +358,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
         return c.getCount() > 0;
     }
+
+    /**
+     * listAllPurityReports returns the list of reports from the Water_Purity table
+     * @return reportsList
+     */
+    public ArrayList<String> listAllPurityReports() {
+        ArrayList<String> reportsList = new ArrayList<>();
+        String report = "";
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT "+ KEY_REPORTID + ", " + KEY_WORKER + ", " + KEY_LATITUDE
+                        + ", " + KEY_LONGITUDE + " FROM " + TABLE_WATERPURITY,  null);
+
+        if (c != null ) {
+            if  (c.moveToFirst()) {
+                do {
+                    report += "ReportID: " + c.getString(0);
+                    report += "  Worker:" + c.getString(1);
+                    report += "  Latitude:" + c.getString(2);
+                    report += "  Longitude:" + c.getString(3);
+                    reportsList.add(report);
+                }while (c.moveToNext());
+            }
+        }
+
+        return reportsList;
+    }
+
 
 }

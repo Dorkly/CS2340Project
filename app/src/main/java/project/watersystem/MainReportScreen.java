@@ -15,10 +15,15 @@ public class MainReportScreen extends AppCompatActivity {
     private Button cancelRepButton;
     private Button waterPurButton;
     private Button waterSouButton;
+    private DatabaseHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_report);
+
+        db = new DatabaseHandler(this);
+        String userType = db.getUserType();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -48,6 +53,17 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
+        if (userType.toLowerCase().equals("worker")) {
+            waterPurButton.setVisibility(View.VISIBLE);
+        } else {
+            waterPurButton.setVisibility(View.INVISIBLE);
+        }
+
+        if (userType.toLowerCase().equals("regular user")) {
+            waterSouButton.setVisibility(View.VISIBLE);
+        } else {
+            waterSouButton.setVisibility(View.INVISIBLE);
+        }
         //cancel button
         cancelRepButton = (Button) findViewById(R.id.Logout);
         cancelRepButton.setOnClickListener(new View.OnClickListener() {
