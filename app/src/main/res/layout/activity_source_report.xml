@@ -50,14 +50,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/waterTypeSourceReportSpinner"
-        android:layout_below="@+id/waterTypeSourceReport"
-        android:layout_alignStart="@+id/waterTypeSourceReport" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:id="@+id/waterConditionSourceReportSpinner"
         android:layout_below="@+id/waterConditionSourceReport"
         android:layout_alignStart="@+id/waterConditionSourceReport" />
@@ -99,7 +91,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/longitudeLocationSourceReportInput"
         android:hint="@string/longitude_range_water_source"
@@ -118,17 +110,6 @@
         android:layout_alignStart="@+id/waterConditionSourceReport"
         android:layout_marginStart="60dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/latitudeLocationSourceReportInput"
-        android:hint="@string/latitude_range_water_source"
-        android:layout_alignBaseline="@+id/latitudeLocationSourceReport"
-        android:layout_alignBottom="@+id/latitudeLocationSourceReport"
-        android:layout_alignParentEnd="true" />
-
     <Button
         android:text="@string/cancel_button_water_source"
         android:layout_width="wrap_content"
@@ -137,4 +118,23 @@
         android:layout_marginTop="41dp"
         android:layout_below="@+id/waterConditionSourceReportSpinner"
         android:layout_alignEnd="@+id/waterSourceReport" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/latitudeLocationSourceReportInput"
+        android:hint="@string/latitude_range_water_source"
+        android:layout_alignBaseline="@+id/latitudeLocationSourceReport"
+        android:layout_alignBottom="@+id/latitudeLocationSourceReport"
+        android:layout_alignParentEnd="true"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/waterTypeSourceReportSpinner"
+        android:layout_below="@+id/waterTypeSourceReport"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

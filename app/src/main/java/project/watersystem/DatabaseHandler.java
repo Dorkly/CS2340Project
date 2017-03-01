@@ -80,14 +80,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERSOURCE + "("
                 + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
-                + KEY_SUBMITBY + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_USERS + " TEXT," + KEY_SUBMITBY + " TEXT," + KEY_LATITUDE + " DOUBLE,"
                 + KEY_LONGITUDE + " DOUBLE," + KEY_WATERTYPE + " TEXT,"
                 + KEY_CONDITION + " TEXT" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
 
         CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_WATERPURITY + "("
                 + KEY_REPORTID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT,"
-                + KEY_WORKER + " TEXT," + KEY_LATITUDE + " DOUBLE,"
+                + KEY_USERS + " TEXT," + KEY_WORKER + " TEXT," + KEY_LATITUDE + " DOUBLE,"
                 + KEY_LONGITUDE + " DOUBLE," + KEY_CONDITION + " TEXT,"
                 + KEY_VIRUS + " DOUBLE," + KEY_CONTAMINANT + " DOUBLE" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
@@ -146,9 +146,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     void addSourceReport(WaterSource ws) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateobj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
 
         ContentValues values = new ContentValues();
+        values.put(KEY_USERS, currentUser); // User Name
         values.put(KEY_DATE, sdf.format(dateobj)); // User Name
         values.put(KEY_SUBMITBY, ws.getName()); // User Name
         values.put(KEY_LATITUDE, ws.getLatitude()); // Password
@@ -166,19 +167,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @param wp
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
-    void addSourceReport(WaterPurity wp) {
+    void addPurityReport(WaterPurity wp) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateobj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
 
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE, sdf.format(dateobj)); // User Name
-        values.put(KEY_WORKER, wp.getName()); // User Name
-        values.put(KEY_LATITUDE, wp.getLatitude()); // Password
-        values.put(KEY_LONGITUDE, wp.getLongitude()); // Password
-        values.put(KEY_CONDITION, wp.getCondition()); // Password
-        values.put(KEY_VIRUS, wp.getVirusPPM()); // Password
-        values.put(KEY_CONTAMINANT, wp.getContaminantPPM()); // Password
+        values.put(KEY_USERS, currentUser); // User ID
+        values.put(KEY_DATE, sdf.format(dateobj)); // Date
+        values.put(KEY_WORKER, wp.getName()); // Worker Name
+        values.put(KEY_LATITUDE, wp.getLatitude()); // Latitude
+        values.put(KEY_LONGITUDE, wp.getLongitude()); // Longitude
+        values.put(KEY_CONDITION, wp.getCondition()); // Water Condition
+        values.put(KEY_VIRUS, wp.getVirusPPM()); // Virus PPM
+        values.put(KEY_CONTAMINANT, wp.getContaminantPPM()); // Contaminant PPM
 
         // Inserting Row
         db.insert(TABLE_WATERPURITY, null, values);
