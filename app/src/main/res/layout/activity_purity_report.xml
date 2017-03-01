@@ -82,7 +82,8 @@
         android:layout_alignBaseline="@+id/purityReportLat"
         android:layout_alignBottom="@+id/purityReportLat"
         android:layout_alignStart="@+id/purityReportLongitude"
-        tools:inputType="numberDecimal" />
+        tools:inputType="numberDecimal"
+        android:inputType="numberSigned|numberDecimal" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -91,7 +92,7 @@
         android:id="@+id/purityReportLongitude"
         android:layout_below="@+id/purityReportLatitude"
         android:layout_toEndOf="@+id/purityReportNumber"
-        android:inputType="numberDecimal" />
+        android:inputType="numberSigned|numberDecimal" />
 
     <Spinner
         android:layout_width="match_parent"
