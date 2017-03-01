@@ -39,9 +39,6 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-
-
-
         //cancel button
         cancelRegButton = (Button) findViewById(R.id.cancelProfile);
         cancelRegButton.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +66,6 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
                 mNameView = (EditText) findViewById(R.id.nameInput);
                 mEmailView = (EditText) findViewById(R.id.emailInput);
                 typeSpinner = (Spinner) findViewById(R.id.classificationSpinner);
-
 
                 String userValue = mUserIdView.getText().toString();
                 String passValue = mPasswordView.getText().toString();

@@ -3,6 +3,7 @@ package project.watersystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,8 @@ public class MainReportScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_report);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // Water Purity
         waterPurButton = (Button) findViewById(R.id.waterPurity);
         waterPurButton.setOnClickListener(new View.OnClickListener() {
@@ -38,16 +41,15 @@ public class MainReportScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(MainReportScreen.this, AppScreen.class);
+                Intent intent = new Intent(MainReportScreen.this, SourceReport.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
             }
         });
 
-
         //cancel button
-        cancelRepButton = (Button) findViewById(R.id.toolbar);
+        cancelRepButton = (Button) findViewById(R.id.Logout);
         cancelRepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

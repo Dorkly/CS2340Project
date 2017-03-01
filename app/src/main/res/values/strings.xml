@@ -15,4 +15,15 @@
         completions."
     </string>
     <string name="title_activity_purity_report">PurityReport</string>
+    <string name="water_source_water_source">Water Source</string>
+    <string name="location_water_source">Location:</string>
+    <string name="latitude_water_source">Latitude:</string>
+    <string name="longitude_water_source">Longitude:</string>
+    <string name="water_type_water_source">Water Type:</string>
+    <string name="water_condition_water_source">Water Condition:</string>
+    <string name="latitude_range_water_source">90</string>
+    <string name="longitude_range_water_source">180</string>
+    <string name="report_button_water_source">Report</string>
+    <string name="cancel_button_water_source">Cancel</string>
+
 </resources>

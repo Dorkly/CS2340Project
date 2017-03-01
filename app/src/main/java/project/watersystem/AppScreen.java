@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -63,18 +64,6 @@ public class AppScreen extends AppCompatActivity {
 //                //setContentView(R.layout.activity_login);
 //            }
 //        });
-
-    }
-    public void report(){
-        Intent intent = new Intent(AppScreen.this, Splash.class);
-        startActivity(intent);
-        finish();
-    }
-    public void profile(){
-        Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
-        intent.putExtra("AddNew", "edit");
-        startActivity(intent);
-        finish();
     }
 
     @Override
@@ -82,10 +71,16 @@ public class AppScreen extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.miCompose:
-                report();
+                Intent intent = new Intent(this, MainReportScreen.class);
+                this.startActivity(intent);
                 return true;
             case R.id.miProfile:
-                profile();
+                Intent intent2 = new Intent(this,ProfileActivity.class);
+                this.startActivity(intent2);
+                return true;
+            case R.id.Logout:
+                Intent intent3 = new Intent(this,WelcomeScreen.class);
+                this.startActivity(intent3);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -94,7 +89,8 @@ public class AppScreen extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 }
