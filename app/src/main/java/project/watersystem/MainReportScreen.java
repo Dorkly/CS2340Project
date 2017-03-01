@@ -15,6 +15,8 @@ public class MainReportScreen extends AppCompatActivity {
     private Button cancelRepButton;
     private Button waterPurButton;
     private Button waterSouButton;
+    private Button listPurButton;
+    private Button listSouButton;
     private DatabaseHandler db;
 
     @Override
@@ -76,5 +78,18 @@ public class MainReportScreen extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
+
+        listPurButton = (Button) findViewById(R.id.listPurityReports);
+        listPurButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(MainReportScreen.this, PurityReportsListActivity.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
     }
 }

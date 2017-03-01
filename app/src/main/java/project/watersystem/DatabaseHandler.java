@@ -414,8 +414,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 do {
                     report += "ReportID: " + c.getString(0);
                     report += "  User:" + c.getString(1);
-                    report += "  Latitude:" + c.getString(2);
-                    report += "  Longitude:" + c.getString(3);
+                    report += "  Lat:" + c.getString(2);
+                    report += "  Lon:" + c.getString(3);
                     reportsList.add(report);
                 }while (c.moveToNext());
             }
