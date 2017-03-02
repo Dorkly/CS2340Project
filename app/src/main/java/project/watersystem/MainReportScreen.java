@@ -91,5 +91,16 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
+        listSouButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(MainReportScreen.this, SourceReportsListActivity.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
     }
 }

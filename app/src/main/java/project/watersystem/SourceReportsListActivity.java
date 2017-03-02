@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PurityReportsListActivity extends AppCompatActivity {
+public class SourceReportsListActivity extends AppCompatActivity {
     private Button returnButton;
     private ListView reportsListView;
     private DatabaseHandler db;
@@ -19,28 +19,26 @@ public class PurityReportsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_purity_reports_list);
+        setContentView(R.layout.activity_source_reports_list);
 
         db = new DatabaseHandler(this);
-        reportsList = db.listAllPurityReports();
-
+        reportsList = db.listAllSourceReports();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, reportsList);
         reportsListView = (ListView) findViewById(R.id.ReportsListView);
         reportsListView.setAdapter(adapter);
 
-        returnButton = (Button) findViewById(R.id.ReturnButton);
+        returnButton = (Button) findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(PurityReportsListActivity.this, AppScreen.class);
+                Intent intent = new Intent(SourceReportsListActivity.this, AppScreen.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
             }
         });
-
 
     }
 }

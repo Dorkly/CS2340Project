@@ -380,16 +380,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String> reportsList = new ArrayList<>();
         String report = "";
         Cursor c = getReadableDatabase().rawQuery(
-                "SELECT "+ KEY_REPORTID + ", " + KEY_WORKER + ", " + KEY_LATITUDE
-                        + ", " + KEY_LONGITUDE + " FROM " + TABLE_WATERPURITY,  null);
+                "SELECT "+ KEY_REPORTID + ", " + KEY_WORKER + ", " + KEY_DATE
+                        + " FROM " + TABLE_WATERPURITY,  null);
 
         if (c != null ) {
             if  (c.moveToFirst()) {
                 do {
-                    report += "ReportID: " + c.getString(0);
-                    report += "  Worker:" + c.getString(1);
-                    report += "  Latitude:" + c.getString(2);
-                    report += "  Longitude:" + c.getString(3);
+                    report += "Report: " + c.getString(0);
+                    report += "  :  " + c.getString(1);
+                    report += "  :  " + c.getString(2);
                     reportsList.add(report);
                 }while (c.moveToNext());
             }
@@ -406,16 +405,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String> reportsList = new ArrayList<>();
         String report = "";
         Cursor c = getReadableDatabase().rawQuery(
-                "SELECT "+ KEY_REPORTID + ", " + KEY_NAME + ", " + KEY_LATITUDE
-                        + ", " + KEY_LONGITUDE + " FROM " + TABLE_WATERSOURCE,  null);
+                "SELECT "+ KEY_REPORTID + ", " + KEY_NAME + ", " + KEY_DATE
+                        + " FROM " + TABLE_WATERSOURCE,  null);
 
         if (c != null ) {
             if  (c.moveToFirst()) {
                 do {
                     report += "ReportID: " + c.getString(0);
-                    report += "  User:" + c.getString(1);
-                    report += "  Lat:" + c.getString(2);
-                    report += "  Lon:" + c.getString(3);
+                    report += "  :  " + c.getString(1);
+                    report += "  :  " + c.getString(2);
                     reportsList.add(report);
                 }while (c.moveToNext());
             }
