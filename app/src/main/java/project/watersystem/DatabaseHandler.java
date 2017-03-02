@@ -147,7 +147,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     void addSourceReport(WaterSource ws) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateobj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User Name
@@ -171,7 +171,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     void addPurityReport(WaterPurity wp) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateobj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User ID
@@ -387,8 +387,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             if  (c.moveToFirst()) {
                 do {
                     report += "Report: " + c.getString(0);
-                    report += "  :  " + c.getString(1);
-                    report += "  :  " + c.getString(2);
+                    report += "  -  " + c.getString(1);
+                    report += "    " + c.getString(2);
                     reportsList.add(report);
                 }while (c.moveToNext());
             }
@@ -405,15 +405,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String> reportsList = new ArrayList<>();
         String report = "";
         Cursor c = getReadableDatabase().rawQuery(
-                "SELECT "+ KEY_REPORTID + ", " + KEY_NAME + ", " + KEY_DATE
+                "SELECT "+ KEY_REPORTID + ", " + KEY_SUBMITBY + ", " + KEY_DATE
                         + " FROM " + TABLE_WATERSOURCE,  null);
 
         if (c != null ) {
             if  (c.moveToFirst()) {
                 do {
                     report += "ReportID: " + c.getString(0);
-                    report += "  :  " + c.getString(1);
-                    report += "  :  " + c.getString(2);
+                    report += "  -  " + c.getString(1);
+                    report += "    " + c.getString(2);
                     reportsList.add(report);
                 }while (c.moveToNext());
             }

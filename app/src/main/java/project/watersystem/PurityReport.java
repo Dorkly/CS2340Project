@@ -55,7 +55,7 @@ public class PurityReport extends AppCompatActivity {
 
         Date dateobj = Calendar.getInstance().getTime();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             dateTimeValue = sdf.format(dateobj);
         }
         TextView mDateField = (TextView) findViewById(R.id.purityReportDate);
