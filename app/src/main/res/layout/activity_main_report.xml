@@ -63,23 +63,6 @@
         android:layout_marginTop="10dp" />
 
     <Button
-        android:text="  Create New Water Purity Report  "
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#FFF"
-        android:fontFamily="sans-serif-light"
-        android:background="@drawable/button_shape"
-        android:id="@+id/waterPurity"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp"
-        android:minWidth="90dip"
-        android:width="265dp"
-        android:layout_alignBaseline="@+id/waterSource"
-        android:layout_alignBottom="@+id/waterSource"
-        android:layout_alignStart="@+id/waterSource" />
-
-    <Button
         android:text="View Water source Reports"
 
         android:layout_width="wrap_content"
@@ -92,9 +75,9 @@
         android:paddingRight="2dp"
         android:minWidth="90dip"
         android:width="265dp"
-        android:layout_below="@+id/listPurityReports"
-        android:layout_alignStart="@+id/listPurityReports"
-        android:layout_marginTop="12dp" />
+        android:layout_below="@+id/waterSource"
+        android:layout_alignStart="@+id/waterSource"
+        android:layout_marginTop="59dp" />
 
     <Button
         android:text="View Water Purity Reports"
@@ -104,14 +87,31 @@
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
-        android:layout_marginTop="15dp"
         android:id="@+id/listPurityReports"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:minWidth="90dip"
         android:width="265dp"
+        android:layout_below="@+id/listSourceReports"
+        android:layout_alignStart="@+id/listSourceReports"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:text="  Create New Water Purity Report  "
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:background="@drawable/button_shape"
+        android:id="@+id/waterPurity"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:minWidth="90dip"
+        android:width="265dp"
         android:layout_below="@+id/waterSource"
-        android:layout_alignStart="@+id/waterSource" />
+        android:layout_alignStart="@+id/waterSource"
+        android:layout_marginTop="5dp" />
 
 
 </RelativeLayout >
