@@ -55,17 +55,14 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        if ((userType.toLowerCase().equals("worker")) ||(userType.toLowerCase().equals("manager"))) {
-            waterPurButton.setVisibility(View.VISIBLE);
-        } else {
+        if (userType.toLowerCase().equals("regular user")) {
             waterPurButton.setVisibility(View.INVISIBLE);
+            listPurButton.setVisibility(View.INVISIBLE);
+        } else {
+            waterPurButton.setVisibility(View.VISIBLE);
+            listPurButton.setVisibility(View.VISIBLE);
         }
 
-        if (!(userType.toLowerCase().equals("admin"))) {
-            waterSouButton.setVisibility(View.VISIBLE);
-        } else {
-            waterSouButton.setVisibility(View.INVISIBLE);
-        }
         //cancel button
         cancelRepButton = (Button) findViewById(R.id.Logout);
         cancelRepButton.setOnClickListener(new View.OnClickListener() {
