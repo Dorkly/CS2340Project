@@ -46,4 +46,14 @@
         android:layout_above="@+id/ReturnButton"
         android:layout_marginBottom="20dp"
         android:id="@+id/ReportsListView" />
+
+    <TextView
+        android:text="Water Purity Reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textView2"
+        android:textSize="26sp"
+        android:layout_below="@+id/toolbar2"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
