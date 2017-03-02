@@ -29,8 +29,11 @@ public class MainReportScreen extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        listPurButton = (Button) findViewById(R.id.listPurityReports);
+        listSouButton = (Button) findViewById(R.id.listSourceReports);
         // Water Purity
         waterPurButton = (Button) findViewById(R.id.waterPurity);
+
         waterPurButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -55,7 +58,7 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        if (userType.toLowerCase().equals("regular user")) {
+        if ((userType.toLowerCase().equals("regular user")) ) {
             waterPurButton.setVisibility(View.INVISIBLE);
             listPurButton.setVisibility(View.INVISIBLE);
         } else {
@@ -76,7 +79,7 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        listPurButton = (Button) findViewById(R.id.listPurityReports);
+
         listPurButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
