@@ -34,7 +34,7 @@ public class PurityReportsListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(PurityReportsListActivity.this, AppScreen.class);
+                Intent intent = new Intent(PurityReportsListActivity.this, MainReportScreen.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);

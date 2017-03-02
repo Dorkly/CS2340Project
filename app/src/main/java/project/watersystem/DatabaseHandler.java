@@ -378,15 +378,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     public ArrayList<String> listAllPurityReports() {
         ArrayList<String> reportsList = new ArrayList<>();
-        String report = "";
+
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT "+ KEY_REPORTID + ", " + KEY_WORKER + ", " + KEY_DATE
                         + " FROM " + TABLE_WATERPURITY,  null);
 
-        if (c != null ) {
+        if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
                 do {
-                    report += "Report: " + c.getString(0);
+                    String report = "Report: " + c.getString(0);
                     report += "  -  " + c.getString(1);
                     report += "    " + c.getString(2);
                     reportsList.add(report);
@@ -403,15 +403,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     public ArrayList<String> listAllSourceReports() {
         ArrayList<String> reportsList = new ArrayList<>();
-        String report = "";
+
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT "+ KEY_REPORTID + ", " + KEY_SUBMITBY + ", " + KEY_DATE
                         + " FROM " + TABLE_WATERSOURCE,  null);
 
-        if (c != null ) {
+        if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
                 do {
-                    report += "ReportID: " + c.getString(0);
+                    String report = "Report: " + c.getString(0);
                     report += "  -  " + c.getString(1);
                     report += "    " + c.getString(2);
                     reportsList.add(report);

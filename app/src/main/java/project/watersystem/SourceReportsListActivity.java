@@ -33,7 +33,7 @@ public class SourceReportsListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(SourceReportsListActivity.this, AppScreen.class);
+                Intent intent = new Intent(SourceReportsListActivity.this, MainReportScreen.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
