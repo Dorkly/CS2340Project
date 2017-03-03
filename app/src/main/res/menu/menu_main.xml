@@ -4,13 +4,13 @@
         <item
             android:id="@+id/miCompose"
             android:icon="@drawable/ic_report"
-            app:showAsAction="ifRoom"
+            app:showAsAction="always|ifRoom"
             android:title="Report">
         </item>
         <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="always"
+        app:showAsAction="always|ifRoom"
         android:title="Profile">
         </item>
         <item
