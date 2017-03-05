@@ -19,7 +19,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    //private ModelFacade mFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.activity_map);
         mapFragment.getMapAsync(this);
 
-        //mFacade = ModelFacade.getInstance();
 
     }
 
@@ -43,6 +41,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     *
+     * Users constructor
+     * @param googleMap Google Map
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
