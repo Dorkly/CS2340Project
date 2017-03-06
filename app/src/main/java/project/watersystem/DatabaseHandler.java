@@ -1,7 +1,7 @@
 package project.watersystem;
 
 /**
- * Created by jimhelm on 2/21/17.
+ * Created by jimHelm on 2/21/17.
  */
 
 import android.content.ContentValues;

@@ -52,7 +52,7 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-//        editProfileButton = (Button) findViewById(R.id.editprofile);
+//        editProfileButton = (Button) findViewById(R.id.editProfile);
 //        editProfileButton.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
 //                // Perform action on click
