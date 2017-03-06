@@ -1,9 +1,13 @@
 package project.waterSystem;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -23,13 +27,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.activity_map);
-        mapFragment.getMapAsync(this);
+        if(googleServiceAvailable()) {
+            setContentView(R.layout.activity_maps);
+            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map_fragment);
+            mapFragment.getMapAsync(this);
+        }else{
+            // No Google Map Availabele
+        }
+    }
 
-
+    private boolean googleServiceAvailable() {
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int isAvailabel = api.isGooglePlayServicesAvailable(this);
+        if(isAvailabel == ConnectionResult.SUCCESS){
+            return true;
+        } else if(api.isUserResolvableError(isAvailabel)){
+            Dialog dialog = api.getErrorDialog(this,isAvailabel,0);
+            dialog.show();
+        } else {
+            Toast.makeText(this,"Can't connect to play serveerce", Toast.LENGTH_LONG);
+        }
+        return false;
     }
 
 
@@ -53,9 +73,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onMapClick(LatLng latLng) {
-
-
-
                 // Creating a marker
                 MarkerOptions markerOptions = new MarkerOptions();
 

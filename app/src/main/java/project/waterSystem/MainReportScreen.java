@@ -13,6 +13,7 @@ import android.widget.Button;
 
 public class MainReportScreen extends AppCompatActivity {
     private Button cancelRepButton;
+    private Button waterAvaButton;
     private Button waterPurButton;
     private Button waterSouButton;
     private Button listPurButton;
@@ -33,7 +34,6 @@ public class MainReportScreen extends AppCompatActivity {
         listSouButton = (Button) findViewById(R.id.listSourceReports);
         // Water Purity
         waterPurButton = (Button) findViewById(R.id.waterPurity);
-
         waterPurButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -52,6 +52,19 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, SourceReport.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
+        // Water Availability
+        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
+        waterAvaButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(MainReportScreen.this, MapsActivity.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -101,6 +114,5 @@ public class MainReportScreen extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
-
     }
 }
