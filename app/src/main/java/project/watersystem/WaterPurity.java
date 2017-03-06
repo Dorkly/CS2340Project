@@ -21,12 +21,12 @@ public class WaterPurity {
 
     /**
      * Users constructor
-     * @param _workerName user name
-     * @param _latitude
-     * @param _longitude
-     * @param _virus
-     * @param _condition
-     * @param _contaminant
+     * @param _workerName user's name
+     * @param _latitude the latitude of the water source being reported
+     * @param _longitude the longitude of the water source being reported
+     * @param _virus the virus ppm level of the water source being reported
+     * @param _condition the condition of the water being reported
+     * @param _contaminant the contaminant ppm of the water being reported
      */
     public WaterPurity(String _workerName, String _latitude, String _longitude, String _condition, String _virus, String _contaminant){
         this._workerName = _workerName;

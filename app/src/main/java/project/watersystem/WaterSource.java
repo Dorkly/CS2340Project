@@ -19,11 +19,11 @@ public class WaterSource {
 
     /**
      * Users constructor
-     * @param _userName user name
-     * @param _latitude
-     * @param _longitude
-     * @param _waterType
-     * @param _condition
+     * @param _userName user's name
+     * @param _latitude latitude of the water source being reported
+     * @param _longitude longitude of the water source being reported
+     * @param _waterType the type of the water being reported
+     * @param _condition the condition of the water being reported
      */
     public WaterSource(String _userName, String _latitude, String _longitude, String _waterType, String _condition){
         this._userName = _userName;

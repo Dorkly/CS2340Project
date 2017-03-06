@@ -1,7 +1,7 @@
 package project.watersystem;
 
 /**
- * Created by jimhelm on 2/21/17.
+ * Created by jimHelm on 2/21/17.
  */
 
 import android.content.ContentValues;
@@ -104,8 +104,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * addUsers method adds users to the Registerd_Accounts table
-     * @param users
+     * addUsers method adds users to the Registered_Accounts table
+     * @param users the users you are adding to the table
      */
     void addUsers(Users users) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -123,8 +123,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * addProfiles method adds user profiles to the Registerd_Profiles table
-     * @param profile
+     * addProfiles method adds user profiles to the Registered_Profiles table
+     * @param profile the profile you are adding to the table
      */
    void addProfiles(Profiles profile) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -140,8 +140,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * addUsers method adds users to the Registerd_Accounts table
-     * @param ws
+     * addSource reports method adds users to the Table_WaterSource table
+     * @param ws the water source report you wish to add to the table
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     void addSourceReport(WaterSource ws) {
@@ -164,8 +164,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * addUsers method adds users to the Registerd_Accounts table
-     * @param wp
+     * addPurityReport method adds users to the Table_WaterPurity table
+     * @param wp the purity  report you are adding to the table
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     void addPurityReport(WaterPurity wp) {
@@ -198,9 +198,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * validateUser checks if the userid and password are in the table and match
-     * @param username
-     * @param password
+     * validateUser checks if the userId and password are in the table and match
+     * @param username the username you are checking
+     * @param password the password you are checking
      * @return boolean
      */
     public boolean validateUser(String username, String password){
@@ -216,8 +216,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * sameUser checks if the userid is already in the table
-     * @param username
+     * sameUser checks if the userId is already in the table
+     * @param username the username you are searching for/checking
      * @return boolean
      */
     public boolean sameUser(String username){
@@ -239,7 +239,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * getUserName returns the user name from the Registerd_Accounts table
+     * getUserName returns the user name from the Registered_Accounts table
      * @return String
      */
     public String getUserName() {
@@ -253,7 +253,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * getEmail returns the email address from the Registerd_Accounts table
+     * getEmail returns the email address from the Registered_Accounts table
      * @return String
      */
     public String getEmail() {
@@ -272,7 +272,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * getUserTypr returns the registered Type from the Registerd_Accounts table
+     * getUserType returns the registered Type from the Registered_Accounts table
      * @return String
      */
     public String getUserType() {
@@ -289,7 +289,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * getHomeAddress returns the home address from the Registerd_Profiles table
+     * getHomeAddress returns the home address from the Registered_Profiles table
      * @return String
      */
     public String getHomeAddress() {
@@ -306,7 +306,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * getPhone returns the phone number from the Registerd_Profiles table
+     * getPhone returns the phone number from the Registered_Profiles table
      * @return String
      */
     public String getPhone() {
@@ -324,7 +324,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * updateProfile updates the user profile data in the Registered_Profile table
-     * @param profile
+     * @param profile the profile of the user whose info you are updating
      */
     public void updateProfile(Profiles profile) {
         getReadableDatabase().execSQL("UPDATE " + TABLE_PROFILES + " SET "
@@ -348,7 +348,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * updateUsers updates the user account data in the Registered_Account table
-     * @param userId userid to update
+     * @param userId userId to update
      * @param name new user name
      * @param email new email address
      * @param type new registered type
