@@ -1,4 +1,4 @@
-package project.watersystem;
+package project.waterSystem;
 
 /**
  * Created by jimhelm on 2/21/17.

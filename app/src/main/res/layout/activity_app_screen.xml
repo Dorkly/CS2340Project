@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.watersystem.AppScreen">
+    tools:context="project.waterSystem.AppScreen">
 
 
 

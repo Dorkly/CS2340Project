@@ -1,4 +1,4 @@
-package project.watersystem;
+package project.waterSystem;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -9,7 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.watersystem.PurityReportsListActivity">
+    tools:context="project.waterSystem.PurityReportsListActivity">
 
     <Button
         android:text="Return to Main"

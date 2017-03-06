@@ -1,4 +1,4 @@
-package project.watersystem;
+package project.waterSystem;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="project.watersystem">
+    package="project.waterSystem">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeScreen"
+            android:name="project.waterSystem.WelcomeScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="project.waterSystem.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="LOGIN_ACTIVITY" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AppScreen"
+            android:name="project.waterSystem.AppScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="APP_ACTIVITY" />
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistrationScreen"
+            android:name="project.waterSystem.RegistrationScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="Reg_ACTIVITY" />
@@ -45,7 +45,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SourceReport"
+            android:name="project.waterSystem.SourceReport"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="SOURCE_REPORT" />
@@ -53,8 +53,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PurityReport">
+        <activity android:name="project.waterSystem.ProfileActivity" />
+        <activity android:name="project.waterSystem.PurityReport">
             <intent-filter>
                 <action android:name="Purity_Activity" />
 
@@ -62,7 +62,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainReportScreen"
+            android:name="project.waterSystem.MainReportScreen"
             android:label="WaterSystem">
             <intent-filter>
                 <action android:name="Reg_ACTIVITY" />
@@ -70,14 +70,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PurityReportsListActivity">
+        <activity android:name="project.waterSystem.PurityReportsListActivity">
             <intent-filter>
                 <action android:name="PurityList_ACTIVITY" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SourceReportsListActivity"></activity>
+        <activity android:name="project.waterSystem.SourceReportsListActivity"></activity>
     </application>
 
 </manifest>

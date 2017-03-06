@@ -1,4 +1,4 @@
-package project.watersystem;
+package project.waterSystem;
 
 import android.app.Activity;
 import android.os.Bundle;
