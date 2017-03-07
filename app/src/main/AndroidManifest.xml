@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="project.watersystem">
+    package="project.waterSystem">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <permission 
+        android:name="com.viviananha.mapsapp.perimission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.viviananha.mapsapp.perimission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_gservices" />
+
+    <uses-feature android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeScreen"
+            android:name="project.waterSystem.WelcomeScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAh2DGmsxyFSwQPcAXFo5Eb96o1U9vl1ho" />
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
-            android:name=".LoginActivity"
+            android:name="project.waterSystem.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="LOGIN_ACTIVITY" />
@@ -27,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AppScreen"
+            android:name="project.waterSystem.AppScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="APP_ACTIVITY" />
@@ -36,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistrationScreen"
+            android:name="project.waterSystem.RegistrationScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="Reg_ACTIVITY" />
@@ -45,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SourceReport"
+            android:name="project.waterSystem.SourceReport"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="SOURCE_REPORT" />
@@ -53,31 +73,30 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PurityReport">
+        <activity android:name="project.waterSystem.ProfileActivity" />
+        <activity android:name="project.waterSystem.MapsActivity" />
+        <activity android:name="project.waterSystem.PurityReport">
             <intent-filter>
                 <action android:name="Purity_Activity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainReportScreen"
+            android:name="project.waterSystem.MainReportScreen"
             android:label="WaterSystem">
             <intent-filter>
                 <action android:name="Reg_ACTIVITY" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PurityReportsListActivity">
+        <activity android:name="project.waterSystem.PurityReportsListActivity">
             <intent-filter>
                 <action android:name="PurityList_ACTIVITY" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SourceReportsListActivity"></activity>
+        <activity android:name="project.waterSystem.SourceReportsListActivity"></activity>
     </application>
 
 </manifest>

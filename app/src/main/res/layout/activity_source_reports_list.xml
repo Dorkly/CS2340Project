@@ -9,7 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.watersystem.SourceReportsListActivity">
+    tools:context="project.waterSystem.SourceReportsListActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"

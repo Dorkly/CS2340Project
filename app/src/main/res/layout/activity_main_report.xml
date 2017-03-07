@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.watersystem.AppScreen">
+    tools:context="project.waterSystem.AppScreen">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text=" Create New Water Source Report "
+        android:text="Create Source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
@@ -57,13 +57,33 @@
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:minWidth="90dip"
-        android:width="265dp"
+        android:width="100dp"
         android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp" />
 
     <Button
-        android:text="View Water source Reports"
+        android:text="Create Purity"
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="100dp"
+        android:background="@drawable/button_shape"
+        android:id="@+id/waterPurity"
+        android:fontFamily="sans-serif-light"
+        android:minWidth="90dip"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:textColor="#FFF"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBaseline="@+id/waterSource"
+        android:layout_alignBottom="@+id/waterSource"
+        android:layout_toEndOf="@+id/listSourceReports" />
+
+    <Button
+        android:text="View Source"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,13 +94,14 @@
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:minWidth="90dip"
-        android:width="265dp"
+        android:width="100dp"
         android:layout_below="@+id/waterSource"
         android:layout_alignStart="@+id/waterSource"
-        android:layout_marginTop="59dp" />
+        android:layout_marginTop="20dp"
+        android:layout_alignBottom="@+id/listPurityReports" />
 
     <Button
-        android:text="View Water Purity Reports"
+        android:text="View Purity"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,28 +111,31 @@
         android:id="@+id/listPurityReports"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
+        android:paddingTop="2dp"
         android:minWidth="90dip"
-        android:width="265dp"
-        android:layout_below="@+id/listSourceReports"
-        android:layout_alignStart="@+id/listSourceReports"
-        android:layout_marginTop="5dp" />
+        android:width="100dp"
+        android:layout_below="@+id/waterPurity"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/waterSource"
+        android:layout_alignStart="@+id/waterPurity" />
 
     <Button
-        android:text="  Create New Water Purity Report  "
+        android:text="Water Availability"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
-        android:id="@+id/waterPurity"
+        android:id="@+id/waterAvailability"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
+        android:paddingTop="2dp"
         android:minWidth="90dip"
-        android:width="265dp"
-        android:layout_below="@+id/waterSource"
-        android:layout_alignStart="@+id/waterSource"
-        android:layout_marginTop="5dp" />
+        android:width="100dp"
+        android:layout_below="@+id/listSourceReports"
+        android:layout_marginTop="20dp"
+        android:layout_alignStart="@+id/listSourceReports" />
 
 
 </RelativeLayout >
