@@ -34,20 +34,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     .findFragmentById(R.id.map_fragment);
             mapFragment.getMapAsync(this);
         }else{
-            // No Google Map Availabele
+            // No Google Map Available
         }
     }
 
     private boolean googleServiceAvailable() {
         GoogleApiAvailability api = GoogleApiAvailability.getInstance();
-        int isAvailabel = api.isGooglePlayServicesAvailable(this);
-        if(isAvailabel == ConnectionResult.SUCCESS){
+        int isAvailable = api.isGooglePlayServicesAvailable(this);
+        if(isAvailable == ConnectionResult.SUCCESS){
             return true;
-        } else if(api.isUserResolvableError(isAvailabel)){
-            Dialog dialog = api.getErrorDialog(this,isAvailabel,0);
+        } else if(api.isUserResolvableError(isAvailable)){
+            Dialog dialog = api.getErrorDialog(this,isAvailable,0);
             dialog.show();
         } else {
-            Toast.makeText(this,"Can't connect to play serveerce", Toast.LENGTH_LONG);
+            Toast.makeText(this,"Can't connect to play service", Toast.LENGTH_LONG);
         }
         return false;
     }

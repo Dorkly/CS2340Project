@@ -24,7 +24,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * A login screen that offers login via userID/password.
+ * A login screen that offers login via userId/password.
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String userid = mEmailView.getText().toString();
+        String userId = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -134,11 +134,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(userid)) {
+        if (TextUtils.isEmpty(userId)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(userid)) {
+        } else if (!isEmailValid(userId)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            boolean accountMatch = db.validateUser(userid,password);
+            boolean accountMatch = db.validateUser(userId,password);
             if(accountMatch) {
                 Intent intent = new Intent(LoginActivity.this, AppScreen.class);
                 startActivity(intent);
@@ -167,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Checks to see if the login is valid.
-     * @param email userid string
+     * @param email userId string
      * @return true is valid
      */
     private boolean isEmailValid(String email) {

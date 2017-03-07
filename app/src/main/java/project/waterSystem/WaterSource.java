@@ -1,7 +1,7 @@
 package project.waterSystem;
 
 /**
- * Created by jimhelm on 2/28/17.
+ * Created by Jim Helm on 2/28/17.
  */
 
 public class WaterSource {

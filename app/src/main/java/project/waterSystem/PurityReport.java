@@ -53,10 +53,10 @@ public class PurityReport extends AppCompatActivity {
         int newReportId = db.getPurityReportId();
         mReportId.setText("" + newReportId);
 
-        Date dateobj = Calendar.getInstance().getTime();
+        Date dateObj = Calendar.getInstance().getTime();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-            dateTimeValue = sdf.format(dateobj);
+            dateTimeValue = sdf.format(dateObj);
         }
         TextView mDateField = (TextView) findViewById(R.id.purityReportDate);
         mDateField.setText(dateTimeValue);
