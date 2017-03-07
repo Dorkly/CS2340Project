@@ -1,9 +1,5 @@
 package project.waterSystem;
 
-/**
- * Created by Jim Helm on 2/21/17.
- */
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,6 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * Created by Jim Helm on 2/21/17.
+ *
  * SQLite database handler
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -58,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * DatabaseHandler constructor
-     * @param context
+     * @param context Context: to use to open or create the database
      */
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

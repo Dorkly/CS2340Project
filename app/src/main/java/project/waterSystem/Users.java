@@ -2,9 +2,7 @@ package project.waterSystem;
 
 /**
  * Created by Jim Helm on 2/21/17.
- */
-
-/**
+ *
  * Users class used for login and registration
  */
 public class Users {
