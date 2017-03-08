@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import project.waterSystem.Controller.MainReportScreen;
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.R;
 
 public class PurityReportsListActivity extends AppCompatActivity {
     private Button returnButton;

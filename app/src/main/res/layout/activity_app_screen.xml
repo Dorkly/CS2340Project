@@ -26,15 +26,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <info.hoang8f.widget.FButton
-    fbutton:buttonColor="@color/color_concrete"
-    fbutton:shadowColor="@color/color_asbestos"
-    fbutton:shadowEnabled="true"
-    fbutton:shadowHeight="5dp"
-    fbutton:cornerRadius="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <Button
     android:text="Create/Edit Profile"
     android:layout_width="wrap_content"

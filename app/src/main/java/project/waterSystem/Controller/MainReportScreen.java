@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import project.waterSystem.DatabaseHandler;
 import project.waterSystem.PurityReport;
-import project.waterSystem.PurityReportsListActivity;
 import project.waterSystem.R;
 import project.waterSystem.SourceReport;
 import project.waterSystem.SourceReportsListActivity;

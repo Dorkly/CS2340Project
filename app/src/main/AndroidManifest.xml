@@ -89,7 +89,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="project.waterSystem.PurityReportsListActivity">
+        <activity android:name="project.waterSystem.Controller.PurityReportsListActivity">
             <intent-filter>
                 <action android:name="PurityList_ACTIVITY" />
 
