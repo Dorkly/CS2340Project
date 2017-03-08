@@ -2,9 +2,7 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm on 2/22/17.
- */
-
-/**
+ *
  * Profiles class used for Profile information
  */
 public class Profiles {
