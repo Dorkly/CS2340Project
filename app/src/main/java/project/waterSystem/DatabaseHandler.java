@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import project.waterSystem.Model.Profiles;
+
 /**
  * SQLite database handler
  */
@@ -58,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * DatabaseHandler constructor
-     * @param context
+     * @param context the activity the database is handling
      */
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

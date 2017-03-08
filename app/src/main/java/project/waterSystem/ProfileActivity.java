@@ -13,6 +13,9 @@ import android.widget.TextView;
 import java.util.Arrays;
 import java.util.List;
 
+import project.waterSystem.Controller.AppScreen;
+import project.waterSystem.Model.Profiles;
+
 public class ProfileActivity extends AppCompatActivity {
     public Button cancelProfileButton;
     public Button saveProfileButton;

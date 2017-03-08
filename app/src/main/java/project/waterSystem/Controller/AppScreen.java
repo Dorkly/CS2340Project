@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import project.waterSystem.ProfileActivity;
+import project.waterSystem.R;
+import project.waterSystem.WelcomeScreen;
 
 
 /**

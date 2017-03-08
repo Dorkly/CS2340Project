@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.PurityReport;
+import project.waterSystem.PurityReportsListActivity;
+import project.waterSystem.R;
+import project.waterSystem.SourceReport;
+import project.waterSystem.SourceReportsListActivity;
 
 /**
  * Created by AustinJ on 2/25/17.

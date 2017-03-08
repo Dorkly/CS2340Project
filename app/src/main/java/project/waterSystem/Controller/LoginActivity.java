@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -22,6 +22,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.R;
+import project.waterSystem.WelcomeScreen;
 
 /**
  * A login screen that offers login via userId/password.

@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.view.View;
 import android.content.Intent;
 
+import project.waterSystem.Controller.AppScreen;
+import project.waterSystem.Controller.MainReportScreen;
+
 public class SourceReport extends AppCompatActivity {
     public Button reportSourceButton;
     public Button cancelSourceButton;
