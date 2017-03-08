@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="project.waterSystem.WelcomeScreen"
+            android:name="project.waterSystem.Controller.WelcomeScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -96,7 +96,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="project.waterSystem.SourceReportsListActivity"></activity>
+        <activity android:name="project.waterSystem.Controller.SourceReportsListActivity"></activity>
     </application>
 
 </manifest>

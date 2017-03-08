@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import project.waterSystem.ProfileActivity;
 import project.waterSystem.R;
-import project.waterSystem.WelcomeScreen;
 
 
 /**

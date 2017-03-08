@@ -11,7 +11,6 @@ import project.waterSystem.DatabaseHandler;
 import project.waterSystem.PurityReport;
 import project.waterSystem.R;
 import project.waterSystem.SourceReport;
-import project.waterSystem.SourceReportsListActivity;
 
 /**
  * Created by AustinJ on 2/25/17.

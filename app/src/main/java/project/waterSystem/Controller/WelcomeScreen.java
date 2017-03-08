@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import project.waterSystem.Controller.LoginActivity;
+import project.waterSystem.R;
+import project.waterSystem.RegistrationScreen;
 
 /**
  * Welcome screen that allows user to login or register.

@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.waterSystem.WelcomeScreen">
+    tools:context="project.waterSystem.Controller.WelcomeScreen">
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="wrap_content"

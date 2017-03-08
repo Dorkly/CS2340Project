@@ -1,4 +1,4 @@
-package project.waterSystem;
+package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm on 2/28/17.

@@ -19,6 +19,7 @@ import java.util.List;
 
 import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Controller.MainReportScreen;
+import project.waterSystem.Model.WaterPurity;
 
 public class PurityReport extends AppCompatActivity {
     public static List<String> purityTypes = Arrays.asList("safe", "Treatable", "Unsafe");

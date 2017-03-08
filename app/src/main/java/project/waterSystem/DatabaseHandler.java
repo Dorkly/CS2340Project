@@ -14,6 +14,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import project.waterSystem.Model.Profiles;
+import project.waterSystem.Model.Users;
+import project.waterSystem.Model.WaterPurity;
+import project.waterSystem.Model.WaterSource;
 
 /**
  * Created by Jim Helm on 2/21/17.
