@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_app_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,8 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#FF55"
+
         app:titleTextColor="#FFF"
         android:theme="@menu/menu_main"
         android:fitsSystemWindows="true"
@@ -60,6 +60,8 @@
         android:id="@+id/gifTextView"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true" />
+
+
 
 
 </RelativeLayout>
