@@ -7,8 +7,8 @@ package project.waterSystem.Model;
 public class WaterSource {
     //private variables
     private String _userName;
-    private String _latitude;
-    private String _longitude;
+    private Double _latitude;
+    private Double _longitude;
     private String _waterType;
     private String _condition;
 
@@ -25,7 +25,7 @@ public class WaterSource {
      * @param _waterType the type of the water being reported
      * @param _condition the condition of the water being reported
      */
-    public WaterSource(String _userName, String _latitude, String _longitude, String _waterType, String _condition){
+    public WaterSource(String _userName, Double _latitude, Double _longitude, String _waterType, String _condition){
         this._userName = _userName;
         this._latitude = _latitude;
         this._longitude = _longitude;
@@ -37,7 +37,7 @@ public class WaterSource {
      * Get latitude
      * @return String
      */
-    public String getLatitude(){
+    public Double getLatitude(){
         return this._latitude;
     }
 
@@ -45,7 +45,7 @@ public class WaterSource {
      * Get longitude
      * @return String
      */
-    public String getLongitude(){
+    public Double getLongitude(){
         return this._longitude;
     }
 

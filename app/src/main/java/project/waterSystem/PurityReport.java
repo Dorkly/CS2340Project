@@ -82,8 +82,8 @@ public class PurityReport extends AppCompatActivity {
                 EditText mContaminant = (EditText) findViewById(R.id.contaminantPPM);
                 Spinner mWaterCondition = (Spinner) findViewById(R.id.conditionSpinner);
 
-                String latitudeValue = mLatitude.getText().toString();
-                String longitudeValue = mLongitude.getText().toString();
+                Double latitudeValue = Double.parseDouble(mLatitude.getText().toString());
+                Double longitudeValue = Double.parseDouble(mLongitude.getText().toString());
                 String virusValue = mVirus.getText().toString();
                 String contaminantValue = mContaminant.getText().toString();
                 String conditionValue = (String) mWaterCondition.getSelectedItem();

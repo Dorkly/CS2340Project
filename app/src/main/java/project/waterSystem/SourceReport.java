@@ -53,8 +53,8 @@ public class SourceReport extends AppCompatActivity {
                 Spinner mWaterType = (Spinner) findViewById(R.id.waterTypeSourceReportSpinner);
                 Spinner mWaterCondition = (Spinner) findViewById(R.id.waterConditionSourceReportSpinner);
 
-                String latitudeValue = mLatitude.getText().toString();
-                String longitudeValue = mLongitude.getText().toString();
+                Double latitudeValue = Double.parseDouble(mLatitude.getText().toString());
+                Double longitudeValue = Double.parseDouble(mLongitude.getText().toString());
                 String typeValue = (String) mWaterType.getSelectedItem();
                 String conditionValue = (String) mWaterCondition.getSelectedItem();
 

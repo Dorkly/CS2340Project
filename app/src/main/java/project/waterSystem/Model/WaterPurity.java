@@ -7,8 +7,8 @@ package project.waterSystem.Model;
 public class WaterPurity {
 
     private String _workerName;
-    private String _latitude;
-    private String _longitude;
+    private Double _latitude;
+    private Double _longitude;
     private String _condition;
     private String _virus;
     private String _contaminant;
@@ -28,7 +28,7 @@ public class WaterPurity {
      * @param _condition the condition of the water being reported
      * @param _contaminant the contaminant ppm of the water being reported
      */
-    public WaterPurity(String _workerName, String _latitude, String _longitude, String _condition, String _virus, String _contaminant){
+    public WaterPurity(String _workerName, Double _latitude, Double _longitude, String _condition, String _virus, String _contaminant){
         this._workerName = _workerName;
         this._latitude = _latitude;
         this._longitude = _longitude;
@@ -41,7 +41,7 @@ public class WaterPurity {
      * Get latitude
      * @return String
      */
-    public String getLatitude(){
+    public Double getLatitude(){
         return this._latitude;
     }
 
@@ -49,7 +49,7 @@ public class WaterPurity {
      * Get longitude
      * @return String
      */
-    public String getLongitude(){
+    public Double getLongitude(){
         return this._longitude;
     }
 

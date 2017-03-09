@@ -15,6 +15,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.WaterSource;
 import project.waterSystem.R;
 
 
@@ -71,6 +75,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // Setting a click event handler for the map
+
+        // Add a marker in Sydney and move the camera
+        LatLng atlanta = new LatLng(33.749, -84.388);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(atlanta));
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
@@ -82,9 +91,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 markerOptions.position(latLng);
 
 
-
                 // Clears the previously touched position
-                // mMap.clear();
+                mMap.clear();
                 //mFacade.addReport("newly added", "Bobs Place", new Location(latLng.latitude, latLng.longitude));
 
                 // Setting the title for the marker.
@@ -99,16 +107,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(markerOptions);
             }
         });
-        /*
-        List<Report> reportList = mFacade.getReports();
-        for (Report r : reportList) {
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<WaterSource> reportList = db.waterAvailabilityReports();
+        for (WaterSource r : reportList) {
             LatLng loc = new LatLng(r.getLatitude(), r.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(loc).title(r.getName()).snippet(r.getDescription()));
+            mMap.addMarker(new MarkerOptions().position(loc).title(r.getWaterType()).snippet(r.getCondition()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
+        // mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
 
-        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
-        */
     }
     /*
 

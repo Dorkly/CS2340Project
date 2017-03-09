@@ -424,5 +424,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return reportsList;
     }
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<WaterSource> waterAvailabilityReports() {
+        ArrayList<WaterSource> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT "+ KEY_SUBMIT_BY + ", " + KEY_LATITUDE + ", " + KEY_LONGITUDE + ", "
+                        + KEY_WATER_TYPE + ", " + KEY_CONDITION
+                        + " FROM " + TABLE_WATER_SOURCE,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new WaterSource(c.getString(0), Double.parseDouble(c.getString(1)),
+                            Double.parseDouble(c.getString(2)), c.getString(3), c.getString(4)));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
 
 }
