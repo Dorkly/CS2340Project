@@ -147,7 +147,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @param ws the water source report you wish to add to the table
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
-    void addSourceReport(WaterSource ws) {
+    public void addSourceReport(WaterSource ws) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateObj = Calendar.getInstance().getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");

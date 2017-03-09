@@ -1,9 +1,15 @@
 package project.waterSystem.Controller;
 
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,6 +35,9 @@ import project.waterSystem.R;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Spinner waterTypeSpinner, waterConditionSpinner;
+    private ArrayAdapter waterTypeAdapter, waterConditionAdapter;
+    private String typeValue, conditionValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +100,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 markerOptions.position(latLng);
 
 
-                // Clears the previously touched position
-                mMap.clear();
                 //mFacade.addReport("newly added", "Bobs Place", new Location(latLng.latitude, latLng.longitude));
 
+                typeValue = "Stream";
+                conditionValue = "Treatable-Clear";
+                DatabaseHandler db = new DatabaseHandler(MapsActivity.this);
+                String userValue = db.getUserName();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    db.addSourceReport(new WaterSource(userValue, latLng.latitude, latLng.longitude, typeValue, conditionValue));
+                }
                 // Setting the title for the marker.
                 // This will be displayed on taping the marker
                 //markerOptions.title(mFacade.getLastReport().getName());
                 //markerOptions.snippet(mFacade.getLastReport().getDescription());
+                mMap.addMarker(new MarkerOptions().position(latLng).title(typeValue).snippet(conditionValue));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
                 // Animating to the touched position
                 mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
