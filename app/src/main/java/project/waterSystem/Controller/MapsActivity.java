@@ -8,7 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -93,34 +95,73 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onMapClick(LatLng latLng) {
-                // Creating a marker
-                MarkerOptions markerOptions = new MarkerOptions();
+                // custom dialog
+                final LatLng nLatLng = latLng;
 
-                // Setting the position for the marker
-                markerOptions.position(latLng);
+                final Dialog dialog = new Dialog(MapsActivity.this);
+                dialog.setContentView(R.layout.custom);
 
 
-                //mFacade.addReport("newly added", "Bobs Place", new Location(latLng.latitude, latLng.longitude));
+                waterTypeSpinner = (Spinner) dialog.findViewById(R.id.waterTypeDialogSpinner);
+                waterTypeAdapter = ArrayAdapter.createFromResource(MapsActivity.this, R.array.water_type_source_report, android.R.layout.simple_spinner_dropdown_item);
+                waterTypeSpinner.setAdapter(waterTypeAdapter);
 
-                typeValue = "Stream";
-                conditionValue = "Treatable-Clear";
-                DatabaseHandler db = new DatabaseHandler(MapsActivity.this);
-                String userValue = db.getUserName();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    db.addSourceReport(new WaterSource(userValue, latLng.latitude, latLng.longitude, typeValue, conditionValue));
-                }
-                // Setting the title for the marker.
-                // This will be displayed on taping the marker
-                //markerOptions.title(mFacade.getLastReport().getName());
-                //markerOptions.snippet(mFacade.getLastReport().getDescription());
-                mMap.addMarker(new MarkerOptions().position(latLng).title(typeValue).snippet(conditionValue));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                //configure spinner
+                waterConditionSpinner = (Spinner) dialog.findViewById(R.id.waterConditionDialogSpinner);
+                waterConditionAdapter = ArrayAdapter.createFromResource(dialog.getContext(), R.array.water_condition_source_report, android.R.layout.simple_spinner_dropdown_item);
+                waterConditionSpinner.setAdapter(waterConditionAdapter);
 
-                // Animating to the touched position
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                // set the custom dialog components - text, image and button
+                //TextView text = (TextView) dialog.findViewById(R.id.text);
+                //text.setText("Android custom dialog example!");
 
-                // Placing a marker on the touched position
-                mMap.addMarker(markerOptions);
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonSave);
+                // if button is clicked, close the custom dialog
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Creating a marker
+                        MarkerOptions markerOptions = new MarkerOptions();
+
+                        // Setting the position for the marker
+                        markerOptions.position(nLatLng);
+
+                        Spinner mWaterType = (Spinner) dialog.findViewById(R.id.waterTypeDialogSpinner);
+                        Spinner mWaterCondition = (Spinner) dialog.findViewById(R.id.waterConditionDialogSpinner);
+
+                        typeValue = (String) mWaterType.getSelectedItem();
+                        conditionValue = (String) mWaterCondition.getSelectedItem();
+
+                        DatabaseHandler db = new DatabaseHandler(MapsActivity.this);
+                        String userValue = db.getUserName();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            db.addSourceReport(new WaterSource(userValue, nLatLng.latitude, nLatLng.longitude, typeValue, conditionValue));
+                        }
+
+                        mMap.addMarker(new MarkerOptions().position(nLatLng).title(typeValue).snippet(conditionValue));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(nLatLng));
+                        // Animating to the touched position
+                        mMap.animateCamera(CameraUpdateFactory.newLatLng(nLatLng));
+
+                        // Placing a marker on the touched position
+                        mMap.addMarker(markerOptions);
+
+                        dialog.cancel();
+                    }
+                });
+
+                Button dialogButtonCancel = (Button) dialog.findViewById(R.id.dialogButtonCancel);
+                // if button is clicked, close the custom dialog
+                dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.cancel();
+                    }
+                });
+
+
+                dialog.show();
             }
         });
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp" />
+
+    <Button
+        android:id="@+id/dialogButtonSave"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="14dp"
+        android:text="Save"
+        android:layout_below="@+id/waterConditionDialogSpinner"
+        android:layout_alignStart="@+id/textView6" />
+
+    <Button
+        android:id="@+id/dialogButtonCancel"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dialogButtonSave"
+        android:layout_alignBottom="@+id/dialogButtonSave"
+        android:layout_toEndOf="@+id/dialogButtonSave"
+        android:text="Cancel" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView6"
+        android:text="Water Type:"
+        android:layout_alignBottom="@+id/waterTypeDialogSpinner" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="13dp"
+        android:layout_toEndOf="@+id/image"
+        android:text="Condition:" />
+
+    <Spinner
+        android:id="@+id/waterTypeDialogSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_toEndOf="@+id/textView5" />
+
+    <Spinner
+        android:id="@+id/waterConditionDialogSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toEndOf="@+id/textView5" />
+
+</RelativeLayout>
