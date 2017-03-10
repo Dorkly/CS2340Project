@@ -4,24 +4,23 @@
         <item
             android:id="@+id/miCompose"
             android:icon="@drawable/ic_report"
-            app:showAsAction="always|ifRoom"
+            app:showAsAction="always"
             android:title="Report">
         </item>
         <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="always|ifRoom"
+        app:showAsAction="always"
         android:title="Profile">
         </item>
         <item
             android:id="@+id/Logout"
-            android:icon="@drawable/ic_profile"
-            app:showAsAction="never"
+            android:icon="@drawable/ic_lock"
+            app:showAsAction="ifRoom"
             android:title="Logout">
         </item>
         <item
             android:id="@+id/action_settings"
-            android:orderInCategory="100"
             android:title="Settings"
             app:showAsAction="never" />
     </menu>

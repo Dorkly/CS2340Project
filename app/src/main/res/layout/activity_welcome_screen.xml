@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_welcome_screen"
     android:layout_width="match_parent"
@@ -31,24 +32,34 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Login"
         android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#0277bd"
-        android:fontFamily="sans-serif"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:id="@+id/button"
         android:layout_below="@+id/gifTextView"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Registration"
         android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#0277bd"
-        android:fontFamily="sans-serif"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:id="@+id/button2"
         android:layout_marginTop="38dp"
         android:layout_below="@+id/button"

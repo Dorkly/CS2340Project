@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    >
 
     <ImageView
         android:id="@+id/image"
@@ -9,9 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:id="@+id/dialogButtonSave"
         android:layout_width="200px"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:layout_marginTop="14dp"
@@ -19,10 +28,17 @@
         android:layout_below="@+id/waterConditionDialogSpinner"
         android:layout_alignStart="@+id/textView6" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:id="@+id/dialogButtonCancel"
         android:layout_width="200px"
         android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_alignBaseline="@+id/dialogButtonSave"
         android:layout_alignBottom="@+id/dialogButtonSave"
         android:layout_toEndOf="@+id/dialogButtonSave"

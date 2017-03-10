@@ -2,6 +2,7 @@
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_app_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +14,7 @@
     tools:context="project.waterSystem.Controller.AppScreen">
 
     <android.support.v7.widget.Toolbar
+        android:text="Reports"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -23,11 +25,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Return to Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Logout"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
@@ -46,11 +53,16 @@
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Create Source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
         android:id="@+id/waterSource"
@@ -62,10 +74,13 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Create Purity"
-
-
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="100dp"
@@ -82,9 +97,13 @@
         android:layout_alignBottom="@+id/waterSource"
         android:layout_toEndOf="@+id/listSourceReports" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="View Source"
-
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
@@ -100,14 +119,17 @@
         android:layout_marginTop="20dp"
         android:layout_alignBottom="@+id/listPurityReports" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="View Purity"
-
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
-        android:background="@drawable/button_shape"
         android:id="@+id/listPurityReports"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
@@ -119,14 +141,17 @@
         android:layout_alignLeft="@+id/waterSource"
         android:layout_alignStart="@+id/waterPurity" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Water Availability"
-
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
-        android:background="@drawable/button_shape"
         android:id="@+id/waterAvailability"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"

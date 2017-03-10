@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_purity_report"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -107,8 +108,15 @@
         android:textStyle="normal|bold"
         android:textColor="@color/colorPrimaryDark" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Cancel Report"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/purityReportCancel"
@@ -158,8 +166,15 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/purityReportName" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:text="Save Report"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
