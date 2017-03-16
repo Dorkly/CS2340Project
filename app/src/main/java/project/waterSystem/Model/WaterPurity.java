@@ -10,8 +10,8 @@ public class WaterPurity {
     private Double _latitude;
     private Double _longitude;
     private String _condition;
-    private String _virus;
-    private String _contaminant;
+    private Double _virus;
+    private Double _contaminant;
 
 
     // Empty constructor
@@ -28,7 +28,7 @@ public class WaterPurity {
      * @param _condition the condition of the water being reported
      * @param _contaminant the contaminant ppm of the water being reported
      */
-    public WaterPurity(String _workerName, Double _latitude, Double _longitude, String _condition, String _virus, String _contaminant){
+    public WaterPurity(String _workerName, Double _latitude, Double _longitude, String _condition, Double _virus, Double _contaminant){
         this._workerName = _workerName;
         this._latitude = _latitude;
         this._longitude = _longitude;
@@ -57,7 +57,7 @@ public class WaterPurity {
      * Get user password
      * @return String
      */
-    public String getVirusPPM(){
+    public Double getVirusPPM(){
         return this._virus;
     }
 
@@ -65,7 +65,7 @@ public class WaterPurity {
      * Get user password
      * @return String
      */
-    public String getContaminantPPM(){
+    public Double getContaminantPPM(){
         return this._contaminant;
     }
 
@@ -86,5 +86,7 @@ public class WaterPurity {
         return this._condition;
     }
 
-
+    public String getSnippet() {
+        return "Virus PPM: "+ _virus + ", Contaminant: " + _contaminant;
+    }
 }
