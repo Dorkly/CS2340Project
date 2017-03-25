@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="project.waterSystem.Controller.HistoricalReportActivity">
+
+    <TextView
+        android:id="@+id/historicalReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historical Report"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Spinner
+        android:id="@+id/yearSpinner"
+        android:layout_width="297dp"
+        android:layout_height="30dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <TextView
+        android:id="@+id/historicalReportYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="70dp" />
+
+    <TextView
+        android:id="@+id/historicalReportLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="296dp"
+        android:layout_height="33dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="229dp" />
+
+    <Button
+        android:id="@+id/viewGraphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Graph"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="343dp" />
+</android.support.constraint.ConstraintLayout>

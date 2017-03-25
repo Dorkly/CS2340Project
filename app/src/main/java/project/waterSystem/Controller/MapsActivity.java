@@ -177,7 +177,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(loc).title(r.getWaterType())
                     .snippet(r.getCondition()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-        }p
+        }
 
         String userType = db.getUserType();
         if ((userType.toLowerCase().equals("manager")) ) {
