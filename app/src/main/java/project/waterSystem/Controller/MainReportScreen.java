@@ -76,12 +76,15 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        if ((userType.toLowerCase().equals("regular user")) ) {
-            waterPurButton.setVisibility(View.INVISIBLE);
-            listPurButton.setVisibility(View.INVISIBLE);
-        } else {
+        if ((userType.toLowerCase().equals("manager")) ) {
             waterPurButton.setVisibility(View.VISIBLE);
             listPurButton.setVisibility(View.VISIBLE);
+        } else if ((userType.toLowerCase().equals("worker")) ) {
+            waterPurButton.setVisibility(View.VISIBLE);
+            listPurButton.setVisibility(View.INVISIBLE);
+        } else {
+            waterPurButton.setVisibility(View.INVISIBLE);
+            listPurButton.setVisibility(View.INVISIBLE);
         }
 
         //cancel button

@@ -22,13 +22,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
 import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.WaterPurity;
 import project.waterSystem.Model.WaterSource;
+import project.waterSystem.PurityReport;
 import project.waterSystem.R;
 
 
@@ -171,11 +174,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         List<WaterSource> reportList = db.waterAvailabilityReports();
         for (WaterSource r : reportList) {
             LatLng loc = new LatLng(r.getLatitude(), r.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(loc).title(r.getWaterType()).snippet(r.getCondition()));
+            mMap.addMarker(new MarkerOptions().position(loc).title(r.getWaterType())
+                    .snippet(r.getCondition()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
-        // mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
 
+        String userType = db.getUserType();
+        if ((userType.toLowerCase().equals("manager")) ) {
+            // mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
+            List<WaterPurity> reportPurityList = db.waterPurityReports();
+            for (WaterPurity r : reportPurityList) {
+                LatLng loc = new LatLng(r.getLatitude(), r.getLongitude());
+                mMap.addMarker(new MarkerOptions().position(loc).title(r.getCondition())
+                        .snippet(r.getSnippet()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            }
+        }
     }
     /*
 

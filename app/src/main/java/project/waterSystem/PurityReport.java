@@ -84,8 +84,8 @@ public class PurityReport extends AppCompatActivity {
 
                 Double latitudeValue = Double.parseDouble(mLatitude.getText().toString());
                 Double longitudeValue = Double.parseDouble(mLongitude.getText().toString());
-                String virusValue = mVirus.getText().toString();
-                String contaminantValue = mContaminant.getText().toString();
+                Double virusValue = Double.parseDouble(mVirus.getText().toString());
+                Double contaminantValue = Double.parseDouble(mContaminant.getText().toString());
                 String conditionValue = (String) mWaterCondition.getSelectedItem();
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
