@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -47,11 +48,18 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="229dp" />
 
-    <Button
+    <info.hoang8f.widget.FButton
         android:id="@+id/viewGraphButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Graph"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="343dp" />
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
+        tools:layout_editor_absoluteY="324dp"
+        tools:layout_editor_absoluteX="148dp" />
 </android.support.constraint.ConstraintLayout>
