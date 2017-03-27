@@ -26,7 +26,7 @@ public class GraphActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(GraphActivity.this, MainReportScreen.class);
+                Intent intent = new Intent(GraphActivity.this, HistoricalReportActivity.class);
                 //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();

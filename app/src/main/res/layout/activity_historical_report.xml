@@ -62,6 +62,7 @@
         fbutton:cornerRadius="10dp"
         tools:layout_editor_absoluteY="324dp"
         tools:layout_editor_absoluteX="61dp" />
+
     <info.hoang8f.widget.FButton
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
