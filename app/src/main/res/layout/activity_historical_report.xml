@@ -61,5 +61,20 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         tools:layout_editor_absoluteY="324dp"
-        tools:layout_editor_absoluteX="148dp" />
+        tools:layout_editor_absoluteX="61dp" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
+        tools:layout_editor_absoluteY="324dp"
+        tools:layout_editor_absoluteX="204dp" />
 </android.support.constraint.ConstraintLayout>

@@ -105,6 +105,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".Controller.GraphActivity">
+            <intent-filter>
+                <action android:name="Graph_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Controller.SourceReportsListActivity" />
 
         <!--
