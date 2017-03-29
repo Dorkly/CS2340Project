@@ -21,7 +21,7 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph_screen);
 
 
-        cancelButton = (Button) findViewById(R.id.createProfile);
+        cancelButton = (Button) findViewById(R.id.button2);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

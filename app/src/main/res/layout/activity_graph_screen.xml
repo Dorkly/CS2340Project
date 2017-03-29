@@ -13,7 +13,6 @@
     android:background="#FFF"
     tools:context="project.waterSystem.Controller.GraphActivity">
 
-
     <TextView
         android:text="history graph"
         android:layout_width="wrap_content"
@@ -22,7 +21,8 @@
         android:textSize="36sp"
         android:textAllCaps="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"/>
 
     <info.hoang8f.widget.FButton
         android:text="Cancel"
