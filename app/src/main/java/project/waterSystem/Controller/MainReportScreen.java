@@ -36,10 +36,15 @@ public class MainReportScreen extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        waterPurButton = (Button) findViewById(R.id.waterPurity);
+        waterSouButton = (Button) findViewById(R.id.waterSource);
+        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
         listPurButton = (Button) findViewById(R.id.listPurityReports);
         listSouButton = (Button) findViewById(R.id.listSourceReports);
+        histReportButton = (Button) findViewById(R.id.histReport);
+        cancelRepButton = (Button) findViewById(R.id.Logout);
+
         // Water Purity
-        waterPurButton = (Button) findViewById(R.id.waterPurity);
         waterPurButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -52,7 +57,7 @@ public class MainReportScreen extends AppCompatActivity {
         });
 
         // Water Source
-        waterSouButton = (Button) findViewById(R.id.waterSource);
+
         waterSouButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -65,7 +70,7 @@ public class MainReportScreen extends AppCompatActivity {
         });
 
         // Water Availability
-        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
+
         waterAvaButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -77,19 +82,19 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
+        histReportButton.setVisibility(View.INVISIBLE);
+        listPurButton.setVisibility(View.INVISIBLE);
+        waterPurButton.setVisibility(View.INVISIBLE);
         if ((userType.toLowerCase().equals("manager")) ) {
             waterPurButton.setVisibility(View.VISIBLE);
             listPurButton.setVisibility(View.VISIBLE);
+            histReportButton.setVisibility(View.VISIBLE);
         } else if ((userType.toLowerCase().equals("worker")) ) {
             waterPurButton.setVisibility(View.VISIBLE);
-            listPurButton.setVisibility(View.INVISIBLE);
-        } else {
-            waterPurButton.setVisibility(View.INVISIBLE);
-            listPurButton.setVisibility(View.INVISIBLE);
         }
 
         //cancel button
-        cancelRepButton = (Button) findViewById(R.id.Logout);
+
         cancelRepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -124,7 +129,7 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        histReportButton = (Button) findViewById(R.id.histReport);
+
         histReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

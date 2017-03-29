@@ -227,10 +227,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + username  + "'" ,  null);
-        if (c.getCount() > 0) {
-            return true;
-        }
-        else{return false;}
+        return c.getCount() > 0;
     }
 
     /**
@@ -470,4 +467,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return reportsList;
     }
+
+
 }
