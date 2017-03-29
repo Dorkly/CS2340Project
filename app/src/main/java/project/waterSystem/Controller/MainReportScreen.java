@@ -19,6 +19,7 @@ import project.waterSystem.SourceReport;
 public class MainReportScreen extends AppCompatActivity {
     private Button cancelRepButton;
     private Button waterAvaButton;
+    private Button histReportButton;
     private Button waterPurButton;
     private Button waterSouButton;
     private Button listPurButton;
@@ -117,6 +118,17 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, SourceReportsListActivity.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
+        histReportButton = (Button) findViewById(R.id.histReport);
+        histReportButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(MainReportScreen.this, HistoricalReportActivity.class);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);

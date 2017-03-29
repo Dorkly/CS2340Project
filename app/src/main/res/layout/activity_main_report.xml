@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
+        android:theme="@menu/menu_main"
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar"
@@ -140,6 +140,26 @@
         android:layout_marginTop="20dp"
         android:layout_alignLeft="@+id/waterSource"
         android:layout_alignStart="@+id/waterPurity" />
+
+    <info.hoang8f.widget.FButton
+        android:text="Hist Report"
+        fbutton:buttonColor="#039BE5"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/histReport"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="2dp"
+        android:minWidth="90dip"
+        android:width="100dp"
+        android:layout_alignTop="@+id/waterAvailability"
+        android:layout_alignStart="@+id/listPurityReports" />
 
     <info.hoang8f.widget.FButton
         android:text="Water Availability"
