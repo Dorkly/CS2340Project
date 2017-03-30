@@ -6,6 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.ArrayList;
+
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.GraphValues;
 import project.waterSystem.R;
 
 /**
@@ -15,11 +23,33 @@ import project.waterSystem.R;
 public class GraphActivity extends AppCompatActivity {
 
     public Button cancelButton;
+    private ArrayList<GraphValues> graphValues;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_screen);
+        Intent intent = getIntent();
 
+        int selYear = intent.getIntExtra("year",0);
+        Double lat = intent.getDoubleExtra("latitude",0);
+        Double log = intent.getDoubleExtra("longitude",0);
+        String gType = intent.getStringExtra("graphType");
+        DatabaseHandler db = new DatabaseHandler(this);
+        if(gType == "Virus PPM") {
+            graphValues = db.waterPurityVirusGraph(selYear,lat, log);
+        } else {
+            graphValues = db.waterPurityContaminantGraph(selYear,lat, log);
+        }
+
+        DataPoint[] dataPoints = new DataPoint[graphValues.size()];
+        int i = 0;
+        for(GraphValues g:graphValues) {
+            dataPoints[i++] = new DataPoint(g.getMonth(), g.getPpm());
+        }
+
+        GraphView graph = (GraphView) findViewById(R.id.graphView);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
+        graph.addSeries(series);
 
         cancelButton = (Button) findViewById(R.id.button2);
         cancelButton.setOnClickListener(new View.OnClickListener() {

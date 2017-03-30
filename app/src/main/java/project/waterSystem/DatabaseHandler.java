@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import project.waterSystem.Model.GraphValues;
 import project.waterSystem.Model.Location;
 import project.waterSystem.Model.Profiles;
 import project.waterSystem.Model.Users;
@@ -553,6 +554,52 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(TABLE_WATER_PURITY, null, values);
         db.close(); // Closing database connection
+    }
+
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<GraphValues> waterPurityVirusGraph(int selectedYear, Double lat, Double log) {
+        ArrayList<GraphValues> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT strftime('%m', "+ KEY_DATE + ") as Month "
+                        + " , " + KEY_VIRUS
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59' and " + KEY_LATITUDE + " = "
+                        + lat + " and " + KEY_LONGITUDE + " = " + log,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new GraphValues(Integer.parseInt(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
+    public ArrayList<GraphValues> waterPurityContaminantGraph(int selectedYear, Double lat, Double log) {
+        ArrayList<GraphValues> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT strftime('%m', "+ KEY_DATE + ") as Month "
+                        + " , " + KEY_CONTAMINANT
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59' and " + KEY_LATITUDE + " = "
+                        + lat + " and " + KEY_LONGITUDE + " = " + log,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new GraphValues(Integer.parseInt(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
     }
 
 }

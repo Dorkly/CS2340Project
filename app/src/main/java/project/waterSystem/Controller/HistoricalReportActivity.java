@@ -42,10 +42,6 @@ public class HistoricalReportActivity extends AppCompatActivity {
 
         yrSpinner.setAdapter(yrAdapter);
 
-        List<Location> locationsList = db.waterPurityReportLocations(2017);
-
-        locAdapter = new ArrayAdapter<Location>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, locationsList);
-
         locSpinner.setAdapter(locAdapter);
 
         yrSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -68,7 +64,17 @@ public class HistoricalReportActivity extends AppCompatActivity {
         histReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
+                int selectYear = (int) yrSpinner.getSelectedItem();
+                Location loc = (Location) locSpinner.getSelectedItem();
+                String gType = (String) graphSpinner.getSelectedItem();
+                Double lat = loc.getLatitude();
+                Double log = loc.getLongitude();
+
                 Intent intent = new Intent(HistoricalReportActivity.this, GraphActivity.class);
+                intent.putExtra("year", selectYear);
+                intent.putExtra("latitude", lat);
+                intent.putExtra("longitude", log);
+                intent.putExtra("graphType", gType);
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
