@@ -59,6 +59,12 @@ public class GraphActivity extends AppCompatActivity {
         graph.removeAllSeries();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
         graph.addSeries(series);
+        graph.getGridLabelRenderer().setVerticalAxisTitle(gType);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+        graph.getViewport().setMinX(1);
+        graph.getViewport().setMaxX(12);
+
+        graph.getViewport().setXAxisBoundsManual(true);
 
         cancelButton = (Button) findViewById(R.id.button2);
         cancelButton.setOnClickListener(new View.OnClickListener() {
