@@ -1,7 +1,7 @@
 package project.waterSystem.Model;
 
 /**
- * Created by jimhelm on 3/29/17.
+ * Created by Jim Helm on 3/29/17.
  */
 
 public class Location {
