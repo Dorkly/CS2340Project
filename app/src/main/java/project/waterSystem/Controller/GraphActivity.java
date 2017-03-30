@@ -38,7 +38,8 @@ public class GraphActivity extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
 
         TextView graphTitle = (TextView) findViewById(R.id.graph);
-        String newTitle = graphTitle.getText() + " - " + gType;
+        String newTitle = "" + selYear + " " + graphTitle.getText() + " for " + gType;
+        String gTitle = "Latitude/Longitude: " + lat + " / " + log;
         graphTitle.setText(newTitle);
         if(gType.equals("Contaminant PPM")) {
             graphValues = db.waterPurityContaminantGraph(selYear,lat, log);
@@ -54,6 +55,7 @@ public class GraphActivity extends AppCompatActivity {
         }
 
         GraphView graph = (GraphView) findViewById(R.id.graphView);
+        graph.setTitle(gTitle);
         graph.removeAllSeries();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
         graph.addSeries(series);

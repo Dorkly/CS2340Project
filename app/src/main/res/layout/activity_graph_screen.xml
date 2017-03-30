@@ -14,21 +14,21 @@
     tools:context="project.waterSystem.Controller.GraphActivity">
 
     <TextView
-        android:text="history graph"
+        android:id="@+id/graph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/graph"
-        android:textSize="36sp"
-        android:textAllCaps="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:text="history graph"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
 
     <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
-        android:layout_height="400dip"
         android:id="@+id/graphView"
-        android:layout_below="@+id/graph"/>
+        android:layout_width="match_parent"
+        android:layout_height="450dip"
+        android:layout_below="@+id/graph" />
 
     <info.hoang8f.widget.FButton
         android:text="Cancel"
