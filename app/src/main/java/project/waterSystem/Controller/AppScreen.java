@@ -21,7 +21,6 @@ public class AppScreen extends AppCompatActivity {
 
     public Button logoutButton;
     public Button createProfileButton;
-    public Button editProfileButton;
     public Button reportButton;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -55,18 +54,17 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-//        editProfileButton = (Button) findViewById(R.id.editProfile);
-//        editProfileButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // Perform action on click
-//
-//                Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
-//                //intent.putExtra("AddNew", "edit");
-//                startActivity(intent);
-//                finish();
-//                //setContentView(R.layout.activity_login);
-//            }
-//        });
+        reportButton = (Button) findViewById(R.id.reportsButton);
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(AppScreen.this, MainReportScreen.class);
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
     }
 
     @Override

@@ -14,6 +14,42 @@
     tools:context="project.waterSystem.Controller.AppScreen">
 
 
+    <info.hoang8f.widget.FButton
+        android:id="@+id/Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Logout"
+        android:width="135dp"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        android:layout_below="@+id/reportsButton"
+        android:layout_alignStart="@+id/reportsButton"
+        android:layout_marginTop="29dp" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/reportsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="135dp"
+        android:drawableLeft="@drawable/smile"
+        android:fontFamily="sans-serif-light"
+        android:paddingRight="31dp"
+        android:text="Reports"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        android:layout_alignTop="@+id/createProfile"
+        android:layout_alignEnd="@+id/gifTextView" />
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -27,36 +63,42 @@
         android:layout_alignParentStart="true" />
 
     <info.hoang8f.widget.FButton
-        android:text="Create/Edit Profile"
-        android:drawableLeft="@drawable/smile"
-        android:textColor="#FFF"
-        android:fontFamily="sans-serif-light"
         android:id="@+id/createProfile"
-        fbutton:buttonColor="#039BE5"
-        fbutton:shadowColor="#0277bd"
-        fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/gifTextView"
-        android:layout_centerHorizontal="true" />
-
-    <info.hoang8f.widget.FButton
-        android:text="Logout"
-        android:textColor="#FFF"
+        android:width="135dp"
+        android:drawableLeft="@drawable/smile"
         android:fontFamily="sans-serif-light"
+        android:paddingRight="5dp"
+        android:text="Create/Edit Profile"
+        android:textColor="#FFF"
+        android:textSize="12sp"
         fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="10dp"
-        android:id="@+id/Logout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/gifTextView"
+        android:layout_alignStart="@+id/gifTextView" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Settings"
+        android:width="135dp"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        android:layout_alignBaseline="@+id/Logout"
+        android:layout_alignBottom="@+id/Logout"
+        android:layout_alignStart="@+id/createProfile" />
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="300dp"
