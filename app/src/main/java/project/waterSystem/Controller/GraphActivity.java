@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -35,10 +36,15 @@ public class GraphActivity extends AppCompatActivity {
         Double log = intent.getDoubleExtra("longitude",0);
         String gType = intent.getStringExtra("graphType");
         DatabaseHandler db = new DatabaseHandler(this);
-        if(gType == "Virus PPM") {
-            graphValues = db.waterPurityVirusGraph(selYear,lat, log);
-        } else {
+
+        TextView graphTitle = (TextView) findViewById(R.id.graph);
+        String newTitle = graphTitle.getText() + " - " + gType;
+        graphTitle.setText(newTitle);
+        if(gType.equals("Contaminant PPM")) {
             graphValues = db.waterPurityContaminantGraph(selYear,lat, log);
+        } else {
+            graphValues = db.waterPurityVirusGraph(selYear,lat, log);
+
         }
 
         DataPoint[] dataPoints = new DataPoint[graphValues.size()];
@@ -48,6 +54,7 @@ public class GraphActivity extends AppCompatActivity {
         }
 
         GraphView graph = (GraphView) findViewById(R.id.graphView);
+        graph.removeAllSeries();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
         graph.addSeries(series);
 
