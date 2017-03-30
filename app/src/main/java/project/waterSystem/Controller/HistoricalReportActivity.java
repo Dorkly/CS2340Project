@@ -21,8 +21,8 @@ public class HistoricalReportActivity extends AppCompatActivity {
     private Button histReportButton;
     private Button cancelButton;
     private DatabaseHandler db;
-    private Spinner yrSpinner, locSpinner;
-    private ArrayAdapter yrAdapter, locAdapter;
+    private Spinner yrSpinner, locSpinner, graphSpinner;
+    private ArrayAdapter yrAdapter, locAdapter, graphAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,9 @@ public class HistoricalReportActivity extends AppCompatActivity {
 
         yrSpinner = (Spinner) findViewById(R.id.yearSpinner);
 
+        graphSpinner = (Spinner) findViewById(R.id.graphSpinner);
+        graphAdapter = ArrayAdapter.createFromResource(this, R.array.graph_array, android.R.layout.simple_spinner_dropdown_item);
+        graphSpinner.setAdapter(graphAdapter);
 
         locSpinner = (Spinner) findViewById(R.id.locationSpinner);
         yrAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, yearsList);

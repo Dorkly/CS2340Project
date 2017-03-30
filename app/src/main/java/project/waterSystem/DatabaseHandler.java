@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -477,7 +479,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<Integer> reportsList = new ArrayList<>();
 
         Cursor c = getReadableDatabase().rawQuery(
-                "SELECT strftime('%Y', "+ KEY_DATE + ") as Year "
+                "SELECT DISTINCT strftime('%Y', "+ KEY_DATE + ") as Year "
                         + " FROM " + TABLE_WATER_PURITY,  null);
 
         if (!c.isAfterLast() ) {
@@ -512,4 +514,45 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return reportsList;
     }
+
+    public void testAddUser(String usr, String name, String pass, String email, String type) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, usr); // User Name
+        values.put(KEY_PASS, pass); // Password
+        values.put(KEY_NAME, name); // User Name
+        values.put(KEY_EMAIL, email); // Password
+        values.put(KEY_TYPE, type); // Password
+
+        // Inserting Row
+        db.insert(TABLE_USERS, null, values);
+        db.close(); // Closing database connection
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void addTestPurityReport(String usr, String datetime, String name, Double lat, Double log, String condition, Double virus, Double contam) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date dateObj = null;
+        try {
+            dateObj = (Date)sdf.parse(datetime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, usr); // User ID
+        values.put(KEY_DATE, sdf.format(dateObj)); // Date
+        values.put(KEY_WORKER, name); // Worker Name
+        values.put(KEY_LATITUDE, lat); // Latitude
+        values.put(KEY_LONGITUDE, log); // Longitude
+        values.put(KEY_CONDITION, condition); // Water Condition
+        values.put(KEY_VIRUS, virus); // Virus PPM
+        values.put(KEY_CONTAMINANT, contam); // Contaminant PPM
+
+        // Inserting Row
+        db.insert(TABLE_WATER_PURITY, null, values);
+        db.close(); // Closing database connection
+    }
+
 }

@@ -83,10 +83,10 @@
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="141dp"
+        android:layout_marginLeft="10sp"
         android:layout_below="@+id/locationSpinner"
-        android:layout_toEndOf="@+id/historicalReport"
-        android:layout_marginLeft="10sp"/>
+        android:layout_toEndOf="@+id/historicalReport" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/cancelButton"
@@ -104,4 +104,22 @@
         android:layout_alignBottom="@+id/viewGraphButton"
         android:layout_toEndOf="@+id/historicalReportYear"
         android:layout_marginLeft="10sp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/locationSpinner"
+        android:layout_below="@+id/locationSpinner"
+        android:layout_marginTop="25dp"
+        android:text="Graph to view"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/graphSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/locationSpinner"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_below="@+id/textView7" />
 </RelativeLayout>
