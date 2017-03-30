@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import project.waterSystem.Model.Location;
 import project.waterSystem.Model.Profiles;
 import project.waterSystem.Model.Users;
 import project.waterSystem.Model.WaterPurity;
@@ -150,7 +151,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addSourceReport(WaterSource ws) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateObj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User Name
@@ -174,7 +175,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     void addPurityReport(WaterPurity wp) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateObj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User ID
@@ -468,5 +469,47 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return reportsList;
     }
 
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<Integer> waterPurityReportYears() {
+        ArrayList<Integer> reportsList = new ArrayList<>();
 
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT strftime('%Y', "+ KEY_DATE + ") as Year "
+                        + " FROM " + TABLE_WATER_PURITY,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(Integer.parseInt(c.getString(0)));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<Location> waterPurityReportLocations(int selectedYear) {
+        ArrayList<Location> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT " + KEY_LATITUDE + ", " + KEY_LONGITUDE
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59'",  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new Location(Double.parseDouble(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
 }

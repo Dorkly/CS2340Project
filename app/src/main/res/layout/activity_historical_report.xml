@@ -63,7 +63,7 @@
         android:layout_marginLeft="10sp"/>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/locationSpinner"
         android:layout_width="296dp"
         android:layout_height="33dp"
         android:layout_alignEnd="@+id/yearSpinner"
@@ -84,7 +84,7 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/spinner2"
+        android:layout_below="@+id/locationSpinner"
         android:layout_toEndOf="@+id/historicalReport"
         android:layout_marginLeft="10sp"/>
 
