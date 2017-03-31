@@ -1,15 +1,10 @@
 package project.waterSystem.Controller;
 
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,7 +26,6 @@ import java.util.List;
 import project.waterSystem.DatabaseHandler;
 import project.waterSystem.Model.WaterPurity;
 import project.waterSystem.Model.WaterSource;
-import project.waterSystem.PurityReport;
 import project.waterSystem.R;
 
 

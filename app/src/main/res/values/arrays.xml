@@ -25,4 +25,8 @@
         <item>Treatable</item>
         <item>Unsafe</item>
     </string-array>
+    <string-array name="graph_array">
+        <item>Contaminant PPM</item>
+        <item>Virus PPM</item>
+    </string-array>
 </resources>

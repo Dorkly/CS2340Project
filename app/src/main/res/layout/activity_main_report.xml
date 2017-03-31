@@ -38,11 +38,11 @@
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
-        android:layout_marginEnd="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
+        android:paddingRight="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
 
     <ImageView
         android:layout_width="200dp"
@@ -70,9 +70,11 @@
         android:paddingRight="2dp"
         android:minWidth="90dip"
         android:width="100dp"
-        android:layout_below="@+id/imageView2"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="59dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true" />
 
     <info.hoang8f.widget.FButton
         android:text="Create Purity"
@@ -91,11 +93,11 @@
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:textColor="#FFF"
-        android:layout_marginStart="45dp"
         android:layout_marginLeft="20dp"
         android:layout_alignBaseline="@+id/waterSource"
         android:layout_alignBottom="@+id/waterSource"
-        android:layout_toEndOf="@+id/listSourceReports" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="58dp" />
 
     <info.hoang8f.widget.FButton
         android:text="View Source"
@@ -114,10 +116,8 @@
         android:paddingRight="2dp"
         android:minWidth="90dip"
         android:width="100dp"
-        android:layout_below="@+id/waterSource"
-        android:layout_alignStart="@+id/waterSource"
-        android:layout_marginTop="20dp"
-        android:layout_alignBottom="@+id/listPurityReports" />
+        android:layout_alignTop="@+id/listPurityReports"
+        android:layout_alignStart="@+id/waterSource" />
 
     <info.hoang8f.widget.FButton
         android:text="View Purity"
@@ -136,9 +136,8 @@
         android:paddingTop="2dp"
         android:minWidth="90dip"
         android:width="100dp"
-        android:layout_below="@+id/waterPurity"
         android:layout_marginTop="20dp"
-        android:layout_alignLeft="@+id/waterSource"
+        android:layout_below="@+id/waterPurity"
         android:layout_alignStart="@+id/waterPurity" />
 
     <info.hoang8f.widget.FButton

@@ -5,14 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import project.waterSystem.Model.GraphValues;
+import project.waterSystem.Model.Location;
 import project.waterSystem.Model.Profiles;
 import project.waterSystem.Model.Users;
 import project.waterSystem.Model.WaterPurity;
@@ -27,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // Database Name
     private static final String DATABASE_NAME = "DripDrop_v2";
@@ -150,7 +154,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addSourceReport(WaterSource ws) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateObj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User Name
@@ -174,7 +178,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     void addPurityReport(WaterPurity wp) {
         SQLiteDatabase db = this.getWritableDatabase();
         Date dateObj = Calendar.getInstance().getTime();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         ContentValues values = new ContentValues();
         values.put(KEY_USERS, currentUser); // User ID
@@ -227,10 +231,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + username  + "'" ,  null);
-        if (c.getCount() > 0) {
-            return true;
-        }
-        else{return false;}
+        return c.getCount() > 0;
     }
 
     /**
@@ -470,4 +471,135 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return reportsList;
     }
+
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<Integer> waterPurityReportYears() {
+        ArrayList<Integer> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT strftime('%Y', "+ KEY_DATE + ") as Year "
+                        + " FROM " + TABLE_WATER_PURITY,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(Integer.parseInt(c.getString(0)));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<Location> waterPurityReportLocations(int selectedYear) {
+        ArrayList<Location> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT " + KEY_LATITUDE + ", " + KEY_LONGITUDE
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59'",  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new Location(Double.parseDouble(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
+    public void testAddUser(String usr, String name, String pass, String email, String type) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, usr); // User Name
+        values.put(KEY_PASS, pass); // Password
+        values.put(KEY_NAME, name); // User Name
+        values.put(KEY_EMAIL, email); // Password
+        values.put(KEY_TYPE, type); // Password
+
+        // Inserting Row
+        db.insert(TABLE_USERS, null, values);
+        db.close(); // Closing database connection
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void addTestPurityReport(String usr, String datetime, String name, Double lat, Double log, String condition, Double virus, Double contam) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date dateObj = null;
+        try {
+            dateObj = (Date)sdf.parse(datetime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, usr); // User ID
+        values.put(KEY_DATE, sdf.format(dateObj)); // Date
+        values.put(KEY_WORKER, name); // Worker Name
+        values.put(KEY_LATITUDE, lat); // Latitude
+        values.put(KEY_LONGITUDE, log); // Longitude
+        values.put(KEY_CONDITION, condition); // Water Condition
+        values.put(KEY_VIRUS, virus); // Virus PPM
+        values.put(KEY_CONTAMINANT, contam); // Contaminant PPM
+
+        // Inserting Row
+        db.insert(TABLE_WATER_PURITY, null, values);
+        db.close(); // Closing database connection
+    }
+
+    /**
+     * waterAvailabilityReports returns the list of reports from the Water_Source table
+     * @return reportsList
+     */
+    public ArrayList<GraphValues> waterPurityVirusGraph(int selectedYear, Double lat, Double log) {
+        ArrayList<GraphValues> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT strftime('%m', "+ KEY_DATE + ") as Month "
+                        + " , " + KEY_VIRUS
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59' and " + KEY_LATITUDE + " = "
+                        + lat + " and " + KEY_LONGITUDE + " = " + log,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new GraphValues(Integer.parseInt(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
+    public ArrayList<GraphValues> waterPurityContaminantGraph(int selectedYear, Double lat, Double log) {
+        ArrayList<GraphValues> reportsList = new ArrayList<>();
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT strftime('%m', "+ KEY_DATE + ") as Month "
+                        + " , " + KEY_CONTAMINANT
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " WHERE "+ KEY_DATE + " between '" + selectedYear + "-01-01 00:00:00' AND '"
+                        + selectedYear + "-12-31 23:59:59' and " + KEY_LATITUDE + " = "
+                        + lat + " and " + KEY_LONGITUDE + " = " + log,  null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    reportsList.add(new GraphValues(Integer.parseInt(c.getString(0)), Double.parseDouble(c.getString(1))));
+                }while (c.moveToNext());
+            }
+        }
+        return reportsList;
+    }
+
 }

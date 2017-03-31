@@ -13,16 +13,22 @@
     android:background="#FFF"
     tools:context="project.waterSystem.Controller.GraphActivity">
 
-
     <TextView
-        android:text="history graph"
+        android:id="@+id/graph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/graph"
-        android:textSize="36sp"
-        android:textAllCaps="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginLeft="15dp"
+        android:text="history graph"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphView"
+        android:layout_width="match_parent"
+        android:layout_height="450dip"
+        android:layout_below="@+id/graph" />
 
     <info.hoang8f.widget.FButton
         android:text="Cancel"
@@ -37,7 +43,7 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/graphView"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"/>
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package project.waterSystem.Controller;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -36,10 +38,17 @@ public class MainReportScreen extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        waterPurButton = (Button) findViewById(R.id.waterPurity);
+        waterSouButton = (Button) findViewById(R.id.waterSource);
+        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
         listPurButton = (Button) findViewById(R.id.listPurityReports);
         listSouButton = (Button) findViewById(R.id.listSourceReports);
+        histReportButton = (Button) findViewById(R.id.histReport);
+        cancelRepButton = (Button) findViewById(R.id.Logout);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            createTestReports();
+        }
         // Water Purity
-        waterPurButton = (Button) findViewById(R.id.waterPurity);
         waterPurButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -52,7 +61,7 @@ public class MainReportScreen extends AppCompatActivity {
         });
 
         // Water Source
-        waterSouButton = (Button) findViewById(R.id.waterSource);
+
         waterSouButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -65,7 +74,7 @@ public class MainReportScreen extends AppCompatActivity {
         });
 
         // Water Availability
-        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
+
         waterAvaButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -77,19 +86,19 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
+        histReportButton.setVisibility(View.INVISIBLE);
+        listPurButton.setVisibility(View.INVISIBLE);
+        waterPurButton.setVisibility(View.INVISIBLE);
         if ((userType.toLowerCase().equals("manager")) ) {
             waterPurButton.setVisibility(View.VISIBLE);
             listPurButton.setVisibility(View.VISIBLE);
+            histReportButton.setVisibility(View.VISIBLE);
         } else if ((userType.toLowerCase().equals("worker")) ) {
             waterPurButton.setVisibility(View.VISIBLE);
-            listPurButton.setVisibility(View.INVISIBLE);
-        } else {
-            waterPurButton.setVisibility(View.INVISIBLE);
-            listPurButton.setVisibility(View.INVISIBLE);
         }
 
         //cancel button
-        cancelRepButton = (Button) findViewById(R.id.Logout);
+
         cancelRepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -124,7 +133,7 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
 
-        histReportButton = (Button) findViewById(R.id.histReport);
+
         histReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -134,5 +143,35 @@ public class MainReportScreen extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
+    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void createTestReports(){
+        if (!db.sameUser("worker")) {
+            db.testAddUser("worker","Worker","pass","worker@dripdrop.com","Worker");
+            db.addTestPurityReport("worker","2016-01-01 08:00:00","Worker",-122.25,34.04,"Treatable",3.01,10.50);
+            db.addTestPurityReport("worker","2016-02-01 08:00:00","Worker",-122.25,34.04,"Treatable",2.91,10.00);
+            db.addTestPurityReport("worker","2016-03-01 08:00:00","Worker",-122.25,34.04,"Treatable",2.81,9.50);
+            db.addTestPurityReport("worker","2016-04-01 08:00:00","Worker",-122.25,34.04,"Treatable",2.51,9.00);
+            db.addTestPurityReport("worker","2016-05-01 08:00:00","Worker",-122.25,34.04,"Treatable",2.21,8.50);
+            db.addTestPurityReport("worker","2016-06-01 08:00:00","Worker",-122.25,34.04,"Treatable",1.91,7.00);
+            db.addTestPurityReport("worker","2016-07-01 08:00:00","Worker",-122.25,34.04,"Treatable",1.71,6.50);
+            db.addTestPurityReport("worker","2016-08-01 08:00:00","Worker",-122.25,34.04,"Treatable",1.41,5.00);
+            db.addTestPurityReport("worker","2016-09-01 08:00:00","Worker",-122.25,34.04,"Treatable",1.21,4.50);
+            db.addTestPurityReport("worker","2016-10-01 08:00:00","Worker",-122.25,34.04,"Treatable",0.91,3.00);
+            db.addTestPurityReport("worker","2016-11-01 08:00:00","Worker",-122.25,34.04,"Treatable",0.41,1.50);
+            db.addTestPurityReport("worker","2016-12-01 08:00:00","Worker",-122.25,34.04,"Safe",0.01,00.00);
+            db.testAddUser("worker","Worker","pass","worker@dripdrop.com","Worker");
+            db.addTestPurityReport("worker","2017-01-01 08:00:00","Worker",-112.25,24.04,"Treatable",3.01,10.50);
+            db.addTestPurityReport("worker","2017-02-01 08:00:00","Worker",-112.25,24.04,"Treatable",2.91,10.00);
+            db.addTestPurityReport("worker","2017-03-01 08:00:00","Worker",-112.25,24.04,"Treatable",2.51,9.00);
+            db.addTestPurityReport("worker","2017-05-01 08:00:00","Worker",-112.25,24.04,"Treatable",2.21,8.50);
+            db.addTestPurityReport("worker","2017-06-01 08:00:00","Worker",-112.25,24.04,"Treatable",1.91,7.00);
+            db.addTestPurityReport("worker","2017-07-01 08:00:00","Worker",-112.25,24.04,"Treatable",1.71,6.50);
+            db.addTestPurityReport("worker","2017-08-01 08:00:00","Worker",-112.25,24.04,"Treatable",1.41,5.00);
+            db.addTestPurityReport("worker","2017-09-01 08:00:00","Worker",-112.25,24.04,"Treatable",1.21,4.50);
+            db.addTestPurityReport("worker","2017-10-01 08:00:00","Worker",-112.25,24.04,"Treatable",0.91,3.00);
+            db.addTestPurityReport("worker","2017-11-01 08:00:00","Worker",-112.25,24.04,"Treatable",0.41,1.50);
+            db.addTestPurityReport("worker","2017-12-01 08:00:00","Worker",-112.25,24.04,"Safe",0.01,00.00);
+        }
     }
 }

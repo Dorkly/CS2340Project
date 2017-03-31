@@ -5,7 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.ArrayList;
+
+import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.GraphValues;
 import project.waterSystem.R;
 
 /**
@@ -15,13 +24,49 @@ import project.waterSystem.R;
 public class GraphActivity extends AppCompatActivity {
 
     public Button cancelButton;
+    private ArrayList<GraphValues> graphValues;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_screen);
+        Intent intent = getIntent();
 
+        int selYear = intent.getIntExtra("year",0);
+        Double lat = intent.getDoubleExtra("latitude",0);
+        Double log = intent.getDoubleExtra("longitude",0);
+        String gType = intent.getStringExtra("graphType");
+        DatabaseHandler db = new DatabaseHandler(this);
 
-        cancelButton = (Button) findViewById(R.id.createProfile);
+        TextView graphTitle = (TextView) findViewById(R.id.graph);
+        String newTitle = "" + selYear + " " + graphTitle.getText() + " for " + gType;
+        String gTitle = "Latitude/Longitude: " + lat + " / " + log;
+        graphTitle.setText(newTitle);
+        if(gType.equals("Contaminant PPM")) {
+            graphValues = db.waterPurityContaminantGraph(selYear,lat, log);
+        } else {
+            graphValues = db.waterPurityVirusGraph(selYear,lat, log);
+
+        }
+
+        DataPoint[] dataPoints = new DataPoint[graphValues.size()];
+        int i = 0;
+        for(GraphValues g:graphValues) {
+            dataPoints[i++] = new DataPoint(g.getMonth(), g.getPpm());
+        }
+
+        GraphView graph = (GraphView) findViewById(R.id.graphView);
+        graph.setTitle(gTitle);
+        graph.removeAllSeries();
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
+        graph.addSeries(series);
+        graph.getGridLabelRenderer().setVerticalAxisTitle(gType);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+        graph.getViewport().setMinX(1);
+        graph.getViewport().setMaxX(12);
+
+        graph.getViewport().setXAxisBoundsManual(true);
+
+        cancelButton = (Button) findViewById(R.id.button2);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
