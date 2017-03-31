@@ -16,11 +16,7 @@
         <item
             android:id="@+id/Logout"
             android:icon="@drawable/ic_lock"
-            app:showAsAction="ifRoom"
+            app:showAsAction="always"
             android:title="Logout">
         </item>
-        <item
-            android:id="@+id/action_settings"
-            android:title="Settings"
-            app:showAsAction="never" />
     </menu>
