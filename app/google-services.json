@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:912608382654:android:794a3a349c850d6a",
         "android_client_info": {
-          "package_name": "project.watersystem"
+          "package_name": "project.waterSystem"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "912608382654-nvt3tahjj8agj37q14358p1dkcnim0i7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "project.watersystem",
+            "package_name": "project.waterSystem",
             "certificate_hash": "25CC52B8D8E026FD1855722B5D20223CF2E5C33A"
           }
         },

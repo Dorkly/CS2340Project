@@ -15,7 +15,7 @@
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="wrap_content"
-        android:layout_height="305dp"
+        android:layout_height="505dp"
         android:background="@drawable/drip"
         android:id="@+id/gifTextView"
         android:layout_alignParentStart="true" />
@@ -28,7 +28,7 @@
         android:fontFamily="sans-serif-light"
         android:id="@+id/textView"
         android:textColor="#FFF"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="145dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -45,7 +45,8 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:id="@+id/button"
-        android:layout_below="@+id/gifTextView"
+        android:layout_marginBottom="55dp"
+        android:layout_alignBottom="@+id/gifTextView"
         android:layout_centerHorizontal="true" />
 
     <info.hoang8f.widget.FButton
@@ -61,7 +62,7 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:id="@+id/button2"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/button"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,22 +1,25 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:what="http://schemas.android.com/apk/res-auto">
         <item
             android:id="@+id/miCompose"
             android:icon="@drawable/ic_report"
-            app:showAsAction="always"
+            what:showAsAction = "always"
+            android:orderInCategory="100"
             android:title="Report">
         </item>
         <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="always"
+            what:showAsAction = "ifRoom"
+            android:orderInCategory="100"
         android:title="Profile">
         </item>
         <item
             android:id="@+id/Logout"
-            android:icon="@drawable/ic_lock"
-            app:showAsAction="always"
+            android:icon="@drawable/ic_action_water"
+            what:showAsAction = "ifRoom"
+            android:orderInCategory="100"
             android:title="Logout">
         </item>
     </menu>
