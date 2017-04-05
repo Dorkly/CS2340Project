@@ -25,6 +25,11 @@ public class TestProfileActivity {
     @Test
     public void testFindPosition() {
 
-        Assert.assertEquals();
+        Assert.assertEquals("Reg. User", 0, profileActivity.findPosition("Regular User"));
+        Assert.assertEquals("Worker", 1, profileActivity.findPosition("Worker"));
+        Assert.assertEquals("Manage", 2, profileActivity.findPosition("Manager"));
+        Assert.assertEquals("Admin", 3, profileActivity.findPosition("Admin"));
+        Assert.assertEquals("Should be Regular User", 0, profileActivity.findPosition("User"));
+
     }
 }
