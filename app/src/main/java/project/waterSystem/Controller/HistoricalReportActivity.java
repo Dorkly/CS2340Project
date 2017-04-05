@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -18,11 +17,10 @@ import project.waterSystem.R;
 
 public class HistoricalReportActivity extends AppCompatActivity {
 
-    private Button histReportButton;
-    private Button cancelButton;
     private DatabaseHandler db;
     private Spinner yrSpinner, locSpinner, graphSpinner;
-    private ArrayAdapter yrAdapter, locAdapter, graphAdapter;
+    private ArrayAdapter locAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +32,11 @@ public class HistoricalReportActivity extends AppCompatActivity {
         yrSpinner = (Spinner) findViewById(R.id.yearSpinner);
 
         graphSpinner = (Spinner) findViewById(R.id.graphSpinner);
-        graphAdapter = ArrayAdapter.createFromResource(this, R.array.graph_array, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter graphAdapter = ArrayAdapter.createFromResource(this, R.array.graph_array, android.R.layout.simple_spinner_dropdown_item);
         graphSpinner.setAdapter(graphAdapter);
 
         locSpinner = (Spinner) findViewById(R.id.locationSpinner);
-        yrAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, yearsList);
+        ArrayAdapter yrAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, yearsList);
 
         yrSpinner.setAdapter(yrAdapter);
 
@@ -49,7 +47,7 @@ public class HistoricalReportActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 int selectYear = (int) yrSpinner.getSelectedItem();
                 List<Location> locationsList = db.waterPurityReportLocations(selectYear);
-                locAdapter = new ArrayAdapter<Location>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, locationsList);
+                locAdapter = new ArrayAdapter<>(HistoricalReportActivity.this, android.R.layout.simple_spinner_item, locationsList);
                 locSpinner.setAdapter(locAdapter);
             }
 
@@ -60,7 +58,7 @@ public class HistoricalReportActivity extends AppCompatActivity {
 
         });
 
-        histReportButton = (Button) findViewById(R.id.viewGraphButton);
+        Button histReportButton = (Button) findViewById(R.id.viewGraphButton);
         histReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -80,7 +78,7 @@ public class HistoricalReportActivity extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
-        cancelButton = (Button) findViewById(R.id.cancelButton);
+        Button cancelButton = (Button) findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

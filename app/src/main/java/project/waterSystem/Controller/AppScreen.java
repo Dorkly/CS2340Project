@@ -19,9 +19,6 @@ import project.waterSystem.R;
  */
 public class AppScreen extends AppCompatActivity {
 
-    public Button logoutButton;
-    public Button createProfileButton;
-    public Button reportButton;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +27,7 @@ public class AppScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        logoutButton = (Button) findViewById(R.id.Logout);
+        Button logoutButton = (Button) findViewById(R.id.Logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
@@ -41,7 +38,7 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-        createProfileButton = (Button) findViewById(R.id.createProfile);
+        Button createProfileButton = (Button) findViewById(R.id.createProfile);
         createProfileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -54,7 +51,7 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-        reportButton = (Button) findViewById(R.id.reportsButton);
+        Button reportButton = (Button) findViewById(R.id.reportsButton);
         reportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
