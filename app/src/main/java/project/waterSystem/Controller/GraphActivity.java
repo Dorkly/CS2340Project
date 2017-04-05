@@ -17,14 +17,10 @@ import project.waterSystem.DatabaseHandler;
 import project.waterSystem.Model.GraphValues;
 import project.waterSystem.R;
 
-/**
- * Created by AustinJ on 3/27/17.
- */
+
 
 public class GraphActivity extends AppCompatActivity {
 
-    public Button cancelButton;
-    private ArrayList<GraphValues> graphValues;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +37,7 @@ public class GraphActivity extends AppCompatActivity {
         String newTitle = "" + selYear + " " + graphTitle.getText() + " for " + gType;
         String gTitle = "Latitude/Longitude: " + lat + " / " + log;
         graphTitle.setText(newTitle);
+        ArrayList<GraphValues> graphValues;
         if(gType.equals("Contaminant PPM")) {
             graphValues = db.waterPurityContaminantGraph(selYear,lat, log);
         } else {
@@ -50,7 +47,7 @@ public class GraphActivity extends AppCompatActivity {
 
         DataPoint[] dataPoints = new DataPoint[graphValues.size()];
         int i = 0;
-        for(GraphValues g:graphValues) {
+        for(GraphValues g: graphValues) {
             dataPoints[i++] = new DataPoint(g.getMonth(), g.getPpm());
         }
 
@@ -66,7 +63,7 @@ public class GraphActivity extends AppCompatActivity {
 
         graph.getViewport().setXAxisBoundsManual(true);
 
-        cancelButton = (Button) findViewById(R.id.button2);
+        Button cancelButton = (Button) findViewById(R.id.button2);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

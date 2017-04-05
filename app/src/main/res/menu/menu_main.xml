@@ -4,19 +4,19 @@
         <item
             android:id="@+id/miCompose"
             android:icon="@drawable/ic_report"
-            app:showAsAction="always"
+            app:showAsAction = "always"
             android:title="Report">
         </item>
         <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="always"
+            app:showAsAction = "always"
         android:title="Profile">
         </item>
         <item
             android:id="@+id/Logout"
             android:icon="@drawable/ic_lock"
-            app:showAsAction="always"
+            app:showAsAction = "always"
             android:title="Logout">
         </item>
     </menu>
