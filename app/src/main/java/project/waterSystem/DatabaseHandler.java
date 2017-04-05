@@ -71,7 +71,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
+    /**
+     * onCreate constructor that creates the database tables for the passed database
+     * @param db the activity the database is handling
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_USERS + "("
@@ -102,7 +105,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    // Upgrading database
+    /**
+     * onUpgrade constructor drops then recreates the database tables if the database version is
+     * newer
+     * @param db the activity the database is handling
+     * @param oldVersion the old database version number
+     * @param newVersion the new database version number
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
@@ -111,7 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * addUsers method adds users to the Registered_Accounts table
+     * addUsers method adds Users to the Registered_Accounts table
      * @param users the users you are adding to the table
      */
     void addUsers(Users users) {
@@ -196,7 +205,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * deleteAllAccounts method deletes all users to the Registered_Accounts table
+     * deleteAllAccounts method deletes all users in the Registered_Accounts table
      */
     public void deleteAllAccounts() //Deletes all data in the database
     {
@@ -216,10 +225,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + KEY_USERS + "='" + username +"'AND "+KEY_PASS+"='"+password+"'" ,  null);
         if (c.getCount() > 0) {
             currentUser = username;
+            c.close();
             return true;
         }
-        else{return false;}
 
+        else {
+            c.close();
+            return false;
+        }
     }
 
     /**
@@ -247,12 +260,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return String
      */
     public String getUserName() {
-        String userName = "";
+        String userName;
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT userName FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
         c.moveToFirst();
         userName = c.getString(0);
+        c.close();
         return userName;
     }
 
@@ -261,7 +275,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return String
      */
     public String getEmail() {
-        String email = "";
+        String email;
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT email FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
@@ -269,6 +283,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (c != null) {
             c.moveToFirst();
             email = c.getString(0);
+            c.close();
             return email;
         }
         return "";
@@ -280,17 +295,34 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return String
      */
     public String getUserType() {
-        String userType = "";
+        String userType;
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT userType FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
         if (c != null) {
             c.moveToFirst();
             userType = c.getString(0);
+            c.close();
             return userType;
         }
         return "";
     }
+
+    /** Returns the maximum number of digits in any one integer in ARRAY.
+     * @param array
+     * @return int
+     */
+    private static int maxDigit(int[] array) {
+        int max = 1;
+        for (int i : array) {
+            String number = Integer.toString(i);
+            if (number.length() > max) {
+                max = number.length();
+            }
+        }
+        return max;
+    }
+
 
     /**
      * getHomeAddress returns the home address from the Registered_Profiles table
