@@ -45,11 +45,10 @@
         android:layout_marginBottom="16dp" />
 
     <ImageView
-        android:layout_width="400dp"
+        android:layout_width="500dp"
         android:layout_height="210dp"
-        app:srcCompat="@drawable/41"
+        app:srcCompat="@drawable/report"
         android:id="@+id/imageView2"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/toolbar" />
 
     <info.hoang8f.widget.FButton

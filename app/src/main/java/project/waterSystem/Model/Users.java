@@ -75,4 +75,12 @@ public class Users {
         return this._userType;
     }
 
+    @Override
+    public String toString(){
+        if (this._userType == "Worker"){
+            return "Hello, let's get to work!";
+        }
+        return "Hi";
+    }
+
 }
