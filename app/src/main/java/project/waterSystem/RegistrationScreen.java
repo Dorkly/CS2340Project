@@ -79,15 +79,22 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
 
                 int charUserLength = userValue.length();
                 int charPassLength = passValue.length();
+
+                if (userValue.equals("")) {
+                    Toast.makeText(RegistrationScreen.this, "Username is Empty", Toast.LENGTH_SHORT).show();
+                }
+
                 boolean userMatch = db.sameUser(userValue);
 
                 if (userMatch) { //Checks to see if the UserName already exists
                     Toast.makeText(RegistrationScreen.this, "UserName Already Taken", Toast.LENGTH_LONG).show();
-                }
-                else if (userValue.equals("") && passValue.equals("")) {
-                    Toast.makeText(RegistrationScreen.this, "Fields Empty", Toast.LENGTH_SHORT).show();
-                }
-                else if (charUserLength <= 2 && charPassLength <= 2) {
+                } else if (passValue.equals("")) {
+                    Toast.makeText(RegistrationScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
+                } else if (nameValue.equals("")) {
+                    Toast.makeText(RegistrationScreen.this, "Name is Empty", Toast.LENGTH_SHORT).show();
+                } else if (emailValue.equals("")) {
+                    Toast.makeText(RegistrationScreen.this, "Email is Empty", Toast.LENGTH_SHORT).show();
+                } else if (charUserLength <= 2 && charPassLength <= 2) {
                     Toast.makeText(RegistrationScreen.this, "Characters too short", Toast.LENGTH_SHORT).show();
                 }
                 else {

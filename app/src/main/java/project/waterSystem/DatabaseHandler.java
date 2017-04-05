@@ -241,6 +241,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return boolean
      */
     public boolean sameUser(String username){
+        if (username == null) {
+            return false;
+        }
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + username  + "'" ,  null);
@@ -307,22 +310,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return "";
     }
-
-    /** Returns the maximum number of digits in any one integer in ARRAY.
-     * @param array
-     * @return int
-     */
-    private static int maxDigit(int[] array) {
-        int max = 1;
-        for (int i : array) {
-            String number = Integer.toString(i);
-            if (number.length() > max) {
-                max = number.length();
-            }
-        }
-        return max;
-    }
-
 
     /**
      * getHomeAddress returns the home address from the Registered_Profiles table
