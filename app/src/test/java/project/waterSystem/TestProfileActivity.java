@@ -30,6 +30,10 @@ public class TestProfileActivity {
         Assert.assertEquals("Manage", 2, profileActivity.findPosition("Manager"));
         Assert.assertEquals("Admin", 3, profileActivity.findPosition("Admin"));
         Assert.assertEquals("Should be Regular User", 0, profileActivity.findPosition("User"));
+//        Assert.assertEquals("Should be user not admin", 0, profileActivity.findPosition("Admin"));
+//        Assert.assertEquals("Should be worker nut user", 1, profileActivity.findPosition("Regular User"));
+//        Assert.assertEquals("Should be manager not worker", 2, profileActivity.findPosition("Worker"));
+//        Assert.assertEquals("Should be admin not manager", 3, profileActivity.findPosition("Manager"));
 
     }
 }
