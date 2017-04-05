@@ -16,6 +16,7 @@ public class AndroidJUnitTest {
     public void menuItemTest(){
         Assert.assertTrue(true,)
     }
+
     @Test
     public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
         assertThat(EmailValidator.isValidEmail("name@email.com"), is(true));
