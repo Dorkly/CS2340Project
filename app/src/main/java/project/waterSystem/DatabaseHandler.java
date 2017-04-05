@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -204,14 +203,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    /**
+    /*
      * deleteAllAccounts method deletes all users in the Registered_Accounts table
      */
-    public void deleteAllAccounts() //Deletes all data in the database
+    /*    public void deleteAllAccounts() //Deletes all data in the database
     {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_USERS,null,null);
-    }
+    }*/
 
     /**
      * validateUser checks if the userId and password are in the table and match
@@ -247,7 +246,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_USERS + " WHERE "
                         + KEY_USERS + "='" + username  + "'" ,  null);
-        return c.getCount() > 0;
+        boolean hasCount = c.getCount() > 0;
+        c.close();
+        return hasCount;
+
     }
 
     /**
@@ -316,13 +318,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return String
      */
     public String getHomeAddress() {
-        String homeAddress = "";
+        String homeAddress;
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT homeAddress FROM " + TABLE_PROFILES + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
         if (c != null) {
             c.moveToFirst();
             homeAddress = c.getString(0);
+            c.close();
             return homeAddress;
         }
         return "";
@@ -333,13 +336,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * @return String
      */
     public String getPhone() {
-        String phone = "";
+        String phone;
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT phone FROM " + TABLE_PROFILES + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
         if (c != null) {
             c.moveToFirst();
             phone = c.getString(0);
+            c.close();
             return phone;
         }
         return "";
@@ -365,7 +369,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             c.moveToFirst();
             reportId = c.getString(0);
         }
-
+        c.close();
         return Integer.parseInt(reportId) + 1;
     }
 
@@ -392,7 +396,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_PROFILES + " WHERE "
                         + KEY_USERS + "='" + currentUser  + "'" ,  null);
-        return c.getCount() > 0;
+        boolean hasCount = c.getCount() > 0;
+        c.close();
+        return hasCount;
     }
 
     /**
@@ -416,7 +422,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
-
+        c.close();
         return reportsList;
     }
 
@@ -441,7 +447,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
-
+        c.close();
         return reportsList;
     }
     /**
@@ -464,6 +470,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 
@@ -488,6 +495,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 
@@ -509,6 +517,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 
@@ -532,6 +541,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 
@@ -556,7 +566,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date dateObj = null;
         try {
-            dateObj = (Date)sdf.parse(datetime);
+            dateObj = sdf.parse(datetime);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -597,6 +607,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 
@@ -618,6 +629,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 }while (c.moveToNext());
             }
         }
+        c.close();
         return reportsList;
     }
 

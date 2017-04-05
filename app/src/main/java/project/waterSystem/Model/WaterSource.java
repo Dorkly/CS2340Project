@@ -2,6 +2,7 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm on 2/28/17.
+ * Class to store the water sources object
  */
 
 public class WaterSource {
