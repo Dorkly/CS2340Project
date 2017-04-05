@@ -82,24 +82,23 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
 
                 if (userValue.equals("")) {
                     Toast.makeText(RegistrationScreen.this, "Username is Empty", Toast.LENGTH_SHORT).show();
-                }
+                } else {
+                    boolean userMatch = db.sameUser(userValue);
 
-                boolean userMatch = db.sameUser(userValue);
-
-                if (userMatch) { //Checks to see if the UserName already exists
-                    Toast.makeText(RegistrationScreen.this, "UserName Already Taken", Toast.LENGTH_LONG).show();
-                } else if (passValue.equals("")) {
-                    Toast.makeText(RegistrationScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
-                } else if (nameValue.equals("")) {
-                    Toast.makeText(RegistrationScreen.this, "Name is Empty", Toast.LENGTH_SHORT).show();
-                } else if (emailValue.equals("")) {
-                    Toast.makeText(RegistrationScreen.this, "Email is Empty", Toast.LENGTH_SHORT).show();
-                } else if (charUserLength <= 2 && charPassLength <= 2) {
-                    Toast.makeText(RegistrationScreen.this, "Characters too short", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    db.addUsers(new Users(userValue, passValue, nameValue, emailValue, typeValue));
-                    startActivity(toMain);
+                    if (userMatch) { //Checks to see if the UserName already exists
+                        Toast.makeText(RegistrationScreen.this, "UserName Already Taken", Toast.LENGTH_LONG).show();
+                    } else if (passValue.equals("")) {
+                        Toast.makeText(RegistrationScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
+                    } else if (nameValue.equals("")) {
+                        Toast.makeText(RegistrationScreen.this, "Name is Empty", Toast.LENGTH_SHORT).show();
+                    } else if (emailValue.equals("")) {
+                        Toast.makeText(RegistrationScreen.this, "Email is Empty", Toast.LENGTH_SHORT).show();
+                    } else if (charUserLength <= 2 || charPassLength <= 2) {
+                        Toast.makeText(RegistrationScreen.this, "User or password is too short", Toast.LENGTH_SHORT).show();
+                    } else {
+                        db.addUsers(new Users(userValue, passValue, nameValue, emailValue, typeValue));
+                        startActivity(toMain);
+                    }
                 }
             }
         });

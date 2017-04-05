@@ -8,12 +8,11 @@ package project.waterSystem.Model;
 public class Users {
 
     //private variables
-    int _id; // Just to have it.
-    String _userId;
-    String _passWord;
-    String _userName;
-    String _userEmail;
-    String _userType;
+    private String _userId;
+    private String _passWord;
+    private String _userName;
+    private String _userEmail;
+    private String _userType;
     // Empty constructor
     public Users(){
 
@@ -77,7 +76,7 @@ public class Users {
 
     @Override
     public String toString(){
-        if (this._userType == "Worker"){
+        if (this._userType.equals("Worker")) {
             return "Hello, let's get to work!";
         }
         return "Hi";

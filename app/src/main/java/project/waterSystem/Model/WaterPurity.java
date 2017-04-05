@@ -2,6 +2,7 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm on 2/28/17.
+ * CLass to store the Water Purity objects
  */
 
 public class WaterPurity {
