@@ -28,6 +28,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    // add this for intent mocking support
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
     compile 'com.android.support:design:25.1.1'
     compile 'com.jjoe64:graphview:4.2.1'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.5'
