@@ -35,7 +35,7 @@ public class AppScreen extends AppCompatActivity {
 
         settingsButton.setVisibility(View.INVISIBLE);
 
-        if ((userType.toLowerCase().equals("Admin")) ) {
+        if ((userType.toLowerCase().equals("admin")) ) {
             settingsButton.setVisibility(View.VISIBLE);
         }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
