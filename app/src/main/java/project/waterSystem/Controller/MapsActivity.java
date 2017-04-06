@@ -2,6 +2,7 @@ package project.waterSystem.Controller;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -185,6 +186,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
             }
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MapsActivity.this, MainReportScreen.class);
+        startActivity(intent);
+        finish();
     }
     /*
 
