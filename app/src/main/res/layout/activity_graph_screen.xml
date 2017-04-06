@@ -46,7 +46,8 @@
         android:id="@+id/graphView"
         android:layout_width="match_parent"
         android:layout_height="450dip"
-        android:layout_below="@+id/graph" />
+        android:layout_below="@+id/graph"
+        android:layout_marginRight="20dp" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/selectionsFButton"
