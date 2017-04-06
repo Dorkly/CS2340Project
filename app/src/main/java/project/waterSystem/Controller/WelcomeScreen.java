@@ -48,13 +48,13 @@ public class WelcomeScreen extends AppCompatActivity {
     public void loginClicked(View v) {
         Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     public void registrationClicked(View v) {
         Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
         startActivity(intent2);
-        finish();
+        //finish();
 
     }
 }
