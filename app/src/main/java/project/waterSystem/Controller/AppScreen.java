@@ -91,4 +91,11 @@ public class AppScreen extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
+        startActivity(intent);
+        finish();
+    }
 }
