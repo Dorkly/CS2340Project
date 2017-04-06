@@ -13,6 +13,24 @@
     android:background="#FFF"
     tools:context="project.waterSystem.Controller.GraphActivity">
 
+    <info.hoang8f.widget.FButton
+        android:id="@+id/exitFButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/graphView"
+        android:layout_marginRight="20dp"
+        android:width="120dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Exit"
+        android:textColor="#FFF"
+        android:textSize="15dp"
+        fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp" />
+
     <TextView
         android:id="@+id/graph"
         android:layout_width="wrap_content"
@@ -31,19 +49,20 @@
         android:layout_below="@+id/graph" />
 
     <info.hoang8f.widget.FButton
-        android:text="Cancel"
-        android:textSize="15dp"
+        android:id="@+id/selectionsFButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFF"
+        android:layout_alignStart="@+id/graph"
+        android:layout_below="@+id/graphView"
+        android:layout_marginRight="20dp"
+        android:width="120dp"
         android:fontFamily="sans-serif-light"
+        android:text="Selections..."
+        android:textColor="#FFF"
+        android:textSize="15dp"
         fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        fbutton:cornerRadius="10dp"
-        android:id="@+id/button2"
-        android:layout_below="@+id/graphView"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"/>
+        fbutton:shadowHeight="5dp" />
 </RelativeLayout>
