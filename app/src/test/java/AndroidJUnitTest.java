@@ -1,7 +1,10 @@
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import project.waterSystem.Controller.LoginActivity;
+import project.waterSystem.Model.Users;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -14,19 +17,21 @@ import static org.junit.Assert.assertTrue;
 public class AndroidJUnitTest {
 
     private static final int TIMEOUT = 10000;
-    private LoginActivity login;
-    private boolean success;
-
+    private Users users;
+    private String success;
+    private String type;
     @Before
     public void setUp() {
-        login = new LoginActivity();
-        success = true;
+        users = new Users();
+        type = users.getType();
+        success = users.toString();
+
     }
 
 
     @Test(timeout = TIMEOUT)
-    public void SuccessTrue(){
-
+    public void SuccessWorker(){
+        Assert.assertEquals("Hello Employee , let's get to work!",success);
     }
     @Test(timeout = TIMEOUT)
     public void SuccessFalse(){

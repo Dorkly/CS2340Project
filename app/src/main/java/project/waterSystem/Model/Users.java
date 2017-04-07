@@ -76,10 +76,17 @@ public class Users {
 
     @Override
     public String toString(){
-        if (this._userType.equals("Worker")) {
-            return "Hello, let's get to work!";
+        if (getType().equals("Worker")) {
+            return "Hello Employee , let's get to work!";
+        } else if (getType().equals("User")){
+            return "Hello User, let's explore!";
+
+        }else if (getType().equals("Manager")){
+            return "Hello All Powerful Ruler , let's create!";
+        }else{
+
+            return "Hi";
         }
-        return "Hi";
     }
 
 }
