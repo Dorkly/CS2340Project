@@ -45,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private String currentLoginAttempt;
+    private int attempt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +146,9 @@ public class LoginActivity extends AppCompatActivity {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
+        } else  if (!userId.equals(currentLoginAttempt)) {
+            currentLoginAttempt = userId;
+            attempt = 0;
         }
 
         if (cancel) {
@@ -153,16 +158,22 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            boolean accountMatch = db.validateUser(userId,password);
-            if(accountMatch) {
-                Intent intent = new Intent(LoginActivity.this, AppScreen.class);
-                startActivity(intent);
+            if (attempt < 3) {
+                showProgress(true);
+                boolean accountMatch = db.validateUser(userId, password);
+                if (accountMatch) {
+                    Intent intent = new Intent(LoginActivity.this, AppScreen.class);
+                    startActivity(intent);
+                } else {
+                    attempt++;
+                    showProgress(false);
+                    mEmailView.setError(getString(R.string.error_invalid_email));
+                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mPasswordView.requestFocus();
+                }
+
             } else {
-                showProgress(false);
-                mEmailView.setError(getString(R.string.error_invalid_email));
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
+                mEmailView.setError(getString(R.string.error_invalid_attemps));
             }
         }
     }
