@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -65,7 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Dialog dialog = api.getErrorDialog(this,isAvailable,0);
             dialog.show();
         } else {
-            Toast.makeText(this,"Can't connect to play service", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this,"Can't connect to play service", Toast.LENGTH_LONG);
+            toast.show();
         }
         return false;
     }
