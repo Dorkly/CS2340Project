@@ -14,16 +14,17 @@
     tools:context="project.waterSystem.Controller.AppScreen">
 
     <android.support.v7.widget.Toolbar
-        android:text="Reports"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#039BE5"
-        android:theme="@menu/menu_main"
-        app:titleTextColor="#FFF"
-        android:fitsSystemWindows="true"
-        android:id="@+id/toolbar"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:background="#039BE5"
+        android:contentDescription="Reports Icon"
+        android:fitsSystemWindows="true"
+        android:text="Reports"
+        android:theme="@menu/menu_main"
+        app:titleTextColor="#FFF" />
 
     <info.hoang8f.widget.FButton
         android:text="Return to Main"
@@ -49,7 +50,8 @@
         android:layout_height="210dp"
         app:srcCompat="@drawable/report"
         android:id="@+id/imageView2"
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/toolbar"
+        android:contentDescription="Main Reports"/>
 
     <info.hoang8f.widget.FButton
         android:text="Create Source"

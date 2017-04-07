@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import project.waterSystem.DatabaseHandler;
 import project.waterSystem.ProfileActivity;
 import project.waterSystem.R;
 
@@ -24,10 +25,23 @@ public class AppScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_screen);
 
+        DatabaseHandler db = new DatabaseHandler(this);
+        String userType = db.getUserType();
+
+        Button logoutButton = (Button) findViewById(R.id.Logout);
+        Button createProfileButton = (Button) findViewById(R.id.createProfile);
+        Button reportButton = (Button) findViewById(R.id.reportsButton);
+        Button settingsButton = (Button) findViewById(R.id.settingsButton);
+
+        settingsButton.setVisibility(View.INVISIBLE);
+
+        if ((userType.toLowerCase().equals("admin")) ) {
+            settingsButton.setVisibility(View.VISIBLE);
+        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button logoutButton = (Button) findViewById(R.id.Logout);
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
@@ -38,7 +52,7 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-        Button createProfileButton = (Button) findViewById(R.id.createProfile);
+
         createProfileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -51,7 +65,7 @@ public class AppScreen extends AppCompatActivity {
             }
         });
 
-        Button reportButton = (Button) findViewById(R.id.reportsButton);
+
         reportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -90,5 +104,12 @@ public class AppScreen extends AppCompatActivity {
         MenuInflater inflater = new MenuInflater(this);
         inflater.inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
+        startActivity(intent);
+        finish();
     }
 }

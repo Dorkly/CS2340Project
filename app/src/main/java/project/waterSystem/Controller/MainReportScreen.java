@@ -144,6 +144,14 @@ public class MainReportScreen extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MainReportScreen.this, AppScreen.class);
+        startActivity(intent);
+        finish();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void createTestReports(){
         if (!db.sameUser("worker")) {

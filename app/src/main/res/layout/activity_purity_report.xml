@@ -155,6 +155,7 @@
         android:text="0.00"
         android:layout_alignBaseline="@+id/purityReportVirus"
         android:layout_alignBottom="@+id/purityReportVirus"
+        android:labelFor="@+id/purityReportVirus"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -207,6 +208,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/contaminantPPM"
+        android:labelFor="@+id/contaminantPPM"
         android:text="0.00"
         android:layout_alignBaseline="@+id/purityReportContaminant"
         android:layout_alignBottom="@+id/purityReportContaminant"

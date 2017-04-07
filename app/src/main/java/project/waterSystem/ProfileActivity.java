@@ -66,9 +66,8 @@ public class ProfileActivity extends AppCompatActivity {
         //tvEmail.setText(addNew);
         if (addNew.equals("edit")) {
 
-            Spinner typeSpinner = (Spinner) findViewById(R.id.classificationSpinner);
 
-            typeSpinner.setSelection(findPosition(db.getUserType()));
+            spinner.setSelection(findPosition(db.getUserType()));
 
             TextView tvAddress = (TextView) findViewById(R.id.addressInput);
             tvAddress.setText(db.getHomeAddress());

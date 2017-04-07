@@ -25,29 +25,36 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 
-        loginButton = (Button) findViewById(R.id.button);
+        loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-
-                Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                loginClicked(v);
                 //setContentView(R.layout.activity_login);
             }
         });
 
-        regButton = (Button) findViewById(R.id.button2);
+        regButton = (Button) findViewById(R.id.registrationButton);
         regButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-
-                Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
-                startActivity(intent2);
-                finish();
-
+                registrationClicked(v);
                 //setContentView(R.layout.activity_login);
             }
         });
+
+    }
+
+    public void loginClicked(View v) {
+        Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
+        startActivity(intent);
+        //finish();
+    }
+
+    public void registrationClicked(View v) {
+        Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
+        startActivity(intent2);
+        //finish();
+
     }
 }

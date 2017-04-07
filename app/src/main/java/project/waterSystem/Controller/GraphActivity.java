@@ -63,12 +63,25 @@ public class GraphActivity extends AppCompatActivity {
 
         graph.getViewport().setXAxisBoundsManual(true);
 
-        Button cancelButton = (Button) findViewById(R.id.button2);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        Button selectionsButton = (Button) findViewById(R.id.selectionsFButton);
+        selectionsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
 
                 Intent intent = new Intent(GraphActivity.this, HistoricalReportActivity.class);
+                //intent.putExtra("AddNew", "new");
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+
+        Button exitButton = (Button) findViewById(R.id.exitFButton);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(GraphActivity.this, MainReportScreen.class);
                 //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();
