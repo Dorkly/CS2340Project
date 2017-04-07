@@ -1,3 +1,5 @@
+package project.waterSystem;
+
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +32,7 @@ public class AndroidJUnitTest {
 
     @Test(timeout = TIMEOUT)
     public void SuccessWorker(){
+        type = "Worker";
         Assert.assertEquals("Hello Employee , let's get to work!",success);
     }
     @Test(timeout = TIMEOUT)
