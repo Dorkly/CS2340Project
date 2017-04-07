@@ -2,8 +2,9 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm  on 3/29/17.
+ *
+ * GraphValues class used for Graph Value information
  */
-
 public class GraphValues {
 
     private int _month;

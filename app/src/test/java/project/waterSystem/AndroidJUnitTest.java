@@ -18,26 +18,35 @@ import static org.junit.Assert.assertTrue;
 public class AndroidJUnitTest {
 
     private static final int TIMEOUT = 10000;
-    private Users users;
+    private Users user1;
+    private Users user2;
+    private Users user3;
     private String success;
     private String type;
+
     @Before
     public void setUp() {
-        users = new Users();
-        type = users.getType();
-        success = users.toString();
+        user1 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+                "Worker");
+        user2 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+                "Manager");
+        user3 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+                "User");
+        success = user1.toString();
 
     }
-
 
     @Test(timeout = TIMEOUT)
     public void SuccessWorker(){
-        type = "Worker";
-        Assert.assertEquals("Hello Employee , let's get to work!",success);
+        Assert.assertEquals("Hello Employee , let's get to work!",user1.toString());
     }
     @Test(timeout = TIMEOUT)
-    public void SuccessFalse(){
-
+    public void SuccessManager(){
+        Assert.assertEquals("Hello All Powerful Ruler , let's create!",user2.toString());
+    }
+    @Test(timeout = TIMEOUT)
+    public void SuccessUser(){
+        Assert.assertEquals("Hello User, let's explore!",user3.toString());
     }
 
 }

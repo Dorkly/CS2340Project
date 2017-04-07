@@ -2,8 +2,9 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm on 3/29/17.
+ *
+ * Location class used for Location information
  */
-
 public class Location {
 
     private Double _latitude;
