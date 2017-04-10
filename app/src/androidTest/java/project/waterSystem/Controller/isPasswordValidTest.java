@@ -1,17 +1,16 @@
-package project.waterSystem;
+package project.waterSystem.Controller;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import project.waterSystem.Controller.LoginActivity;
 import project.waterSystem.Model.Users;
 
 /**
  * Created by AustinJ on 4/5/17.
  */
 
-public class MapsActivityTest {
+public class isPasswordValidTest {
     private LoginActivity testLoginActivity;
     private static final int TIMEOUT = 10000;
     private Users user1;
