@@ -191,11 +191,15 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Checks to see if the password is valid.
      * @param password password string
-     * @return true is valid
+     * @return true if length large or equal to 4, and password contain letter and digitals.
      */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return true;
+        if (password.length() < 4){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     /**

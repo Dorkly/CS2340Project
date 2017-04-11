@@ -87,8 +87,8 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
 
                     if (userMatch) { //Checks to see if the UserName already exists
                         Toast.makeText(RegistrationScreen.this, "UserID Already Taken", Toast.LENGTH_LONG).show();
-                    } else if (passValue.equals("")) {
-                        Toast.makeText(RegistrationScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
+                    } else if (!isPasswordValid(passValue)) {
+                        Toast.makeText(RegistrationScreen.this, "Password should more than 4 character", Toast.LENGTH_SHORT).show();
                     } else if (nameValue.equals("")) {
                         Toast.makeText(RegistrationScreen.this, "Name is Empty", Toast.LENGTH_SHORT).show();
                     } else if (emailValue.equals("")) {
@@ -102,6 +102,20 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
                 }
             }
         });
+    }
+
+    /**
+     * Checks to see if the password is valid.
+     * @param password password string
+     * @return true if length large or equal to 4, and password contain letter and digitals.
+     */
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        if (password.length() < 4){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     // override the account type
