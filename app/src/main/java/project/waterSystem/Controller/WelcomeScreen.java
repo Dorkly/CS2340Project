@@ -14,7 +14,6 @@ import project.waterSystem.RegistrationScreen;
  */
 public class WelcomeScreen extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,6 @@ public class WelcomeScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
                 loginClicked();
-                //setContentView(R.layout.activity_login);
             }
         });
 
@@ -36,7 +34,6 @@ public class WelcomeScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
                 registrationClicked();
-                //setContentView(R.layout.activity_login);
             }
         });
 
@@ -45,13 +42,10 @@ public class WelcomeScreen extends AppCompatActivity {
     private void loginClicked() {
         Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
         startActivity(intent);
-        //finish();
     }
 
     private void registrationClicked() {
         Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
         startActivity(intent2);
-        //finish();
-
     }
 }

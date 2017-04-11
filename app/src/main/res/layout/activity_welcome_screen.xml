@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--suppress ALL -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,7 +20,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="DripDrop"
+        android:text="@string/dripdrop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="50sp"
@@ -40,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
         android:fontFamily="sans-serif-light"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#FFF"
         android:textSize="20sp"
         fbutton:buttonColor="#039BE5"
@@ -56,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-light"
-        android:text="Registration"
+        android:text="@string/registration"
         android:textColor="#FFF"
         android:textSize="15sp"
         fbutton:buttonColor="#039BE5"

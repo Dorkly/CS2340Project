@@ -22,5 +22,9 @@
     <string name="longitude_range_water_source">180</string>
     <string name="report_button_water_source">Report</string>
     <string name="cancel_button_water_source">Cancel</string>
-
+    <string name="title_activity_list_purity_reports">ListPurityReportsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="dripdrop">DripDrop</string>
+    <string name="login">Login</string>
+    <string name="registration">Registration</string>
 </resources>
