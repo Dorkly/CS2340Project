@@ -28,6 +28,7 @@ import project.waterSystem.R;
 /**
  * A login screen that offers login via userId/password.
  */
+@SuppressWarnings("ALL")
 public class LoginActivity extends AppCompatActivity {
 
     /**
@@ -191,7 +192,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Checks to see if the password is valid.
      * @param password password string
-     * @return true if length large or equal to 4, and password contain letter and digitals.
+     * @return true if length large or equal to 4, and password contain letter and digital.
      */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
@@ -242,6 +243,7 @@ public class LoginActivity extends AppCompatActivity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+    @SuppressWarnings("unused")
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mUser;

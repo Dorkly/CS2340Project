@@ -7,8 +7,8 @@ package project.waterSystem.Model;
  */
 public class Location {
 
-    private Double _latitude;
-    private Double _longitude;
+    private final Double _latitude;
+    private final Double _longitude;
 
     public Location(Double latitude, Double longitude) {
         _latitude = latitude;

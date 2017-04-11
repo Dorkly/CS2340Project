@@ -15,9 +15,7 @@ import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-/**
- * Created by Young on 2017-04-04.
- */
+
 public class LoginActivityTest {
 
     @Rule

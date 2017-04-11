@@ -5,7 +5,6 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,16 +22,11 @@ import project.waterSystem.Controller.MainReportScreen;
 import project.waterSystem.Model.WaterPurity;
 
 public class PurityReport extends AppCompatActivity {
-    public static List<String> purityTypes = Arrays.asList("safe", "Treatable", "Unsafe");
-    private Button purityReportSaveButton;
-    private Button purityReportCancelButton;
+    private static final List<String> purityTypes = Arrays.asList("safe", "Treatable", "Unsafe");
     private static int Next_Id = 0;
     private DatabaseHandler db;
     private String userValue;
     private String dateTimeValue;
-
-    Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
 
     public static int findPosition(String code) {
         int i = 0;
@@ -68,11 +62,11 @@ public class PurityReport extends AppCompatActivity {
 
 
         //configure spinner
-        spinner = (Spinner) findViewById(R.id.conditionSpinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.water_condition_purity_report, android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.conditionSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.water_condition_purity_report, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        purityReportSaveButton = (Button) findViewById(R.id.purityReportSave);
+        Button purityReportSaveButton = (Button) findViewById(R.id.purityReportSave);
         purityReportSaveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -101,7 +95,7 @@ public class PurityReport extends AppCompatActivity {
         });
 
         //cancel button
-        purityReportCancelButton = (Button) findViewById(R.id.purityReportCancel);
+        Button purityReportCancelButton = (Button) findViewById(R.id.purityReportCancel);
         purityReportCancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

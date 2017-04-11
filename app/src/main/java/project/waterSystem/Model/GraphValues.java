@@ -7,8 +7,8 @@ package project.waterSystem.Model;
  */
 public class GraphValues {
 
-    private int _month;
-    private Double _ppm;
+    private final int _month;
+    private final Double _ppm;
 
     public GraphValues(int month, Double ppm) {
         _month = month;

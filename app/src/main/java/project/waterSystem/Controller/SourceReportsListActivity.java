@@ -14,24 +14,20 @@ import project.waterSystem.DatabaseHandler;
 import project.waterSystem.R;
 
 public class SourceReportsListActivity extends AppCompatActivity {
-    private Button returnButton;
-    private ListView reportsListView;
-    private DatabaseHandler db;
-    private ArrayList<String> reportsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_source_reports_list);
 
-        db = new DatabaseHandler(this);
-        reportsList = db.listAllSourceReports();
+        DatabaseHandler db = new DatabaseHandler(this);
+        ArrayList<String> reportsList = db.listAllSourceReports();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, reportsList);
-        reportsListView = (ListView) findViewById(R.id.ReportsListView);
+        ListView reportsListView = (ListView) findViewById(R.id.ReportsListView);
         reportsListView.setAdapter(adapter);
 
-        returnButton = (Button) findViewById(R.id.returnButton);
+        Button returnButton = (Button) findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

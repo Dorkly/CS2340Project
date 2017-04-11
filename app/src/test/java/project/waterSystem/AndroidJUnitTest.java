@@ -4,17 +4,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import project.waterSystem.Controller.LoginActivity;
 import project.waterSystem.Model.Users;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-
-
-/**
- * Created by Bree~ on 4/4/2017.
- */
 public class AndroidJUnitTest {
 
     private static final int TIMEOUT = 10000;
@@ -22,20 +13,18 @@ public class AndroidJUnitTest {
     private Users user2;
     private Users user3;
     private Users user4;
-    private String success;
-    private String type;
 
     @Before
     public void setUp() {
-        user1 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+        user1 = new Users("Test", "happy", "Yay", "what@thewhat.com",
                 "Worker");
-        user2 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+        user2 = new Users("Test", "happy", "Yay", "what@thewhat.com",
                 "Manager");
-        user3 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+        user3 = new Users("Test", "happy", "Yay", "what@thewhat.com",
                 "User");
-        user4 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+        user4 = new Users("Test", "happy", "Yay", "what@thewhat.com",
                 "Tester");
-        success = user1.toString();
+        String success = user1.toString();
 
     }
 

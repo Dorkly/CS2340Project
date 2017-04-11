@@ -15,15 +15,8 @@ import project.waterSystem.Controller.LoginActivity;
 import project.waterSystem.Controller.WelcomeScreen;
 import project.waterSystem.Model.Users;
 
-/**
- * Created by AustinJ on 2/19/17.
- */
 
 public class RegistrationScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private Button cancelRegButton;
-    private Button saveRegButton;
-    Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
     //private String _acct ="NA";
 
     private EditText mPasswordView;
@@ -38,13 +31,13 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
         setContentView(R.layout.activity_register_screen);
 
         //configure spinner
-        spinner = (Spinner) findViewById(R.id.classificationSpinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.classificationSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         //cancel button
-        cancelRegButton = (Button) findViewById(R.id.cancelProfile);
+        Button cancelRegButton = (Button) findViewById(R.id.cancelProfile);
         cancelRegButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -57,7 +50,7 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
         });
 
         // save button
-        saveRegButton = (Button) findViewById(R.id.save);
+        Button saveRegButton = (Button) findViewById(R.id.save);
         saveRegButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -107,7 +100,7 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
     /**
      * Checks to see if the password is valid.
      * @param password password string
-     * @return true if length large or equal to 4, and password contain letter and digitals.
+     * @return true if length large or equal to 4, and password contain letter and digital.
      */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic

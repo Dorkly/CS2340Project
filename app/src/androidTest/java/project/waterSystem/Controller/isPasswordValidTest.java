@@ -24,14 +24,11 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
-/**
- * Created by AustinJ on 4/5/17.
- */
 
 public class isPasswordValidTest {
 
     @Rule
-    public IntentsTestRule<RegistrationScreen> mActivityRule = new IntentsTestRule<>(RegistrationScreen.class);
+    public final IntentsTestRule<RegistrationScreen> mActivityRule = new IntentsTestRule<>(RegistrationScreen.class);
 
     @Test
     public void isPasswordValidTest1() {

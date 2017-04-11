@@ -30,9 +30,7 @@ import project.waterSystem.Model.WaterSource;
 import project.waterSystem.R;
 
 
-/**
- * Created by AustinJ on 3/5/17.
- */
+
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

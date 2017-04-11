@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_welcome_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -21,8 +21,9 @@
         android:textSize="24sp"
         android:layout_marginTop="12dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="15sp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/historicalReportYear"
@@ -34,9 +35,9 @@
         tools:layout_editor_absoluteY="70dp"
         android:layout_below="@+id/historicalReport"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10sp"
-        android:layout_marginTop="10sp"/>
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="10sp"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:id="@+id/yearSpinner"
@@ -46,8 +47,8 @@
         tools:layout_editor_absoluteY="113dp"
         android:layout_below="@+id/historicalReportYear"
         android:layout_marginTop="25dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10sp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10sp"/>
 
     <TextView
         android:id="@+id/historicalReportLocation"
@@ -60,7 +61,8 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/yearSpinner"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10sp"/>
+        android:layout_marginStart="10sp"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:id="@+id/locationSpinner"
@@ -68,8 +70,8 @@
         android:layout_height="33dp"
         android:layout_alignEnd="@+id/yearSpinner"
         android:layout_below="@+id/historicalReportLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10sp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10sp"/>
 
     <info.hoang8f.widget.FButton
         android:id="@+id/viewGraphButton"
@@ -84,9 +86,10 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:layout_marginTop="141dp"
-        android:layout_marginLeft="10sp"
+        android:layout_marginStart="10sp"
         android:layout_below="@+id/locationSpinner"
-        android:layout_toEndOf="@+id/historicalReport" />
+        android:layout_toEndOf="@+id/historicalReport"
+        tools:ignore="HardcodedText" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/cancelButton"
@@ -103,7 +106,8 @@
         android:layout_alignBaseline="@+id/viewGraphButton"
         android:layout_alignBottom="@+id/viewGraphButton"
         android:layout_toEndOf="@+id/historicalReportYear"
-        android:layout_marginLeft="10sp"/>
+        android:layout_marginStart="10sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView7"
@@ -113,7 +117,8 @@
         android:layout_below="@+id/locationSpinner"
         android:layout_marginTop="25dp"
         android:text="Graph to view"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:id="@+id/graphSpinner"
