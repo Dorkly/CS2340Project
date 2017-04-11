@@ -17,6 +17,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Created by Young on 2017-04-04.
+ *
+ * LoginActivityTest class used to test Login Activity
  */
 public class LoginActivityTest {
 
