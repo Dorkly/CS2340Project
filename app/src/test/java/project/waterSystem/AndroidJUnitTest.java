@@ -21,6 +21,7 @@ public class AndroidJUnitTest {
     private Users user1;
     private Users user2;
     private Users user3;
+    private Users user4;
     private String success;
     private String type;
 
@@ -32,6 +33,8 @@ public class AndroidJUnitTest {
                 "Manager");
         user3 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
                 "User");
+        user4 = new Users("Test", "happy", "Yaay", "what@thewhat.com",
+                "Tester");
         success = user1.toString();
 
     }
@@ -47,6 +50,10 @@ public class AndroidJUnitTest {
     @Test(timeout = TIMEOUT)
     public void SuccessUser(){
         Assert.assertEquals("Hello User, let's explore!",user3.toString());
+    }
+    @Test(timeout = TIMEOUT)
+    public void SuccessDefault(){
+        Assert.assertEquals("Hi",user4.toString());
     }
 
 }
