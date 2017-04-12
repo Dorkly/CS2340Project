@@ -10,12 +10,12 @@ public class TestProfileActivity {
      * @throws java.lang.Exception
      */
     @Before
-    public void setUp() throws Exception {
-       /*
-      The test fixture
-     */
-        ProfileActivity profileActivity = new ProfileActivity();
-    }
+//    public void setUp() throws Exception {
+//       /*
+//      The test fixture
+//     */
+//        ProfileActivity profileActivity = new ProfileActivity();
+//    }
 
     @Test
     public void testFindPosition() {
