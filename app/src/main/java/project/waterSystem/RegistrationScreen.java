@@ -104,11 +104,7 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
      */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        if (password.length() < 4){
-            return false;
-        }else {
-            return true;
-        }
+        return (password.length() >= 4);
     }
 
     // override the account type

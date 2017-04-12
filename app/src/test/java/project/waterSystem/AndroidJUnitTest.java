@@ -24,7 +24,7 @@ public class AndroidJUnitTest {
                 "User");
         user4 = new Users("Test", "happy", "Yay", "what@thewhat.com",
                 "Tester");
-        String success = user1.toString();
+        //String success = user1.toString();
 
     }
 
