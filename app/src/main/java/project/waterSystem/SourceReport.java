@@ -14,6 +14,7 @@ import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Controller.MainReportScreen;
 import project.waterSystem.Model.WaterSource;
 
+@SuppressWarnings("ALL")
 public class SourceReport extends AppCompatActivity {
     private DatabaseHandler db;
     private String userValue;

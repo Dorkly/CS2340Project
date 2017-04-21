@@ -12,6 +12,7 @@ import project.waterSystem.RegistrationScreen;
 /**
  * WelcomeScreen class used to allow user to login or register.
  */
+@SuppressWarnings("ALL")
 public class WelcomeScreen extends AppCompatActivity {
 
     @Override

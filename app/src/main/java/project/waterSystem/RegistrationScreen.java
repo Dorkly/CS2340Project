@@ -16,6 +16,7 @@ import project.waterSystem.Controller.WelcomeScreen;
 import project.waterSystem.Model.Users;
 
 
+@SuppressWarnings("ALL")
 public class RegistrationScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     //private String _acct ="NA";
 

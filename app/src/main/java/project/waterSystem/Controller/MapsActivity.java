@@ -32,6 +32,7 @@ import project.waterSystem.R;
 
 
 
+@SuppressWarnings("ALL")
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;

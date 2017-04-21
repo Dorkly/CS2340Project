@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import project.waterSystem.DatabaseHandler;
 import project.waterSystem.R;
 
+@SuppressWarnings("ALL")
 public class SourceReportsListActivity extends AppCompatActivity {
 
     @Override

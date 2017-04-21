@@ -16,6 +16,7 @@ import java.util.List;
 import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Model.Profiles;
 
+@SuppressWarnings("ALL")
 public class ProfileActivity extends AppCompatActivity {
     private String addNew;
 

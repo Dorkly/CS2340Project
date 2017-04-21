@@ -5,6 +5,7 @@ package project.waterSystem.Model;
  * CLass to store the Water Purity objects
  */
 
+@SuppressWarnings("ALL")
 public class WaterPurity {
 
     private String _workerName;

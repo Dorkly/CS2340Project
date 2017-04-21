@@ -18,6 +18,7 @@ import project.waterSystem.R;
 /**
  * Main application screen after login.
  */
+@SuppressWarnings("ALL")
 public class AppScreen extends AppCompatActivity {
 
     @Override

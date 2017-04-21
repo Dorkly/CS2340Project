@@ -19,6 +19,7 @@ import project.waterSystem.R;
 
 
 
+@SuppressWarnings("ALL")
 public class GraphActivity extends AppCompatActivity {
 
     @Override

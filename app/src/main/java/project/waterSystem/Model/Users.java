@@ -5,6 +5,7 @@ package project.waterSystem.Model;
  *
  * Users class used for login and registration
  */
+@SuppressWarnings("ALL")
 public class Users {
 
     //private variables

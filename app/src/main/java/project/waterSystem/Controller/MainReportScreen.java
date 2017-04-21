@@ -15,6 +15,7 @@ import project.waterSystem.R;
 import project.waterSystem.SourceReport;
 
 
+@SuppressWarnings("ALL")
 public class MainReportScreen extends AppCompatActivity {
     private DatabaseHandler db;
 

@@ -21,6 +21,7 @@ import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Controller.MainReportScreen;
 import project.waterSystem.Model.WaterPurity;
 
+@SuppressWarnings("ALL")
 public class PurityReport extends AppCompatActivity {
     private static final List<String> purityTypes = Arrays.asList("safe", "Treatable", "Unsafe");
     private static int Next_Id = 0;
