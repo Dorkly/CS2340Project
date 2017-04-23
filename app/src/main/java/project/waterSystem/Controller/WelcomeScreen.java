@@ -38,6 +38,15 @@ public class WelcomeScreen extends AppCompatActivity {
             }
         });
 
+        // Configure Registration Button
+        Button forgotButton = (Button) findViewById(R.id.forgotButton);
+        forgotButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                forgetClicked();
+            }
+        });
+
     }
 
     private void loginClicked() {
@@ -48,5 +57,10 @@ public class WelcomeScreen extends AppCompatActivity {
     private void registrationClicked() {
         Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
         startActivity(intent2);
+    }
+
+    private void forgetClicked() {
+        Intent intent3 = new Intent(WelcomeScreen.this, emailRecoveryActivity.class);
+        startActivity(intent3);
     }
 }

@@ -17,7 +17,9 @@
         android:layout_height="505dp"
         android:background="@drawable/drip"
         android:id="@+id/gifTextView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:text="@string/dripdrop"
@@ -29,15 +31,14 @@
         android:layout_marginTop="145dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:id="@+id/textView" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/gifTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="38dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/login"
         android:textColor="#FFF"
@@ -47,13 +48,32 @@
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_above="@+id/registrationButton"
+        android:layout_centerHorizontal="true" />
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/forgotButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="forgot"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        fbutton:buttonColor="#039BE5"
+        fbutton:cornerRadius="10dp"
+        fbutton:shadowColor="#0277bd"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        tools:ignore="HardcodedText"
+        android:layout_alignBottom="@+id/registrationButton"
+        android:layout_toEndOf="@+id/textView" />
+
 
     <info.hoang8f.widget.FButton
         android:id="@+id/registrationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/registration"
         android:textColor="#FFF"
@@ -63,7 +83,7 @@
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
+        tools:ignore="HardcodedText"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        tools:ignore="HardcodedText" />
+        android:layout_alignStart="@+id/loginButton" />
 </RelativeLayout>
