@@ -16,16 +16,12 @@ import java.util.List;
 import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Model.Profiles;
 
+@SuppressWarnings("ALL")
 public class ProfileActivity extends AppCompatActivity {
-    public Button cancelProfileButton;
-    public Button saveProfileButton;
     private String addNew;
 
-    public static List<String> legalTypes = Arrays.asList("Regular User", "Worker", "Manager", "Admin");
+    private static final List<String> legalTypes = Arrays.asList("Regular User", "Worker", "Manager", "Admin");
     private static int Next_Id = 0;
-
-    Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
 
     public static int findPosition(String code) {
         int i = 0;
@@ -43,8 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
         DatabaseHandler db = new DatabaseHandler(this);
 
         //configure spinner
-        spinner = (Spinner) findViewById(R.id.classificationSpinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.classificationSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
@@ -77,8 +73,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
 
-
-        cancelProfileButton = (Button) findViewById(R.id.cancelProfile);
+        Button cancelProfileButton = (Button) findViewById(R.id.cancelProfile);
         cancelProfileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -88,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
                 //setContentView(R.layout.activity_login);
             }
         });
-        saveProfileButton = (Button) findViewById(R.id.save);
+        Button saveProfileButton = (Button) findViewById(R.id.save);
         saveProfileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

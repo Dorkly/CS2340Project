@@ -5,6 +5,7 @@ package project.waterSystem.Model;
  * Class to store the water sources object
  */
 
+@SuppressWarnings("ALL")
 public class WaterSource {
     //private variables
     private String _userName;

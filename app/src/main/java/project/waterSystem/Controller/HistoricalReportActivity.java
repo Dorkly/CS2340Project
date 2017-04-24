@@ -15,6 +15,7 @@ import project.waterSystem.DatabaseHandler;
 import project.waterSystem.Model.Location;
 import project.waterSystem.R;
 
+@SuppressWarnings("ALL")
 public class HistoricalReportActivity extends AppCompatActivity {
 
     private DatabaseHandler db;

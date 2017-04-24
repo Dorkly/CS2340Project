@@ -253,6 +253,44 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
+     * sameUser checks if the userId is already in the table
+     * @param inputEmail the username you are searching for/checking
+     * @return boolean
+     */
+    public boolean sameEmail(String inputEmail){
+        if (inputEmail == null) {
+            return false;
+        }
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_USERS + " WHERE "
+                        + KEY_EMAIL + "='" + inputEmail  + "'" ,  null);
+        boolean hasCount = c.getCount() > 0;
+        c.close();
+        return hasCount;
+
+    }
+
+    /**
+     * validRecovery checks if the email is already in the table
+     * @param username the username you are searching for/checking
+     * @param email the email you are searching for/checking
+     * @return boolean
+     */
+    public boolean validRecovery (String username, String email){
+
+        if (email == null){
+            return false;
+        }
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_USERS + " WHERE "
+                        + KEY_USERS + "='" + username +"'AND "+KEY_EMAIL+"='"+email+"'" ,  null);
+        boolean hasCount = c.getCount() > 0;
+        c.close();
+        return hasCount;
+    }
+
+
+    /**
      * getCurrentUser returns the current logged in user ID
      * @return String
      */
@@ -327,6 +365,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             homeAddress = c.getString(0);
             c.close();
             return homeAddress;
+        }
+        return "";
+    }
+
+    /**
+     * getPass returns the home address from the Registered_Profiles table
+     * @return String
+     */
+    public String getPass() {
+        String password;
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT KEY_PASS FROM " + TABLE_PROFILES + " WHERE "
+                        + KEY_PASS + "='" + currentUser  + "'" ,  null);
+        if (c != null) {
+            c.moveToFirst();
+            password = c.getString(0);
+            c.close();
+            return password;
         }
         return "";
     }

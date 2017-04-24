@@ -2,12 +2,13 @@ package project.waterSystem.Model;
 
 /**
  * Created by Jim Helm  on 3/29/17.
+ *
+ * GraphValues class used for Graph Value information
  */
-
 public class GraphValues {
 
-    private int _month;
-    private Double _ppm;
+    private final int _month;
+    private final Double _ppm;
 
     public GraphValues(int month, Double ppm) {
         _month = month;

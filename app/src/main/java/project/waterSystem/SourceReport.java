@@ -14,15 +14,10 @@ import project.waterSystem.Controller.AppScreen;
 import project.waterSystem.Controller.MainReportScreen;
 import project.waterSystem.Model.WaterSource;
 
+@SuppressWarnings("ALL")
 public class SourceReport extends AppCompatActivity {
-    public Button reportSourceButton;
-    public Button cancelSourceButton;
     private DatabaseHandler db;
     private String userValue;
-
-    // Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter waterTypeAdapter, waterConditionAdapter;
-    public Spinner waterTypeSpinner, waterConditionSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +28,17 @@ public class SourceReport extends AppCompatActivity {
         userValue = db.getUserName();
 
         //configure spinner
-        waterTypeSpinner = (Spinner) findViewById(R.id.waterTypeSourceReportSpinner);
-        waterTypeAdapter = ArrayAdapter.createFromResource(this, R.array.water_type_source_report, android.R.layout.simple_spinner_dropdown_item);
+        Spinner waterTypeSpinner = (Spinner) findViewById(R.id.waterTypeSourceReportSpinner);
+        ArrayAdapter waterTypeAdapter = ArrayAdapter.createFromResource(this, R.array.water_type_source_report, android.R.layout.simple_spinner_dropdown_item);
         waterTypeSpinner.setAdapter(waterTypeAdapter);
 
         //configure spinner
-        waterConditionSpinner = (Spinner) findViewById(R.id.waterConditionSourceReportSpinner);
-        waterConditionAdapter = ArrayAdapter.createFromResource(this, R.array.water_condition_source_report, android.R.layout.simple_spinner_dropdown_item);
+        Spinner waterConditionSpinner = (Spinner) findViewById(R.id.waterConditionSourceReportSpinner);
+        ArrayAdapter waterConditionAdapter = ArrayAdapter.createFromResource(this, R.array.water_condition_source_report, android.R.layout.simple_spinner_dropdown_item);
         waterConditionSpinner.setAdapter(waterConditionAdapter);
 
         //report button
-        reportSourceButton = (Button) findViewById(R.id.reportSourceReport);
+        Button reportSourceButton = (Button) findViewById(R.id.reportSourceReport);
         reportSourceButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -70,7 +65,7 @@ public class SourceReport extends AppCompatActivity {
         });
 
         //cancel button
-        cancelSourceButton = (Button) findViewById(R.id.cancelSourceReport);
+        Button cancelSourceButton = (Button) findViewById(R.id.cancelSourceReport);
         cancelSourceButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click

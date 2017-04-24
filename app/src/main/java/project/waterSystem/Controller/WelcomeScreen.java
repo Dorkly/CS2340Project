@@ -10,51 +10,57 @@ import project.waterSystem.R;
 import project.waterSystem.RegistrationScreen;
 
 /**
- * Welcome screen that allows user to login or register.
+ * WelcomeScreen class used to allow user to login or register.
  */
+@SuppressWarnings("ALL")
 public class WelcomeScreen extends AppCompatActivity {
-
-    //public LinearLayout AppScreen;
-    //public LinearLayout LoginScreen;
-    public Button loginButton;
-    public Button regButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
 
-        loginButton = (Button) findViewById(R.id.loginButton);
+        // Configure Login Button
+        Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                loginClicked(v);
-                //setContentView(R.layout.activity_login);
+                loginClicked();
             }
         });
 
-        regButton = (Button) findViewById(R.id.registrationButton);
+        // Configure Registration Button
+        Button regButton = (Button) findViewById(R.id.registrationButton);
         regButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                registrationClicked(v);
-                //setContentView(R.layout.activity_login);
+                registrationClicked();
+            }
+        });
+
+        // Configure Registration Button
+        Button forgotButton = (Button) findViewById(R.id.forgotButton);
+        forgotButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                forgetClicked();
             }
         });
 
     }
 
-    public void loginClicked(View v) {
+    private void loginClicked() {
         Intent intent = new Intent(WelcomeScreen.this, LoginActivity.class);
         startActivity(intent);
-        //finish();
     }
 
-    public void registrationClicked(View v) {
+    private void registrationClicked() {
         Intent intent2 = new Intent(WelcomeScreen.this, RegistrationScreen.class);
         startActivity(intent2);
-        //finish();
+    }
 
+    private void forgetClicked() {
+        Intent intent3 = new Intent(WelcomeScreen.this, emailRecoveryActivity.class);
+        startActivity(intent3);
     }
 }

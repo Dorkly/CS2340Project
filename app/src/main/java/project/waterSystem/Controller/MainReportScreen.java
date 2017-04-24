@@ -14,18 +14,9 @@ import project.waterSystem.PurityReport;
 import project.waterSystem.R;
 import project.waterSystem.SourceReport;
 
-/**
- * Created by AustinJ on 2/25/17.
- */
 
+@SuppressWarnings("ALL")
 public class MainReportScreen extends AppCompatActivity {
-    private Button cancelRepButton;
-    private Button waterAvaButton;
-    private Button histReportButton;
-    private Button waterPurButton;
-    private Button waterSouButton;
-    private Button listPurButton;
-    private Button listSouButton;
     private DatabaseHandler db;
 
     @Override
@@ -38,13 +29,13 @@ public class MainReportScreen extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        waterPurButton = (Button) findViewById(R.id.waterPurity);
-        waterSouButton = (Button) findViewById(R.id.waterSource);
-        waterAvaButton = (Button) findViewById(R.id.waterAvailability);
-        listPurButton = (Button) findViewById(R.id.listPurityReports);
-        listSouButton = (Button) findViewById(R.id.listSourceReports);
-        histReportButton = (Button) findViewById(R.id.histReport);
-        cancelRepButton = (Button) findViewById(R.id.Logout);
+        Button waterPurButton = (Button) findViewById(R.id.waterPurity);
+        Button waterSouButton = (Button) findViewById(R.id.waterSource);
+        Button waterAvaButton = (Button) findViewById(R.id.waterAvailability);
+        Button listPurButton = (Button) findViewById(R.id.listPurityReports);
+        Button listSouButton = (Button) findViewById(R.id.listSourceReports);
+        Button histReportButton = (Button) findViewById(R.id.histReport);
+        Button cancelRepButton = (Button) findViewById(R.id.Logout);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             createTestReports();
         }

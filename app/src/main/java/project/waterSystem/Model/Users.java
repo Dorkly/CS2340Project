@@ -5,6 +5,7 @@ package project.waterSystem.Model;
  *
  * Users class used for login and registration
  */
+@SuppressWarnings("ALL")
 public class Users {
 
     //private variables
@@ -76,17 +77,27 @@ public class Users {
 
     @Override
     public String toString(){
-        if (getType().equals("Worker")) {
-            return "Hello Employee , let's get to work!";
-        } else if (getType().equals("User")){
-            return "Hello User, let's explore!";
-
-        }else if (getType().equals("Manager")){
-            return "Hello All Powerful Ruler , let's create!";
-        }else{
-
-            return "Hi";
+        switch(getType()) {
+            case "Worker":
+                return "Hello Employee , let's get to work!";
+            case "User":
+                return "Hello User, let's explore!";
+            case "Manager":
+                return "Hello All Powerful Ruler , let's create!";
+            default:
+                return "Hi";
         }
+//        if (getType().equals("Worker")) {
+//            return "Hello Employee , let's get to work!";
+//        } else if (getType().equals("User")){
+//            return "Hello User, let's explore!";
+//
+//        }else if (getType().equals("Manager")){
+//            return "Hello All Powerful Ruler , let's create!";
+//        }else{
+//
+//            return "Hi";
+//        }
     }
 
 }

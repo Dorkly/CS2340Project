@@ -9,13 +9,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="project.waterSystem.RegistrationScreen">
+    tools:context="project.waterSystem.Controller.emailRecoveryActivity">
 
     <TextView
-        android:text="Sign in"
+        android:text="Email Recovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/profile"
+        android:id="@+id/emailRecovery"
         android:textSize="36sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -39,28 +39,6 @@
         android:layout_toEndOf="@+id/classification"
         tools:ignore="HardcodedText" />
 
-    <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:id="@+id/name"
-        android:textSize="18sp"
-        android:layout_below="@+id/profile"
-        android:layout_alignEnd="@+id/email"
-        tools:ignore="HardcodedText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:id="@+id/nameInput"
-        android:layout_alignBaseline="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_toEndOf="@+id/profile"
-        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="User ID"
@@ -69,7 +47,7 @@
         android:id="@+id/UserID"
         android:layout_marginTop="14dp"
         android:textSize="18sp"
-        android:layout_below="@+id/nameInput"
+        android:layout_below="@+id/emailRecovery"
         android:layout_alignParentStart="true"
         tools:ignore="HardcodedText" />
 
@@ -80,10 +58,10 @@
         android:hint="UserID"
         android:ems="10"
         android:id="@+id/editText2"
+        tools:ignore="HardcodedText"
         android:layout_alignBaseline="@+id/UserID"
         android:layout_alignBottom="@+id/UserID"
-        android:layout_alignStart="@+id/nameInput"
-        tools:ignore="HardcodedText" />
+        android:layout_toEndOf="@+id/save" />
 
     <TextView
         android:text="Email "
@@ -108,31 +86,6 @@
         android:layout_alignStart="@+id/editText2"
         tools:ignore="HardcodedText" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordInput"
-        android:hint="Password"
-        android:layout_below="@+id/emailInput"
-        android:layout_alignStart="@+id/emailInput"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:text="Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:layout_alignStart="@+id/UserID"
-        android:layout_marginStart="20dp"
-        android:layout_alignTop="@+id/save"
-        android:id="@+id/password"
-        android:textSize="18sp"
-        android:layout_alignBaseline="@+id/passwordInput"
-        android:layout_alignBottom="@+id/passwordInput"
-        android:layout_alignParentStart="true"
-        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Account Type"
@@ -140,27 +93,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/classification"
         android:textSize="18sp"
-        android:layout_marginStart="0dp"
-        android:layout_below="@+id/passwordInput"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp"
-        tools:ignore="HardcodedText" />
+        android:layout_marginTop="29dp"
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/emailInput"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/classificationSpinner"
+        android:layout_marginTop="21dp"
         android:layout_below="@+id/classification"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="32dp" />
+        android:layout_alignStart="@+id/name" />
 
     <info.hoang8f.widget.FButton
         android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/save"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="39dp"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         fbutton:buttonColor="#039BE5"
@@ -169,8 +120,8 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="10dp"
         android:background="@drawable/button_shape"
+        tools:ignore="HardcodedText"
         android:layout_below="@+id/classificationSpinner"
-        android:layout_alignStart="@+id/password"
-        tools:ignore="HardcodedText" />
+        android:layout_alignStart="@+id/classificationSpinner" />
 
 </RelativeLayout>

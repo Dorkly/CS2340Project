@@ -7,9 +7,9 @@ package project.waterSystem.Model;
  */
 public class Profiles {
 
-    String _userId;
-    String _homeAddress;
-    String _phone;
+    private final String _userId;
+    private final String _homeAddress;
+    private final String _phone;
 
     /**
      * Profiles constructor

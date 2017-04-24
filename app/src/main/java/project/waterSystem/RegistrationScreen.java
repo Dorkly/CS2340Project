@@ -15,15 +15,9 @@ import project.waterSystem.Controller.LoginActivity;
 import project.waterSystem.Controller.WelcomeScreen;
 import project.waterSystem.Model.Users;
 
-/**
- * Created by AustinJ on 2/19/17.
- */
 
+@SuppressWarnings("ALL")
 public class RegistrationScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private Button cancelRegButton;
-    private Button saveRegButton;
-    Spinner spinner;// Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter;// Specify the layout to use when the list of choices appears
     //private String _acct ="NA";
 
     private EditText mPasswordView;
@@ -38,13 +32,13 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
         setContentView(R.layout.activity_register_screen);
 
         //configure spinner
-        spinner = (Spinner) findViewById(R.id.classificationSpinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
+        Spinner spinner = (Spinner) findViewById(R.id.classificationSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         //cancel button
-        cancelRegButton = (Button) findViewById(R.id.cancelProfile);
+        Button cancelRegButton = (Button) findViewById(R.id.cancelProfile);
         cancelRegButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -57,7 +51,7 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
         });
 
         // save button
-        saveRegButton = (Button) findViewById(R.id.save);
+        Button saveRegButton = (Button) findViewById(R.id.save);
         saveRegButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
@@ -87,8 +81,8 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
 
                     if (userMatch) { //Checks to see if the UserName already exists
                         Toast.makeText(RegistrationScreen.this, "UserID Already Taken", Toast.LENGTH_LONG).show();
-                    } else if (passValue.equals("")) {
-                        Toast.makeText(RegistrationScreen.this, "Password is Empty", Toast.LENGTH_SHORT).show();
+                    } else if (!isPasswordValid(passValue)) {
+                        Toast.makeText(RegistrationScreen.this, "Password should more than 4 character", Toast.LENGTH_SHORT).show();
                     } else if (nameValue.equals("")) {
                         Toast.makeText(RegistrationScreen.this, "Name is Empty", Toast.LENGTH_SHORT).show();
                     } else if (emailValue.equals("")) {
@@ -102,6 +96,16 @@ public class RegistrationScreen extends AppCompatActivity implements AdapterView
                 }
             }
         });
+    }
+
+    /**
+     * Checks to see if the password is valid.
+     * @param password password string
+     * @return true if length large or equal to 4, and password contain letter and digital.
+     */
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return (password.length() >= 4);
     }
 
     // override the account type

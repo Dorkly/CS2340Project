@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_purity_report"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -18,7 +18,8 @@
         android:id="@+id/purityReportNumber"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Date"
@@ -27,7 +28,8 @@
         android:id="@+id/purityReportDate"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Location:"
@@ -40,7 +42,8 @@
         android:layout_marginStart="19dp"
         android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Latitude:"
@@ -51,7 +54,8 @@
         android:layout_marginTop="18dp"
         android:id="@+id/purityReportLat"
         android:textSize="18sp"
-        android:textColor="@android:color/holo_blue_bright" />
+        android:textColor="@android:color/holo_blue_bright"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Longitude:"
@@ -62,7 +66,8 @@
         android:layout_marginTop="24dp"
         android:id="@+id/purityReportLong"
         android:textSize="18sp"
-        android:textColor="@android:color/holo_blue_bright" />
+        android:textColor="@android:color/holo_blue_bright"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -82,7 +87,8 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/conditionSpinner"
-        android:layout_alignStart="@+id/purityReportOverall" />
+        android:layout_alignStart="@+id/purityReportOverall"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Overall Condition:"
@@ -94,7 +100,8 @@
         android:textStyle="normal|bold"
         android:textColor="@color/colorPrimaryDark"
         android:layout_below="@+id/purityReportLongitude"
-        android:layout_alignStart="@+id/purityReportLong" />
+        android:layout_alignStart="@+id/purityReportLong"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Contaminant PPM:"
@@ -106,7 +113,8 @@
         android:id="@+id/purityReportContaminant"
         android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorPrimaryDark"
+        tools:ignore="HardcodedText" />
 
     <info.hoang8f.widget.FButton
         android:text="Cancel Report"
@@ -122,7 +130,8 @@
         android:id="@+id/purityReportCancel"
         android:layout_alignBaseline="@+id/purityReportSave"
         android:layout_alignBottom="@+id/purityReportSave"
-        android:layout_toEndOf="@+id/purityReportContaminant" />
+        android:layout_toEndOf="@+id/purityReportContaminant"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -134,7 +143,8 @@
         android:text="90"
         android:layout_alignBaseline="@+id/purityReportLat"
         android:layout_alignBottom="@+id/purityReportLat"
-        android:layout_alignStart="@+id/purityReportLongitude" />
+        android:layout_alignStart="@+id/purityReportLongitude"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -144,7 +154,8 @@
         android:inputType="numberSigned|numberDecimal"
         android:text="90"
         android:layout_below="@+id/purityReportLatitude"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -156,13 +167,13 @@
         android:layout_alignBaseline="@+id/purityReportVirus"
         android:layout_alignBottom="@+id/purityReportVirus"
         android:labelFor="@+id/purityReportVirus"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:id="@+id/purityReportTime"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/purityReportName" />
@@ -181,7 +192,8 @@
         android:layout_marginTop="33dp"
         android:id="@+id/purityReportSave"
         android:layout_below="@+id/contaminantPPM"
-        android:layout_toStartOf="@+id/virusPPM" />
+        android:layout_toStartOf="@+id/virusPPM"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Name of Worker"
@@ -191,16 +203,17 @@
         android:id="@+id/purityReportName"
         android:textSize="18sp"
         android:layout_below="@+id/purityReportDate"
-        android:layout_alignStart="@+id/purityReportLatitude" />
+        android:layout_alignStart="@+id/purityReportLatitude"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:text="Worker: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
         android:textSize="18sp"
         android:layout_above="@+id/purityReportLocation"
-        android:layout_alignEnd="@+id/purityReportVirus" />
+        android:layout_alignEnd="@+id/purityReportVirus"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -213,6 +226,7 @@
         android:layout_alignBaseline="@+id/purityReportContaminant"
         android:layout_alignBottom="@+id/purityReportContaminant"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/purityReportDate" />
+        android:layout_toEndOf="@+id/purityReportDate"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>
