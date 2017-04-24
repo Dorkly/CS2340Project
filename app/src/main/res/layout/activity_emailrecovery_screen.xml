@@ -36,7 +36,7 @@
         android:layout_marginStart="20dp"
         android:layout_alignBaseline="@+id/save"
         android:layout_alignBottom="@+id/save"
-        android:layout_toEndOf="@+id/classification"
+        android:layout_toEndOf="@+id/save"
         tools:ignore="HardcodedText" />
 
 
@@ -87,24 +87,7 @@
         tools:ignore="HardcodedText" />
 
 
-    <TextView
-        android:text="Account Type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/classification"
-        android:textSize="18sp"
-        android:layout_marginTop="29dp"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/emailInput"
-        android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/classificationSpinner"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/classification"
-        android:layout_alignStart="@+id/name" />
 
     <info.hoang8f.widget.FButton
         android:text="Save"
@@ -121,7 +104,7 @@
         fbutton:cornerRadius="10dp"
         android:background="@drawable/button_shape"
         tools:ignore="HardcodedText"
-        android:layout_below="@+id/classificationSpinner"
+        android:layout_below="@+id/emailInput"
         android:layout_alignStart="@+id/classificationSpinner" />
 
 </RelativeLayout>

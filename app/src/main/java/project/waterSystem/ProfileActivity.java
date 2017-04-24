@@ -99,7 +99,6 @@ public class ProfileActivity extends AppCompatActivity {
                 //EditText mTypeValue = (EditText) findViewById(R.id.classification);
 
 
-
                 String addressValue = mAddressView.getText().toString();
                 String phoneValue = mPhoneView.getText().toString();
                 String nameValue = mNameValue.getText().toString();

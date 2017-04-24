@@ -8,7 +8,6 @@ import android.support.v7.appcompat.BuildConfig;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -39,12 +38,6 @@ public class emailRecoveryActivity extends AppCompatActivity implements AdapterV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emailrecovery_screen);
 
-        //configure spinner
-        Spinner spinner = (Spinner) findViewById(R.id.classificationSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.account_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
         //cancel button
         Button cancelRegButton = (Button) findViewById(R.id.cancelProfile);
         cancelRegButton.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +62,6 @@ public class emailRecoveryActivity extends AppCompatActivity implements AdapterV
 
                 mUserIdView = (EditText) findViewById(R.id.editText2);
                 mEmailView = (EditText) findViewById(R.id.emailInput);
-                typeSpinner = (Spinner) findViewById(R.id.classificationSpinner);
 
                 userValue = mUserIdView.getText().toString();
                 emailValue = mEmailView.getText().toString();
@@ -121,8 +113,8 @@ public class emailRecoveryActivity extends AppCompatActivity implements AdapterV
             m.setTo(toArr);
             m.setFrom(username);
             m.setSubject("Your Account Information from Android");
-            m.setBody("body.");
-            //m.setBody( "Your Password is"+ db.getPass()); ?????? How to recovery the password from database
+            //m.setBody("Your password is: " + db.getPassword(username));
+            m.setBody( "Your Password is"); //?????? How to recovery the password from database
         }
 
         @Override
