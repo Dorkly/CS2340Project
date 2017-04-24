@@ -314,6 +314,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
+     * getUserName returns the user name from the Registered_Accounts table
+     * @return String
+     */
+    public String getPassword(String user) {
+        String userPassword;
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT " + KEY_PASS + " FROM " + TABLE_USERS + " WHERE "
+                        + KEY_USERS + "='" + user  + "'" ,  null);
+        if (c != null) {
+            c.moveToFirst();
+            userPassword = c.getString(0);
+            c.close();
+            return userPassword;
+        }
+        return "";
+    }
+
+    /**
      * getEmail returns the email address from the Registered_Accounts table
      * @return String
      */
