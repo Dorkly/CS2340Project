@@ -100,7 +100,10 @@ public class emailRecoveryActivity extends AppCompatActivity implements AdapterV
         new SendEmailAsyncTask().execute();
 
     }
-
+    /**
+     * getEmail send emails to user.
+     * @return String
+     */
     class SendEmailAsyncTask extends AsyncTask <Void, Void, Boolean> {
         final String username = "CS2340test01";
         final String password = "@loveCS2340";
@@ -113,8 +116,8 @@ public class emailRecoveryActivity extends AppCompatActivity implements AdapterV
             m.setTo(toArr);
             m.setFrom(username);
             m.setSubject("Your Account Information from Android");
-            //m.setBody("Your password is: " + db.getPassword(username));
-            m.setBody( "Your Password is"); //?????? How to recovery the password from database
+            //Log.d("************password:", db.getPassword(userValue));
+            m.setBody("Your password is: " + db.getPassword(userValue));
         }
 
         @Override

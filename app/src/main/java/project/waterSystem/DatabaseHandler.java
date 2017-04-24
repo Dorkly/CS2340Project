@@ -324,6 +324,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + KEY_USERS + "='" + user  + "'" ,  null);
         if (c != null) {
             c.moveToFirst();
+            //Log.d("*********username:",user);
+            //Log.d("*****pasword:***", c.getString(0));
             userPassword = c.getString(0);
             c.close();
             return userPassword;
