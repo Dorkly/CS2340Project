@@ -594,7 +594,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT "+ KEY_REPORT_ID + ", " + KEY_WORKER + ", " + KEY_DATE
-                        + " FROM " + TABLE_WATER_PURITY,  null);
+                        + " FROM " + TABLE_WATER_PURITY
+                        + " ORDER BY " + KEY_DATE + " DESC",  null);
 
         if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
@@ -619,7 +620,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         Cursor c = getReadableDatabase().rawQuery(
                 "SELECT "+ KEY_REPORT_ID + ", " + KEY_SUBMIT_BY + ", " + KEY_DATE
-                        + " FROM " + TABLE_WATER_SOURCE,  null);
+                        + " FROM " + TABLE_WATER_SOURCE
+                        + " ORDER BY " + KEY_DATE + " DESC",  null);
 
         if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
@@ -828,7 +830,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "SELECT DISTINCT " + KEY_USERS + ", " + KEY_PASS + ", " + KEY_LOGDATE
                         + ", " + KEY_SUCCESS + ", " + KEY_INVALIDATTEMPT + ", " + KEY_LOCKOUT
                         + ", " + KEY_NOTES
-                        + " FROM " + TABLE_LOGGING_SIGNIN, null);
+                        + " FROM " + TABLE_LOGGING_SIGNIN
+                        + " ORDER BY " + KEY_LOGDATE + " DESC", null);
 
         if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
@@ -857,7 +860,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 "SELECT DISTINCT " + KEY_USERS + ", " + KEY_LOGDATE
                         + ", " + KEY_SCREEN + ", " + KEY_ACTION
                         + ", " + KEY_NOTES
-                        + " FROM " + TABLE_LOGGING_REPORTING, null);
+                        + " FROM " + TABLE_LOGGING_REPORTING
+                        + " ORDER BY " + KEY_LOGDATE + " DESC", null);
 
         if (!c.isAfterLast() ) {
             if  (c.moveToFirst()) {
