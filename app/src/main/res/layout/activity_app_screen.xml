@@ -15,7 +15,7 @@
 
 
     <info.hoang8f.widget.FButton
-        android:id="@+id/Logout"
+        android:id="@+id/returnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -86,19 +86,19 @@
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:text="Settings"
+        android:layout_alignBaseline="@+id/returnButton"
+        android:layout_alignBottom="@+id/returnButton"
+        android:layout_alignStart="@+id/createProfile"
         android:width="135dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Admin Logging"
         android:textColor="#FFF"
         android:textSize="12sp"
         fbutton:buttonColor="#039BE5"
         fbutton:cornerRadius="10dp"
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
-        fbutton:shadowHeight="5dp"
-        android:layout_alignBaseline="@+id/Logout"
-        android:layout_alignBottom="@+id/Logout"
-        android:layout_alignStart="@+id/createProfile" />
+        fbutton:shadowHeight="5dp" />
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="300dp"

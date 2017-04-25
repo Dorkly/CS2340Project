@@ -12,16 +12,19 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import project.waterSystem.DatabaseHandler;
 import project.waterSystem.Model.GraphValues;
+import project.waterSystem.Model.LoggingNavigation;
 import project.waterSystem.R;
 
 
 
 @SuppressWarnings("ALL")
 public class GraphActivity extends AppCompatActivity {
-
+    private DatabaseHandler db;
+    private final String screen = "Purity Graphs Screen";
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +35,7 @@ public class GraphActivity extends AppCompatActivity {
         Double lat = intent.getDoubleExtra("latitude",0);
         Double log = intent.getDoubleExtra("longitude",0);
         String gType = intent.getStringExtra("graphType");
-        DatabaseHandler db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
 
         TextView graphTitle = (TextView) findViewById(R.id.graph);
         String newTitle = "" + selYear + " " + graphTitle.getText() + " for " + gType;
@@ -70,6 +73,7 @@ public class GraphActivity extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(GraphActivity.this, HistoricalReportActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Selection Button", "Navigate to Historical Report screen"));
                 //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();
@@ -83,6 +87,7 @@ public class GraphActivity extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(GraphActivity.this, MainReportScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Exit Button", "Navigate to Main Reports Screen"));
                 //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();

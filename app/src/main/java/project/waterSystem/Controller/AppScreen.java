@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Date;
+
 import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.LoggingNavigation;
 import project.waterSystem.ProfileActivity;
 import project.waterSystem.R;
 
@@ -20,16 +23,17 @@ import project.waterSystem.R;
  */
 @SuppressWarnings("ALL")
 public class AppScreen extends AppCompatActivity {
-
+    private DatabaseHandler db;
+    private final String screen = "Main App Screen";
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_screen);
 
-        DatabaseHandler db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
         String userType = db.getUserType();
 
-        Button logoutButton = (Button) findViewById(R.id.Logout);
+        Button logoutButton = (Button) findViewById(R.id.returnButton);
         Button createProfileButton = (Button) findViewById(R.id.createProfile);
         Button reportButton = (Button) findViewById(R.id.reportsButton);
         Button settingsButton = (Button) findViewById(R.id.settingsButton);
@@ -46,6 +50,7 @@ public class AppScreen extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Logout Button", "Logout of Drip-Drop Application"));
                 startActivity(intent);
                 finish();
 
@@ -60,6 +65,7 @@ public class AppScreen extends AppCompatActivity {
 
                 Intent intent = new Intent(AppScreen.this, ProfileActivity.class);
                 //intent.putExtra("AddNew", "new");
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Profile Button", "Create/Change Profile"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -72,6 +78,18 @@ public class AppScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(AppScreen.this, MainReportScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Reports Button", "Navigate to Main Reports Screen"));
+                startActivity(intent);
+                finish();
+                //setContentView(R.layout.activity_login);
+            }
+        });
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent(AppScreen.this, LoggingReportsScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Admin Button", "Navigate to Admin Reports"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -85,14 +103,17 @@ public class AppScreen extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.miCompose:
                 Intent intent = new Intent(this, MainReportScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Reports Menu Item", "Navigate to Main Reports Screen"));
                 this.startActivity(intent);
                 return true;
             case R.id.miProfile:
                 Intent intent2 = new Intent(this,ProfileActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Profile Menu Item", "Create/Change Profile"));
                 this.startActivity(intent2);
                 return true;
-            case R.id.Logout:
+            case R.id.returnButton:
                 Intent intent3 = new Intent(this,WelcomeScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Logout Menu Item", "Logout of Drip-Drop Application"));
                 this.startActivity(intent3);
                 return true;
             default:
@@ -110,6 +131,7 @@ public class AppScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(AppScreen.this, WelcomeScreen.class);
+        db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Back Button", "Phone Back Button Pressed - Go to Welcome Screen"));
         startActivity(intent);
         finish();
     }

@@ -20,7 +20,7 @@
             tools:ignore="HardcodedText">
         </item>
         <item
-            android:id="@+id/Logout"
+            android:id="@+id/returnButton"
             android:icon="@drawable/ic_action_water"
             what:showAsAction = "ifRoom"
             android:orderInCategory="100"

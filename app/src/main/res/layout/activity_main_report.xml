@@ -31,7 +31,7 @@
         android:text="Return to Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Logout"
+        android:id="@+id/returnButton"
         fbutton:buttonColor="#039BE5"
         fbutton:shadowColor="#0277bd"
         fbutton:shadowEnabled="true"
@@ -70,7 +70,7 @@
         fbutton:cornerRadius="10dp"
         android:fontFamily="sans-serif-light"
         android:background="@drawable/button_shape"
-        android:id="@+id/waterSource"
+        android:id="@+id/SignInLoggingButton"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:minWidth="90dip"
@@ -92,15 +92,15 @@
         android:layout_height="wrap_content"
         android:width="100dp"
         android:background="@drawable/button_shape"
-        android:id="@+id/waterPurity"
+        android:id="@+id/NavagationLoggingButton"
         android:fontFamily="sans-serif-light"
         android:minWidth="90dip"
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:textColor="#FFF"
         android:layout_marginStart="20dp"
-        android:layout_alignBaseline="@+id/waterSource"
-        android:layout_alignBottom="@+id/waterSource"
+        android:layout_alignBaseline="@+id/SignInLoggingButton"
+        android:layout_alignBottom="@+id/SignInLoggingButton"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="58dp"
         tools:ignore="HardcodedText" />
@@ -123,7 +123,7 @@
         android:minWidth="90dip"
         android:width="100dp"
         android:layout_alignTop="@+id/listPurityReports"
-        android:layout_alignStart="@+id/waterSource"
+        android:layout_alignStart="@+id/SignInLoggingButton"
         tools:ignore="HardcodedText" />
 
     <info.hoang8f.widget.FButton
@@ -144,8 +144,8 @@
         android:minWidth="90dip"
         android:width="100dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/waterPurity"
-        android:layout_alignStart="@+id/waterPurity"
+        android:layout_below="@+id/NavagationLoggingButton"
+        android:layout_alignStart="@+id/NavagationLoggingButton"
         tools:ignore="HardcodedText" />
 
     <info.hoang8f.widget.FButton

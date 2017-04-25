@@ -22,9 +22,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Date;
 import java.util.List;
 
 import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.LoggingNavigation;
 import project.waterSystem.Model.WaterPurity;
 import project.waterSystem.Model.WaterSource;
 import project.waterSystem.R;
@@ -39,6 +41,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Spinner waterTypeSpinner, waterConditionSpinner;
     private ArrayAdapter waterTypeAdapter, waterConditionAdapter;
     private String typeValue, conditionValue;
+    private DatabaseHandler db;
+    private final String screen = "Maps Screen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +142,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         typeValue = (String) mWaterType.getSelectedItem();
                         conditionValue = (String) mWaterCondition.getSelectedItem();
 
-                        DatabaseHandler db = new DatabaseHandler(MapsActivity.this);
+                        db = new DatabaseHandler(MapsActivity.this);
                         String userValue = db.getUserName();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             db.addSourceReport(new WaterSource(userValue, nLatLng.latitude, nLatLng.longitude, typeValue, conditionValue));
@@ -151,7 +155,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         // Placing a marker on the touched position
                         mMap.addMarker(markerOptions);
-
+                        db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Dialog Create Report", "New Water Source Report Created"));
                         dialog.cancel();
                     }
                 });
@@ -161,6 +165,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Dialog Cancel Button", "Cancel Create Water Report"));
                         dialog.cancel();
                     }
                 });
@@ -170,7 +175,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        DatabaseHandler db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
         List<WaterSource> reportList = db.waterAvailabilityReports();
         for (WaterSource r : reportList) {
             LatLng loc = new LatLng(r.getLatitude(), r.getLongitude());
@@ -194,6 +199,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(MapsActivity.this, MainReportScreen.class);
+        db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Back Button", "Phone Back Button Pressed - Go to Main Reports Screen"));
         startActivity(intent);
         finish();
     }

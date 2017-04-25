@@ -10,13 +10,34 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:background="#FFF"
-    tools:context="project.waterSystem.Controller.PurityReportsListActivity">
+    tools:context="project.waterSystem.Controller.LoggingActionActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar3"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ReportsListView"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/returnButton" />
 
     <info.hoang8f.widget.FButton
         android:text="Return to Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ReturnButton"
+        android:id="@+id/returnButton"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         fbutton:buttonColor="#039BE5"
@@ -31,34 +52,14 @@
         android:paddingRight="5dp"
         tools:ignore="HardcodedText" />
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar2"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:layout_above="@+id/ReturnButton"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/ReportsListView" />
-
     <TextView
-        android:text="Water Purity Reports"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textSize="26sp"
-        android:layout_below="@+id/toolbar2"
+        android:layout_below="@+id/toolbar3"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="User Action Logging"
+        android:textSize="26sp"
         tools:ignore="HardcodedText" />
 </RelativeLayout>

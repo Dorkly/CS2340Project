@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import project.waterSystem.DatabaseHandler;
 import project.waterSystem.R;
 import project.waterSystem.RegistrationScreen;
 
@@ -62,5 +63,12 @@ public class WelcomeScreen extends AppCompatActivity {
     private void forgetClicked() {
         Intent intent3 = new Intent(WelcomeScreen.this, emailRecoveryActivity.class);
         startActivity(intent3);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
     }
 }

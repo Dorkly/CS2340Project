@@ -9,7 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Date;
+
 import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.LoggingNavigation;
 import project.waterSystem.PurityReport;
 import project.waterSystem.R;
 import project.waterSystem.SourceReport;
@@ -18,7 +21,7 @@ import project.waterSystem.SourceReport;
 @SuppressWarnings("ALL")
 public class MainReportScreen extends AppCompatActivity {
     private DatabaseHandler db;
-
+    private final String screen = "Main Reports Screen";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +32,13 @@ public class MainReportScreen extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button waterPurButton = (Button) findViewById(R.id.waterPurity);
-        Button waterSouButton = (Button) findViewById(R.id.waterSource);
+        Button waterPurButton = (Button) findViewById(R.id.NavagationLoggingButton);
+        Button waterSouButton = (Button) findViewById(R.id.SignInLoggingButton);
         Button waterAvaButton = (Button) findViewById(R.id.waterAvailability);
         Button listPurButton = (Button) findViewById(R.id.listPurityReports);
         Button listSouButton = (Button) findViewById(R.id.listSourceReports);
         Button histReportButton = (Button) findViewById(R.id.histReport);
-        Button cancelRepButton = (Button) findViewById(R.id.Logout);
+        Button cancelRepButton = (Button) findViewById(R.id.returnButton);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             createTestReports();
         }
@@ -45,6 +48,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, PurityReport.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Water Purity Button", "Create Water Purity Report"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -58,6 +62,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, SourceReport.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Water Report Button", "Create Standard Water Report"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -71,6 +76,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, MapsActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Water Availability Button", "Navigate to Google Maps"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -95,6 +101,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, AppScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Cancel Button", "Return to Application Screen"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -107,6 +114,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, PurityReportsListActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Water Purity List Button", "View Water Purity Reports List"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -118,6 +126,7 @@ public class MainReportScreen extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(MainReportScreen.this, SourceReportsListActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Water Reports List Button", "View Water Reports List"));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -129,6 +138,7 @@ public class MainReportScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform action on click
                 Intent intent = new Intent(MainReportScreen.this, HistoricalReportActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "History Report Button", "View Purity graphs "));
                 startActivity(intent);
                 finish();
                 //setContentView(R.layout.activity_login);
@@ -139,6 +149,7 @@ public class MainReportScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(MainReportScreen.this, AppScreen.class);
+        db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Back Button", "Phone Back Button Pressed - Go to Application Screen"));
         startActivity(intent);
         finish();
     }

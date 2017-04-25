@@ -22,7 +22,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Date;
+
 import project.waterSystem.DatabaseHandler;
+import project.waterSystem.Model.LoggingNavigation;
+import project.waterSystem.Model.LoggingSignin;
 import project.waterSystem.R;
 
 /**
@@ -48,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     private View mLoginFormView;
     private String currentLoginAttempt;
     private int attempt = 0;
+    private final String screen = "Login Screen";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,22 +139,28 @@ public class LoginActivity extends AppCompatActivity {
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
+            db.loginLogging(new LoggingSignin(userId, password, new Date(), false, attempt, false, getString(R.string.error_invalid_password)));
             focusView = mPasswordView;
             cancel = true;
         }
 
         // Check for a valid email address.
+
+        if (!userId.equals(currentLoginAttempt)) {
+            currentLoginAttempt = userId;
+            attempt = 0;
+        }
+
         if (TextUtils.isEmpty(userId)) {
             mEmailView.setError(getString(R.string.error_field_required));
+            db.loginLogging(new LoggingSignin(userId, password, new Date(), false, attempt, false, getString(R.string.error_field_required)));
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(userId)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
+            db.loginLogging(new LoggingSignin(userId, password, new Date(), false, attempt, false, getString(R.string.error_field_required)));
             focusView = mEmailView;
             cancel = true;
-        } else  if (!userId.equals(currentLoginAttempt)) {
-            currentLoginAttempt = userId;
-            attempt = 0;
         }
 
         if (cancel) {
@@ -164,16 +175,22 @@ public class LoginActivity extends AppCompatActivity {
                 boolean accountMatch = db.validateUser(userId, password);
                 if (accountMatch) {
                     Intent intent = new Intent(LoginActivity.this, AppScreen.class);
+                    db.loginLogging(new LoggingSignin(userId, password, new Date(), true, attempt, false, "Successful Login"));
+                    db.actionLogging(new LoggingNavigation(userId, new Date(), screen , "Login Button", "Login successful - "));
                     startActivity(intent);
                 } else {
                     attempt++;
                     showProgress(false);
                     mEmailView.setError(getString(R.string.error_invalid_email));
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    db.loginLogging(new LoggingSignin(userId, password, new Date(), false, attempt, false,
+                            getString(R.string.error_invalid_email) + " OR "
+                                    + getString(R.string.error_incorrect_password)));
                     mPasswordView.requestFocus();
                 }
             } else {
                 mEmailView.setError(getString(R.string.error_invalid_attemps));
+                db.loginLogging(new LoggingSignin(userId, password, new Date(), false, attempt, true, getString(R.string.error_invalid_attemps)));
             }
         }
     }

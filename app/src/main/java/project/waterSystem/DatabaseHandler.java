@@ -16,6 +16,8 @@ import java.util.Date;
 
 import project.waterSystem.Model.GraphValues;
 import project.waterSystem.Model.Location;
+import project.waterSystem.Model.LoggingNavigation;
+import project.waterSystem.Model.LoggingSignin;
 import project.waterSystem.Model.Profiles;
 import project.waterSystem.Model.Users;
 import project.waterSystem.Model.WaterPurity;
@@ -30,7 +32,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     // Database Name
     private static final String DATABASE_NAME = "DripDrop_v2";
@@ -40,6 +42,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_PROFILES = "Registered_Profiles";
     private static final String TABLE_WATER_PURITY = "Registered_WaterPurity";
     private static final String TABLE_WATER_SOURCE = "Registered_WaterSource";
+    private static final String TABLE_LOGGING_SIGNIN = "Logging_Signin";
+    private static final String TABLE_LOGGING_REPORTING = "Logging_Reporting";
+    private static final String TABLE_Logging_ADMIN = "Logging_Admin";
+
     private static String currentUser;
 
     // Table Columns names
@@ -61,6 +67,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_WORKER = "workerName";
     private static final String KEY_VIRUS = "virusPPM";
     private static final String KEY_CONTAMINANT = "contaminantPPM";
+    private static final String KEY_SUCCESS = "loginSuccessful";
+    private static final String KEY_INVALIDATTEMPT = "invalidTrys";
+    private static final String KEY_LOCKOUT = "accountLockout";
+    private static final String KEY_NOTES = "additionalNotes";
+    private static final String KEY_SCREEN = "screenNavigation";
+    private static final String KEY_ACTION = "actionSelected";
+    private static final String KEY_LOGDATE = "DateTime";
 
     /**
      * DatabaseHandler constructor
@@ -102,7 +115,51 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_VIRUS + " DOUBLE," + KEY_CONTAMINANT + " DOUBLE" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
 
+        CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_LOGGING_SIGNIN + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                + KEY_PASS + " TEXT," + KEY_LOGDATE + " TEXT," + KEY_SUCCESS + " INTEGER,"
+                + KEY_INVALIDATTEMPT + " INTEGER," + KEY_LOCKOUT + " INTEGER,"
+                + KEY_NOTES + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
+
+        CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_LOGGING_REPORTING + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                + KEY_LOGDATE + " TEXT," + KEY_SCREEN + " TEXT," + KEY_ACTION + " TEXT,"
+                + KEY_NOTES + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
+
+        CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_Logging_ADMIN + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                + KEY_LOGDATE + " TEXT," + KEY_SCREEN + " TEXT," + KEY_ACTION + " TEXT,"
+                + KEY_NOTES + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
     }
+
+    private void createNewDb(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String CREATE_ACCOUNT_TABLE = "";
+
+        if (newVersion == 5) {
+            CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_LOGGING_SIGNIN + "("
+                    + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                    + KEY_PASS + " TEXT," + KEY_LOGDATE + " TEXT," + KEY_SUCCESS + " INTEGER,"
+                    + KEY_INVALIDATTEMPT + " INTEGER," + KEY_LOCKOUT + " INTEGER,"
+                    + KEY_NOTES + " TEXT" + ")";
+            db.execSQL(CREATE_ACCOUNT_TABLE);
+
+            CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_LOGGING_REPORTING + "("
+                    + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                    + KEY_LOGDATE + " TEXT," + KEY_SCREEN + " TEXT," + KEY_ACTION + " TEXT,"
+                    + KEY_NOTES + " TEXT" + ")";
+            db.execSQL(CREATE_ACCOUNT_TABLE);
+
+            CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_Logging_ADMIN + "("
+                    + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USERS + " TEXT,"
+                    + KEY_LOGDATE + " TEXT," + KEY_SCREEN + " TEXT," + KEY_ACTION + " TEXT,"
+                    + KEY_NOTES + " TEXT" + ")";
+            db.execSQL(CREATE_ACCOUNT_TABLE);
+        }
+    }
+
 
     /**
      * onUpgrade constructor drops then recreates the database tables if the database version is
@@ -113,9 +170,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+
+        if (newVersion < 5 ) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        onCreate(db);// Create tables again
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_WATER_SOURCE);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_WATER_PURITY);
+            onCreate(db);// Create tables again
+        } else if (newVersion == 5) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGGING_SIGNIN);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGGING_REPORTING);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_Logging_ADMIN);
+        }
+        createNewDb(db, oldVersion, newVersion);
     }
 
     /**
@@ -138,10 +207,51 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void loginLogging(LoggingSignin signin) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //Date dateObj = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, signin.get_userId()); // User Name
+        values.put(KEY_PASS, signin.get_passWord()); // Password
+        values.put(KEY_LOGDATE, sdf.format(signin.get_date()));
+        values.put(KEY_SUCCESS, signin.is_success()); // User Name
+        values.put(KEY_INVALIDATTEMPT, signin.get_attempt()); // User Name
+        values.put(KEY_LOCKOUT, signin.is_lockout()); // User Name
+        values.put(KEY_NOTES, signin.get_notes()); // User Name
+        // Inserting Row
+        db.insert(TABLE_LOGGING_SIGNIN, null, values);
+        db.close(); // Closing database connection
+    }
+
+    /**
+     * db.actionLogging(new LoggingNavigation(userId, new Date(), , attempt, "N"));
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void actionLogging(LoggingNavigation nav) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //Date dateObj = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USERS, nav.get_userId()); // User Name
+        values.put(KEY_LOGDATE, sdf.format(nav.get_date()));
+        values.put(KEY_SCREEN, nav.get_screen()); // User Name
+        values.put(KEY_ACTION, nav.get_action()); // User Name
+        values.put(KEY_NOTES, nav.get_notes()); // User Name
+        // Inserting Row
+        db.insert(TABLE_LOGGING_REPORTING, null, values);
+        db.close(); // Closing database connection
+    }
+
+    /**
      * addProfiles method adds user profiles to the Registered_Profiles table
      * @param profile the profile you are adding to the table
      */
-   void addProfiles(Profiles profile) {
+    void addProfiles(Profiles profile) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -324,8 +434,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + KEY_USERS + "='" + user  + "'" ,  null);
         if (c != null) {
             c.moveToFirst();
-            //Log.d("*********username:",user);
-            //Log.d("*****pasword:***", c.getString(0));
             userPassword = c.getString(0);
             c.close();
             return userPassword;
@@ -431,9 +539,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
     public void updateProfile(Profiles profile) {
         getReadableDatabase().execSQL("UPDATE " + TABLE_PROFILES + " SET "
-            + KEY_HOME_ADDRESS + "='" + profile.getHomeAddress() + "',"
-            + KEY_PHONE + "='" + profile.getPhone() + "'"
-            + " WHERE " + KEY_USERS + "='" + profile.getUser() + "'");
+                + KEY_HOME_ADDRESS + "='" + profile.getHomeAddress() + "',"
+                + KEY_PHONE + "='" + profile.getPhone() + "'"
+                + " WHERE " + KEY_USERS + "='" + profile.getUser() + "'");
     }
 
     public int getPurityReportId() {
@@ -526,6 +634,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         c.close();
         return reportsList;
     }
+
+
+
     /**
      * waterAvailabilityReports returns the list of reports from the Water_Source table
      * @return reportsList
@@ -708,5 +819,59 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         c.close();
         return reportsList;
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ArrayList<LoggingSignin> userLoggingList() {
+        ArrayList<LoggingSignin> reportsList = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT " + KEY_USERS + ", " + KEY_PASS + ", " + KEY_LOGDATE
+                        + ", " + KEY_SUCCESS + ", " + KEY_INVALIDATTEMPT + ", " + KEY_LOCKOUT
+                        + ", " + KEY_NOTES
+                        + " FROM " + TABLE_LOGGING_SIGNIN, null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    try {
+                        reportsList.add(new LoggingSignin(c.getString(0), c.getString(1), sdf.parse(c.getString(2)),
+                                Integer.parseInt(c.getString(3)) > 0,
+                                Integer.parseInt(c.getString(4)), Integer.parseInt(c.getString(5)) > 0,
+                                c.getString(6)));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }while (c.moveToNext());
+            }
+        }
+        c.close();
+        return reportsList;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public ArrayList<LoggingNavigation> actionLoggingList() {
+        ArrayList<LoggingNavigation> reportsList = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT DISTINCT " + KEY_USERS + ", " + KEY_LOGDATE
+                        + ", " + KEY_SCREEN + ", " + KEY_ACTION
+                        + ", " + KEY_NOTES
+                        + " FROM " + TABLE_LOGGING_REPORTING, null);
+
+        if (!c.isAfterLast() ) {
+            if  (c.moveToFirst()) {
+                do {
+                    try {
+                        reportsList.add(new LoggingNavigation(c.getString(0), sdf.parse(c.getString(1)),
+                                c.getString(2), c.getString(3), c.getString(4)));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }while (c.moveToNext());
+            }
+        }
+        c.close();
+        return reportsList;
+    }
 }

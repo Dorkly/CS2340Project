@@ -9,10 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import java.util.Date;
 import java.util.List;
 
 import project.waterSystem.DatabaseHandler;
 import project.waterSystem.Model.Location;
+import project.waterSystem.Model.LoggingNavigation;
 import project.waterSystem.R;
 
 @SuppressWarnings("ALL")
@@ -21,7 +23,7 @@ public class HistoricalReportActivity extends AppCompatActivity {
     private DatabaseHandler db;
     private Spinner yrSpinner, locSpinner, graphSpinner;
     private ArrayAdapter locAdapter;
-
+    private final String screen = "Historical Report Screen";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +72,8 @@ public class HistoricalReportActivity extends AppCompatActivity {
                 Double log = loc.getLongitude();
 
                 Intent intent = new Intent(HistoricalReportActivity.this, GraphActivity.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "View Graph Button",
+                        "View graph " + gType + " for " + selectYear + " at lat/long " + lat + "/"+ log));
                 intent.putExtra("year", selectYear);
                 intent.putExtra("latitude", lat);
                 intent.putExtra("longitude", log);
@@ -85,6 +89,7 @@ public class HistoricalReportActivity extends AppCompatActivity {
                 // Perform action on click
 
                 Intent intent = new Intent(HistoricalReportActivity.this, MainReportScreen.class);
+                db.actionLogging(new LoggingNavigation(db.getCurrentUser(), new Date(), screen , "Cancel Button", "Navigate to Main Report Screen"));
                 //intent.putExtra("AddNew", "new");
                 startActivity(intent);
                 finish();
